@@ -3,6 +3,7 @@ import './style.scss';
 import user from '../../assets/imgs/user.jpg';
 import Submit from '../../components/Submit';
 import Dowloand from '../../components/Dowloand';
+import ButtonSearch from '../../components/BtnSearch';
 import Menu from '../../components/Menu';
 import BtnEmail from '../../components/BtnEmail';
 
@@ -45,6 +46,7 @@ const Students = () => {
                   Semestre / <br /> de Conclusão
                 </th>
                 <th scope="col" />
+                <th scope="col" />
               </tr>
             </thead>
             <tbody>
@@ -58,21 +60,8 @@ const Students = () => {
                 <td>xxxx</td>
                 <td>xxxx</td>
                 <td>
-                  <BtnEmail />
-                  <button hidden id="button2">
-                    Botão 2
-                  </button>
+                  <ButtonSearch />
                 </td>
-              </tr>
-              <tr>
-                <td>
-                  <img className="circle" src={user} alt="" /> Engenharia de
-                  Produção
-                </td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
                 <td>
                   <BtnEmail />
                 </td>
@@ -87,18 +76,8 @@ const Students = () => {
                 <td>xxxx</td>
                 <td>xxxx</td>
                 <td>
-                  <BtnEmail />
+                  <ButtonSearch />
                 </td>
-              </tr>
-              <tr>
-                <td>
-                  <img className="circle" src={user} alt="" /> Engenharia de
-                  Produção
-                </td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
                 <td>
                   <BtnEmail />
                 </td>
@@ -112,6 +91,41 @@ const Students = () => {
                 <td>xxxx</td>
                 <td>xxxx</td>
                 <td>xxxx</td>
+                <td>
+                  <ButtonSearch />
+                </td>
+                <td>
+                  <BtnEmail />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img className="circle" src={user} alt="" /> Engenharia de
+                  Produção
+                </td>
+                <td>xxxx</td>
+                <td>xxxx</td>
+                <td>xxxx</td>
+                <td>xxxx</td>
+                <td>
+                  <ButtonSearch />
+                </td>
+                <td>
+                  <BtnEmail />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img className="circle" src={user} alt="" /> Engenharia de
+                  Produção
+                </td>
+                <td>xxxx</td>
+                <td>xxxx</td>
+                <td>xxxx</td>
+                <td>xxxx</td>
+                <td>
+                  <ButtonSearch />
+                </td>
                 <td>
                   <BtnEmail />
                 </td>

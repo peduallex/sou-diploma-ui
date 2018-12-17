@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.scss';
 
-const Audit = () => {
+const ResearchStudent = () => {
   return (
     <div>
       <div className="col-md-12">
@@ -97,4 +97,4 @@ const Audit = () => {
   );
 };
 
-export default Audit;
+export default ResearchStudent;
