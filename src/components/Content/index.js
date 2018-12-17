@@ -16,6 +16,7 @@ import GenerateTicket from '../../pages/GenerateTicket';
 import Protocol from '../../pages/Protocol';
 import ResearchStudent from '../../pages/ResearchStudent';
 import Diploma from '../../pages/Diploma';
+import Alert from '../../pages/Alert';
 
 import Main from './styles';
 import Avaliations from '../../assets/imgs/avaliacoes.svg';
@@ -23,7 +24,7 @@ import Avaliations from '../../assets/imgs/avaliacoes.svg';
 const links = [
   {
     name: 'Auditoria',
-    active: true,
+    active: false,
     url: '/'
   },
   {
@@ -33,7 +34,7 @@ const links = [
   },
   {
     name: 'Diplomas',
-    active: false,
+    active: true,
     url: '/diplomas'
   },
   {
@@ -80,6 +81,7 @@ const Content = () => (
                 <Route path={`/retained`} component={Retained} />
                 <Route path={`/generateticket`} component={GenerateTicket} />
                 <Route path={`/protocol`} component={Protocol} />
+                <Route path={`/alert`} component={Alert} />
               </Fragment>
             )}
           />

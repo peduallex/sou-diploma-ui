@@ -20,9 +20,9 @@ const Retained = () => {
             <div className="col-md-5">
               <Search />
             </div>
-            <div className="col-md-7">
+            {/*<div className="col-md-7">
               <div className="right" /> <Dowloand />
-            </div>
+  </div>*/}
           </div>
           <table className="table table-hover borda-tabela-titulos table2">
             <thead>
@@ -37,7 +37,6 @@ const Retained = () => {
                   Semestre / <br /> de Conclusão
                 </th>
                 <th scope="col">Motivo da Retenção</th>
-                <th scope="col">Dias Restantes</th>
                 <th scope="col" />
               </tr>
             </thead>
@@ -52,9 +51,8 @@ const Retained = () => {
                 <td>xxxx</td>
                 <td>xxxx</td>
                 <td>xxxx</td>
-                <td>xxxx</td>
                 <td>
-                  <BtnEmail />
+                  {/*<BtnEmail />*/}
                   <button hidden id="button2">
                     Botão 2
                   </button>
@@ -70,10 +68,7 @@ const Retained = () => {
                 <td>xxxx</td>
                 <td>xxxx</td>
                 <td>xxxx</td>
-                <td>xxxx</td>
-                <td>
-                  <BtnEmail />
-                </td>
+                <td>{/*<BtnEmail />*/}</td>
               </tr>
               <tr>
                 <td>
@@ -85,10 +80,7 @@ const Retained = () => {
                 <td>xxxx</td>
                 <td>xxxx</td>
                 <td>xxxx</td>
-                <td>xxxx</td>
-                <td>
-                  <BtnEmail />
-                </td>
+                <td>{/*<BtnEmail />*/}</td>
               </tr>
               <tr>
                 <td>
@@ -100,10 +92,7 @@ const Retained = () => {
                 <td>xxxx</td>
                 <td>xxxx</td>
                 <td>xxxx</td>
-                <td>xxxx</td>
-                <td>
-                  <BtnEmail />
-                </td>
+                <td>{/*<BtnEmail />*/}</td>
               </tr>
               <tr>
                 <td>
@@ -115,10 +104,7 @@ const Retained = () => {
                 <td>xxxx</td>
                 <td>xxxx</td>
                 <td>xxxx</td>
-                <td>xxxx</td>
-                <td>
-                  <BtnEmail />
-                </td>
+                <td>{/*<BtnEmail />*/}</td>
               </tr>
             </tbody>
           </table>
@@ -127,9 +113,9 @@ const Retained = () => {
         <div className="row">
           <div className="col-md-12">
             <div className="float-right">
-              <a className="selecionar" href="tg">
+              {/*<a className="selecionar" href="tg">
                 ENVIAR E-MAIL
-              </a>
+</a>*/}
             </div>
           </div>
         </div>

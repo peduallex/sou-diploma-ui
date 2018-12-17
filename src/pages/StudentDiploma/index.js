@@ -12,7 +12,7 @@ const StudentDiploma = () => {
 
           <div className="row">
             <div className="col-md-6">
-              <div class="form-group">
+              <div className="form-group">
                 <label for="exampleInput1">
                   Número de série da primeira folha
                 </label>
@@ -26,11 +26,11 @@ const StudentDiploma = () => {
               </div>
             </div>
             <div className="col-md-6">
-              <div class="form-group">
+              <div className="form-group">
                 <label for="exampleInput2">Quantidade de impressos</label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="exampleInput2"
                   aria-describedby="emailHelp"
                   placeholder=""
@@ -41,9 +41,9 @@ const StudentDiploma = () => {
 
           <div className="row">
             <div className="col-md-6">
-              <div class="form-group">
+              <div className="form-group">
                 <label for="exampleFormControlSelect1">Assinaturas</label>
-                <select class="form-control" id="exampleFormControlSelect1">
+                <select className="form-control" id="exampleFormControlSelect1">
                   <option>1</option>
                   <option>2</option>
                   <option>3</option>
@@ -53,11 +53,38 @@ const StudentDiploma = () => {
               </div>
             </div>
             <div className="col-md-6">
-              <div class="form-group">
+              <div className="form-group">
                 <label for="exampleInputEmail1">Funcionário</label>
                 <input
                   type="email"
-                  class="form-control"
+                  className="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter email"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-md-6">
+              <div className="form-group">
+                <label for="exampleFormControlSelect1">Assinaturas</label>
+                <select className="form-control" id="exampleFormControlSelect1">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+            </div>
+            <div className="col-md-6">
+              <div className="form-group">
+                <label for="exampleInputEmail1">Funcionário</label>
+                <input
+                  type="email"
+                  className="form-control"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   placeholder="Enter email"
@@ -70,7 +97,7 @@ const StudentDiploma = () => {
             <div className="col-md-6">
               <div class="form-group">
                 <label for="exampleFormControlSelect1">Assinaturas</label>
-                <select class="form-control" id="exampleFormControlSelect1">
+                <select className="form-control" id="exampleFormControlSelect1">
                   <option>1</option>
                   <option>2</option>
                   <option>3</option>
@@ -80,38 +107,11 @@ const StudentDiploma = () => {
               </div>
             </div>
             <div className="col-md-6">
-              <div class="form-group">
+              <div className="form-group">
                 <label for="exampleInputEmail1">Funcionário</label>
                 <input
                   type="email"
-                  class="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                  placeholder="Enter email"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="row">
-            <div className="col-md-6">
-              <div class="form-group">
-                <label for="exampleFormControlSelect1">Assinaturas</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-              </div>
-            </div>
-            <div className="col-md-6">
-              <div class="form-group">
-                <label for="exampleInputEmail1">Funcionário</label>
-                <input
-                  type="email"
-                  class="form-control"
+                  className="form-control"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   placeholder="Enter email"

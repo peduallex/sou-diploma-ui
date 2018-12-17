@@ -6,11 +6,7 @@ const Search = () => {
     <div>
       <form action="fs" method="post">
         <div class="submit-line">
-          <input
-            className="search"
-            placeholder="Pesquise nome ou polo"
-            type="text"
-          />
+          <input className="search" placeholder="Pesquise nome" type="text" />
           <button class="submit-lente" type="submit">
             <i class="fa fa-search" />
           </button>

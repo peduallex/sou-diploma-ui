@@ -21,9 +21,9 @@ const Process = () => {
                   Processos em aberto
                 </a>
               </li>
-              <li>
+              {/*<li>
                 <a>Alunos habilitados</a>
-              </li>
+              </li>*/}
             </ul>
           </nav>
         </fieldset>
@@ -32,9 +32,9 @@ const Process = () => {
             <div className="col-md-5">
               <Search />
             </div>
-            <div className="col-md-7">
+            {/*<div className="col-md-7">
               <div className="right" /> <Dowloand />
-            </div>
+  </div>*/}
           </div>
           <table className="table table-hover borda-tabela-titulos table2">
             <thead>
