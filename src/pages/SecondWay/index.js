@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.scss';
 
-const Print = () => {
+const SecondWay = () => {
   return (
     <div>
       <div className="container">
@@ -151,4 +151,4 @@ const Print = () => {
   );
 };
 
-export default Print;
+export default SecondWay;

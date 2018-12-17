@@ -8,7 +8,7 @@ import Search from '../../components/Search';
 import BtnEmail from '../../components/BtnEmail';
 import BtnDiploma from '../../components/BtnDiploma';
 
-const Students = () => {
+const GenerateTicket = () => {
   return (
     <div>
       <div className="container">
@@ -145,4 +145,4 @@ const Students = () => {
   );
 };
 
-export default Students;
+export default GenerateTicket;
