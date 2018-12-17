@@ -4,7 +4,7 @@ import './style.scss';
 const SecondWay = () => {
   return (
     <div>
-      <div className="container">
+      {/*<div className="container">
         <fieldset className="fieldset">
           <h5>
             Você esta imprimindo a 2º Via do Diploma para Augusto Cavalcante
@@ -146,7 +146,7 @@ const SecondWay = () => {
           </div>
         </div>
         <br />
-      </div>
+  </div>*/}
     </div>
   );
 };

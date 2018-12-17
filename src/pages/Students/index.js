@@ -22,14 +22,14 @@ const Students = () => {
                   class="custom-control-input"
                   id="defaultChecked2"
                 />
-                <label class="custom-control-label" for="defaultChecked2">
+                {/* <label class="custom-control-label" for="defaultChecked2">
                   Selecionar Todos
-                </label>
+  </label>*/}
               </div>
             </div>
-            <div className="col-md-6">
+            {/*<div className="col-md-6">
               <div className="right" /> <Dowloand />
-            </div>
+</div>*/}
           </div>
           <table className="table table-hover borda-tabela-titulos table2">
             <thead>
