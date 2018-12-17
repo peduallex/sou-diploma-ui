@@ -5,6 +5,7 @@ import Jumbotron from '../Jumbotron';
 import Audit from '../../pages/Audit';
 import Students from '../../pages/Students';
 import Process from '../../pages/Process';
+import Enabled from '../../pages/Enabled';
 
 import Main from './styles';
 import Avaliations from '../../assets/imgs/avaliacoes.svg';
@@ -60,6 +61,7 @@ const Content = () => (
                 <Route exact path={`${url}`} component={Audit} />
                 <Route path={`/students`} component={Students} />
                 <Route path={`/process`} component={Process} />
+                <Route path={`/enabled`} component={Enabled} />
               </Fragment>
             )}
           />

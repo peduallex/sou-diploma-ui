@@ -2,38 +2,33 @@ import React from 'react';
 import './style.scss';
 import user from '../../assets/imgs/user.jpg';
 import Submit from '../../components/Submit';
-import Search from '../../components/Search';
 import Dowloand from '../../components/Dowloand';
 import Menu from '../../components/Menu';
+import BtnEmail from '../../components/BtnEmail';
 
-const Course = () => {
+const Students = () => {
   return (
     <div>
       <div className="container">
-        <h2 className="title">Nome do Curso - 1º VIA </h2>
-
-        <br />
-
+        <h2 className="title">Nome do Curso - 1º VIA</h2>
         <fieldset>
-          <nav id="menu">
-            <ul>
-              <li>
-                <a className="link1 active" href="#">
-                  Processos em aberto
-                </a>
-              </li>
-              <li>
-                <a>Alunos habilitados</a>
-              </li>
-            </ul>
-          </nav>
+          <Menu />
         </fieldset>
         <fieldset>
-          <div class="row top">
-            <div className="col-md-5">
-              <Search />
+          <div class="row">
+            <div className="col-md-6">
+              <div class="custom-control custom-checkbox">
+                <input
+                  type="checkbox"
+                  class="custom-control-input"
+                  id="defaultChecked2"
+                />
+                <label class="custom-control-label" for="defaultChecked2">
+                  Selecionar Todos
+                </label>
+              </div>
             </div>
-            <div className="col-md-7">
+            <div className="col-md-6">
               <div className="right" /> <Dowloand />
             </div>
           </div>
@@ -49,23 +44,21 @@ const Course = () => {
                 <th scope="col">
                   Semestre / <br /> de Conclusão
                 </th>
-                <th scope="col">Atribuido em</th>
                 <th scope="col" />
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>
-                  <img className="circle" src={user} /> Engenharia de Produção
+                  <img className="circle" src={user} alt="" /> Engenharia de
+                  Produção
                 </td>
                 <td>xxxx</td>
                 <td>xxxx</td>
                 <td>xxxx</td>
                 <td>xxxx</td>
-                <td>xxxx</td>
-
                 <td>
-                  <Submit />
+                  <BtnEmail />
                   <button hidden id="button2">
                     Botão 2
                   </button>
@@ -73,58 +66,54 @@ const Course = () => {
               </tr>
               <tr>
                 <td>
-                  <img className="circle" src={user} /> Engenharia de Produção
+                  <img className="circle" src={user} alt="" /> Engenharia de
+                  Produção
                 </td>
                 <td>xxxx</td>
                 <td>xxxx</td>
                 <td>xxxx</td>
                 <td>xxxx</td>
-                <td>xxxx</td>
-
                 <td>
-                  <Submit />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img className="circle" src={user} /> Engenharia de Produção
-                </td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-
-                <td>
-                  <Submit />
+                  <BtnEmail />
                 </td>
               </tr>
               <tr>
                 <td>
-                  <img className="circle" src={user} /> Engenharia de Produção
+                  <img className="circle" src={user} alt="" /> Engenharia de
+                  Produção
                 </td>
                 <td>xxxx</td>
                 <td>xxxx</td>
                 <td>xxxx</td>
                 <td>xxxx</td>
-                <td>xxxx</td>
-
                 <td>
-                  <Submit />
+                  <BtnEmail />
                 </td>
               </tr>
               <tr>
                 <td>
-                  <img className="circle" src={user} /> Engenharia de Produção
+                  <img className="circle" src={user} alt="" /> Engenharia de
+                  Produção
                 </td>
                 <td>xxxx</td>
                 <td>xxxx</td>
                 <td>xxxx</td>
                 <td>xxxx</td>
-                <td>xxxx</td>
-
                 <td>
-                  <Submit />
+                  <BtnEmail />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img className="circle" src={user} alt="" /> Engenharia de
+                  Produção
+                </td>
+                <td>xxxx</td>
+                <td>xxxx</td>
+                <td>xxxx</td>
+                <td>xxxx</td>
+                <td>
+                  <BtnEmail />
                 </td>
               </tr>
             </tbody>
@@ -135,7 +124,7 @@ const Course = () => {
           <div className="col-md-12">
             <div className="float-right">
               <a className="selecionar" href="tg">
-                SELECIONAR
+                IMPRIMIR
               </a>
             </div>
           </div>
@@ -146,4 +135,4 @@ const Course = () => {
   );
 };
 
-export default Course;
+export default Students;
