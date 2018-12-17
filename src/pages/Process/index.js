@@ -15,7 +15,18 @@ const Course = () => {
         <br />
 
         <fieldset>
-          <Menu />
+          <nav id="menu">
+            <ul>
+              <li>
+                <a className="link1 active" href="#">
+                  Processos em aberto
+                </a>
+              </li>
+              <li>
+                <a>Alunos habilitados</a>
+              </li>
+            </ul>
+          </nav>
         </fieldset>
         <fieldset>
           <div class="row top">
@@ -119,6 +130,16 @@ const Course = () => {
             </tbody>
           </table>
         </fieldset>
+        <br />
+        <div className="row">
+          <div className="col-md-12">
+            <div className="float-right">
+              <a className="selecionar" href="tg">
+                SELECIONAR
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
       <br />
     </div>
