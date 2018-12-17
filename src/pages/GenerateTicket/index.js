@@ -36,8 +36,7 @@ const Students = () => {
                 <th scope="col">
                   Semestre / <br /> de Conclusão
                 </th>
-                <th scope="col">Motivo da Retenção</th>
-                <th scope="col">Dias Restantes</th>
+                <th>Status</th>
                 <th scope="col" />
               </tr>
             </thead>
@@ -52,7 +51,7 @@ const Students = () => {
                 <td>xxxx</td>
                 <td>xxxx</td>
                 <td>xxxx</td>
-                <td>xxxx</td>
+
                 <td>
                   <BtnEmail />
                   <button hidden id="button2">
@@ -70,7 +69,7 @@ const Students = () => {
                 <td>xxxx</td>
                 <td>xxxx</td>
                 <td>xxxx</td>
-                <td>xxxx</td>
+
                 <td>
                   <BtnEmail />
                 </td>
@@ -85,7 +84,7 @@ const Students = () => {
                 <td>xxxx</td>
                 <td>xxxx</td>
                 <td>xxxx</td>
-                <td>xxxx</td>
+
                 <td>
                   <BtnEmail />
                 </td>
@@ -100,7 +99,7 @@ const Students = () => {
                 <td>xxxx</td>
                 <td>xxxx</td>
                 <td>xxxx</td>
-                <td>xxxx</td>
+
                 <td>
                   <BtnEmail />
                 </td>
@@ -114,7 +113,7 @@ const Students = () => {
                 <td>xxxx</td>
                 <td>xxxx</td>
                 <td>xxxx</td>
-                <td>xxxx</td>
+
                 <td>xxxx</td>
                 <td>
                   <BtnEmail />
@@ -128,7 +127,7 @@ const Students = () => {
           <div className="col-md-12">
             <div className="float-right">
               <a className="selecionar" href="tg">
-                IMPRIMIR
+                GERAR DIPLOMA
               </a>
             </div>
           </div>
