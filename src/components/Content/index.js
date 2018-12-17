@@ -2,6 +2,8 @@ import React, { Fragment } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Jumbotron from '../Jumbotron';
+
+//import Audit from '../../pages/Audit';
 import Students from '../../pages/Students';
 import Process from '../../pages/Process';
 import Enabled from '../../pages/Enabled';
@@ -27,7 +29,7 @@ const links = [
   {
     name: 'Colação de Grau',
     active: false,
-    url: '/colocao'
+    url: '/colacao'
   },
   {
     name: 'Diplomas',
