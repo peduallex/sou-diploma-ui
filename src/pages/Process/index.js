@@ -1,7 +1,6 @@
 import React from 'react';
 import './style.scss';
 import user from '../../assets/imgs/user.jpg';
-import Submit from '../../components/Submit';
 import Search from '../../components/Search';
 import Dowloand from '../../components/Dowloand';
 import Menu from '../../components/Menu';
@@ -63,13 +62,6 @@ const Course = () => {
                 <td>xxxx</td>
                 <td>xxxx</td>
                 <td>xxxx</td>
-
-                <td>
-                  <Submit />
-                  <button hidden id="button2">
-                    Botão 2
-                  </button>
-                </td>
               </tr>
               <tr>
                 <td>
@@ -80,10 +72,6 @@ const Course = () => {
                 <td>xxxx</td>
                 <td>xxxx</td>
                 <td>xxxx</td>
-
-                <td>
-                  <Submit />
-                </td>
               </tr>
               <tr>
                 <td>
@@ -94,10 +82,6 @@ const Course = () => {
                 <td>xxxx</td>
                 <td>xxxx</td>
                 <td>xxxx</td>
-
-                <td>
-                  <Submit />
-                </td>
               </tr>
               <tr>
                 <td>
@@ -108,10 +92,6 @@ const Course = () => {
                 <td>xxxx</td>
                 <td>xxxx</td>
                 <td>xxxx</td>
-
-                <td>
-                  <Submit />
-                </td>
               </tr>
               <tr>
                 <td>
@@ -122,10 +102,6 @@ const Course = () => {
                 <td>xxxx</td>
                 <td>xxxx</td>
                 <td>xxxx</td>
-
-                <td>
-                  <Submit />
-                </td>
               </tr>
             </tbody>
           </table>

@@ -10,6 +10,9 @@ import Print from '../../pages/Print';
 import StudentDiploma from '../../pages/StudentDiploma';
 import SecondWay from '../../pages/SecondWay';
 import Retained from '../../pages/Retained';
+import GenerateTicket from '../../pages/GenerateTicket';
+import Protocol from '../../pages/Protocol';
+import ResearchStudent from '../../pages/ResearchStudent';
 
 import Main from './styles';
 import Avaliations from '../../assets/imgs/avaliacoes.svg';
@@ -62,7 +65,7 @@ const Content = () => (
             path="/"
             render={({ match: { url } }) => (
               <Fragment>
-                <Route exact path={`${url}`} component={Audit} />
+                <Route exact path={`${url}`} component={ResearchStudent} />
                 <Route path={`/students`} component={Students} />
                 <Route path={`/process`} component={Process} />
                 <Route path={`/enabled`} component={Enabled} />
@@ -70,6 +73,8 @@ const Content = () => (
                 <Route path={`/studentdiploma`} component={StudentDiploma} />
                 <Route path={`/secondway`} component={SecondWay} />
                 <Route path={`/retained`} component={Retained} />
+                <Route path={`/generateticket`} component={GenerateTicket} />
+                <Route path={`/protocol`} component={Protocol} />
               </Fragment>
             )}
           />
