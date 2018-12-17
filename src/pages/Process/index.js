@@ -5,7 +5,7 @@ import Search from '../../components/Search';
 import Dowloand from '../../components/Dowloand';
 import Menu from '../../components/Menu';
 
-const Course = () => {
+const Process = () => {
   return (
     <div>
       <div className="container">
@@ -122,4 +122,4 @@ const Course = () => {
   );
 };
 
-export default Course;
+export default Process;
