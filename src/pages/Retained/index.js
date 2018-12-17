@@ -128,7 +128,7 @@ const Students = () => {
           <div className="col-md-12">
             <div className="float-right">
               <a className="selecionar" href="tg">
-                IMPRIMIR
+                ENVIAR E-MAIL
               </a>
             </div>
           </div>
