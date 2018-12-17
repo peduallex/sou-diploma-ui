@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.scss';
 
-const Print = () => {
+const StudentDiploma = () => {
   return (
     <div>
       <div className="container">
@@ -136,4 +136,4 @@ const Print = () => {
   );
 };
 
-export default Print;
+export default StudentDiploma;

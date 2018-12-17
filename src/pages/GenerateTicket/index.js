@@ -6,8 +6,9 @@ import Dowloand from '../../components/Dowloand';
 import Menu from '../../components/Menu';
 import Search from '../../components/Search';
 import BtnEmail from '../../components/BtnEmail';
+import BtnDiploma from '../../components/BtnDiploma';
 
-const Students = () => {
+const GenerateTicket = () => {
   return (
     <div>
       <div className="container">
@@ -29,7 +30,6 @@ const Students = () => {
               <tr>
                 <th scope="col">Nome</th>
                 <th scope="col">RA</th>
-                <th scope="col">Curso</th>
                 <th scope="col">
                   Semestre / <br /> Ano de Ingresso
                 </th>
@@ -37,6 +37,7 @@ const Students = () => {
                   Semestre / <br /> de Conclusão
                 </th>
                 <th>Status</th>
+                <th />
                 <th scope="col" />
               </tr>
             </thead>
@@ -50,26 +51,9 @@ const Students = () => {
                 <td>xxxx</td>
                 <td>xxxx</td>
                 <td>xxxx</td>
-                <td>xxxx</td>
-
                 <td>
-                  <BtnEmail />
-                  <button hidden id="button2">
-                    Botão 2
-                  </button>
+                  <BtnDiploma />
                 </td>
-              </tr>
-              <tr>
-                <td>
-                  <img className="circle" src={user} alt="" /> Engenharia de
-                  Produção
-                </td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-
                 <td>
                   <BtnEmail />
                 </td>
@@ -83,7 +67,9 @@ const Students = () => {
                 <td>xxxx</td>
                 <td>xxxx</td>
                 <td>xxxx</td>
-                <td>xxxx</td>
+                <td>
+                  <BtnDiploma />
+                </td>
 
                 <td>
                   <BtnEmail />
@@ -98,7 +84,9 @@ const Students = () => {
                 <td>xxxx</td>
                 <td>xxxx</td>
                 <td>xxxx</td>
-                <td>xxxx</td>
+                <td>
+                  <BtnDiploma />
+                </td>
 
                 <td>
                   <BtnEmail />
@@ -113,8 +101,27 @@ const Students = () => {
                 <td>xxxx</td>
                 <td>xxxx</td>
                 <td>xxxx</td>
+                <td>
+                  <BtnDiploma />
+                </td>
 
+                <td>
+                  <BtnEmail />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img className="circle" src={user} alt="" /> Engenharia de
+                  Produção
+                </td>
                 <td>xxxx</td>
+                <td>xxxx</td>
+                <td>xxxx</td>
+                <td>xxxx</td>
+                <td>
+                  <BtnDiploma />
+                </td>
+
                 <td>
                   <BtnEmail />
                 </td>
@@ -138,4 +145,4 @@ const Students = () => {
   );
 };
 
-export default Students;
+export default GenerateTicket;

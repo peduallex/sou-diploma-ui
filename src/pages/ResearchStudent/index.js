@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import api from '../../../src/services/diplomaApi';
 import './style.scss';
 
+
 class Audit extends Component {
   state = {
     courses: []
@@ -38,6 +39,33 @@ class Audit extends Component {
                     </div>
                   </form>
                 </div>
+
+const ResearchStudent = () => {
+  return (
+    <div>
+      <div className="col-md-12">
+        <div className="col-md-9 border center">
+          <div className="text-center">
+            <h5>
+              Selecione o curso de GRADUAÇÃO E ANO DE INGRESSO que deseja
+              acessar:
+            </h5>
+          </div>
+          <div class="row">
+            <div className="col-md-5 center">
+              <div className="text-center">
+                <form action="fs" method="post">
+                  <div class="submit-line">
+                    <input
+                      placeholder="Pesquise curso ou ano de ingresso"
+                      type="text"
+                    />
+                    <button class="submit-lente" type="submit">
+                      <i class="fa fa-search" />
+                    </button>
+                  </div>
+                </form>
+
               </div>
             </div>
             <table className="table table-hover borda-tabela-titulos">
@@ -87,4 +115,4 @@ class Audit extends Component {
   }
 }
 
-export default Audit;
+export default ResearchStudent;

@@ -7,7 +7,7 @@ import Menu from '../../components/Menu';
 import Search from '../../components/Search';
 import BtnEmail from '../../components/BtnEmail';
 
-const Students = () => {
+const Retained = () => {
   return (
     <div>
       <div className="container">
@@ -128,7 +128,7 @@ const Students = () => {
           <div className="col-md-12">
             <div className="float-right">
               <a className="selecionar" href="tg">
-                IMPRIMIR
+                ENVIAR E-MAIL
               </a>
             </div>
           </div>
@@ -139,4 +139,4 @@ const Students = () => {
   );
 };
 
-export default Students;
+export default Retained;
