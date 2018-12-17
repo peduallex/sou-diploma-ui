@@ -1,0 +1,53 @@
+.container-fluid {
+  .row {
+    .col-md-12 {
+      .border {
+        border: 1px solid #ccc;
+      }
+    }
+  }
+}
+
+.container {
+  .row {
+    .col-md-12 {
+      .float-right {
+        .voltar {
+          background-color: rgb(212, 51, 56);
+          margin-right: 10px;
+          color: #fff;
+          padding: 11px 15px;
+        }
+      }
+    }
+  }
+}
+
+.link {
+  color: #ccc;
+}
+
+.link:hover {
+  color: gray;
+}
+
+.wrap {
+  margin-top: 30px;
+}
+.title-registration {
+  font-weight: 700;
+  margin-top: 30px;
+}
+.title-box {
+  color: blue;
+}
+.espaco {
+  margin-top: 10px;
+}
+
+.col-md-3,
+.col-md-4,
+.col-md-12 {
+  padding-right: 10px !important;
+  padding-left: 10px !important;
+}
