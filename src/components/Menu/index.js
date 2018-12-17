@@ -6,12 +6,10 @@ const Menu = () => {
       <nav id="menu">
         <ul>
           <li>
-            <a className="link1 active" href="#">
-              Alunos Auditados
-            </a>
+            <a href="#">Alunos Auditados</a>
           </li>
           <li>
-            <a>Habilitados</a>
+            <a className="link1 active">Habilitados</a>
           </li>
           <li>
             <a href="#">Retidos</a>

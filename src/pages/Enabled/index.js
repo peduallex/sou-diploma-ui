@@ -24,14 +24,14 @@ const Enable = () => {
                   class="custom-control-input"
                   id="defaultChecked2"
                 />
-                <label class="custom-control-label" for="defaultChecked2">
+                {/*<label class="custom-control-label" for="defaultChecked2">
                   Selecionar Todos
-                </label>
+  </label>*/}
               </div>
             </div>
-            <div className="col-md-6">
+            {/*<div className="col-md-6">
               <div className="right" /> <Dowloand />
-            </div>
+</div>*/}
           </div>
           <table className="table table-hover borda-tabela-titulos table2">
             <thead>
@@ -62,9 +62,7 @@ const Enable = () => {
                 <td>
                   <ButtonSearch />
                 </td>
-                <td>
-                  <BtnEmail />
-                </td>
+                <td>{/*<BtnEmail />*/}</td>
               </tr>
               <tr>
                 <td>
@@ -78,9 +76,7 @@ const Enable = () => {
                 <td>
                   <ButtonSearch />
                 </td>
-                <td>
-                  <BtnEmail />
-                </td>
+                <td>{/*<BtnEmail />*/}</td>
               </tr>
               <tr>
                 <td>
@@ -94,9 +90,7 @@ const Enable = () => {
                 <td>
                   <ButtonSearch />
                 </td>
-                <td>
-                  <BtnEmail />
-                </td>
+                <td>{/*<BtnEmail />*/}</td>
               </tr>
               <tr>
                 <td>
@@ -110,9 +104,7 @@ const Enable = () => {
                 <td>
                   <ButtonSearch />
                 </td>
-                <td>
-                  <BtnEmail />
-                </td>
+                <td>{/*<BtnEmail />*/}</td>
               </tr>
               <tr>
                 <td>
@@ -126,9 +118,7 @@ const Enable = () => {
                 <td>
                   <ButtonSearch />
                 </td>
-                <td>
-                  <BtnEmail />
-                </td>
+                <td>{/*<BtnEmail />*/}</td>
               </tr>
             </tbody>
           </table>
@@ -137,9 +127,9 @@ const Enable = () => {
         <div className="row">
           <div className="col-md-12">
             <div className="float-right">
-              <a className="selecionar" href="tg">
+              {/*<a className="selecionar" href="tg">
                 IMPRIMIR
-              </a>
+</a>*/}
             </div>
           </div>
         </div>
