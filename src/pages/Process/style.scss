@@ -1,0 +1,50 @@
+.container {
+  fieldset {
+    border: 1px solid #ccc;
+    padding-top: 25px;
+    padding-bottom: 0px !important;
+    #menu ul li {
+      margin: 2% 0 0 2%;
+      display: inline;
+    }
+    ul {
+      padding-left: 0px !important;
+      margin-bottom: 0px !important;
+    }
+    #menu ul li:first-of-type {
+      border-bottom: 4px solid red;
+    }
+    #menu ul li a {
+      display: inline-block;
+      color: #000;
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0;
+    }
+  }
+}
+
+.table2 {
+  margin-top: 50px;
+}
+
+.container {
+  table {
+    margin-top: 50px;
+    tbody {
+      tr {
+        td {
+          .circle {
+            width: 35px;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.top {
+  margin-top: 20px;
+}
