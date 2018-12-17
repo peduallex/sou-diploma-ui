@@ -5,7 +5,7 @@ const Print = () => {
   return (
     <div>
       <div className="container">
-        <fieldset>
+        <fieldset className="fieldset">
           <h5>
             Você esta imprimindo a 1º Via do Curso de Graduação de Engenharia de
             Produção
@@ -121,6 +121,7 @@ const Print = () => {
             </div>
           </div>
         </fieldset>
+        <br />
         <div className="row">
           <div className="col-md-12">
             <div className="float-right">

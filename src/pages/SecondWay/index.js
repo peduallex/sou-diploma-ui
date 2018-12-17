@@ -135,6 +135,7 @@ const Print = () => {
             </div>
           </div>
         </fieldset>
+        <br />
         <div className="row">
           <div className="col-md-12">
             <div className="float-right">
