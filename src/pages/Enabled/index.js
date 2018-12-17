@@ -7,7 +7,7 @@ import ButtonSearch from '../../components/BtnSearch';
 import Menu from '../../components/Menu';
 import BtnEmail from '../../components/BtnEmail';
 
-const Students = () => {
+const Enable = () => {
   return (
     <div>
       <div className="container">
@@ -149,4 +149,4 @@ const Students = () => {
   );
 };
 
-export default Students;
+export default Enable;
