@@ -12,6 +12,7 @@ import Retained from '../../pages/Retained';
 import GenerateTicket from '../../pages/GenerateTicket';
 import Protocol from '../../pages/Protocol';
 import ResearchStudent from '../../pages/ResearchStudent';
+import Diploma from '../../pages/Diploma';
 
 import Main from './styles';
 import Avaliations from '../../assets/imgs/avaliacoes.svg';
@@ -69,6 +70,7 @@ const Content = () => (
                 <Route path={`/process`} component={Process} />
                 <Route path={`/enabled`} component={Enabled} />
                 <Route path={`/print`} component={Print} />
+                <Route path={`/diploma`} component={Diploma} />
                 <Route path={`/studentdiploma`} component={StudentDiploma} />
                 <Route path={`/secondway`} component={SecondWay} />
                 <Route path={`/retained`} component={Retained} />
