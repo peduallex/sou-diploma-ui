@@ -4,6 +4,7 @@ import user from '../../assets/imgs/user.jpg';
 import Search from '../../components/Search';
 import Dowloand from '../../components/Dowloand';
 import Menu from '../../components/Menu';
+import Open from '../../../src/services/OpenProcessApi';
 
 const Process = () => {
   return (
@@ -54,54 +55,7 @@ const Process = () => {
             </thead>
             <tbody>
               <tr>
-                <td>
-                  <img className="circle" src={user} /> Engenharia de Produção
-                </td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-              </tr>
-              <tr>
-                <td>
-                  <img className="circle" src={user} /> Engenharia de Produção
-                </td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-              </tr>
-              <tr>
-                <td>
-                  <img className="circle" src={user} /> Engenharia de Produção
-                </td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-              </tr>
-              <tr>
-                <td>
-                  <img className="circle" src={user} /> Engenharia de Produção
-                </td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-              </tr>
-              <tr>
-                <td>
-                  <img className="circle" src={user} /> Engenharia de Produção
-                </td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
+                <td />
               </tr>
             </tbody>
           </table>
