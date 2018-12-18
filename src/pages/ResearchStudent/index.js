@@ -8,7 +8,7 @@ class Audit extends Component {
   }
 
   async componentDidMount() {
-    const res = await api.get('hugo_teste/groupby?_fields=course_id,name_course,year_entry');
+    const res = await api.get('v_habilitados');
     this.setState({ courses: res.data });
   }
 
