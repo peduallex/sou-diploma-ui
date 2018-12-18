@@ -4,12 +4,19 @@ import './style.scss';
 
 class Audit extends Component {
   state = {
-    courses: []
+    courses: [],
+    search: ''
   }
 
   async componentDidMount() {
-    const res = await api.get('v_habilitados');
+    const res = await api.get('v_geral');
     this.setState({ courses: res.data });
+  }
+
+
+  handleSearch = ({ target }) => {
+    this.setState({ search: target.value })
+    //console.log(this.state.search)
   }
 
   render() {
@@ -30,7 +37,7 @@ class Audit extends Component {
                     <div class="submit-line">
                       <input
                         placeholder="Pesquise curso ou ano de ingresso"
-                        type="text"
+                        type="text" onChange={this.handleSearch}
                       />
                       <button class="submit-lente" type="submit">
                         <i class="fa fa-search" />
@@ -57,12 +64,16 @@ class Audit extends Component {
                 </tr>
               </thead>
               <tbody>
-              {this.state.courses.map(data => (
+              {this.state.courses
+              .filter(
+                data => RegExp(this.state.search).test(data.name)
+              )
+              .map(data => (
                   <tr>
-                    <td>{data.name_course}</td>
-                    <td>{data.course_id}</td>
+                    <td>{data.name}</td>
                     <td>{data.year_entry}</td>
-                    <td>{data._count}</td>
+                    <td>{data.ano_conclusao}</td>
+                    <td>{data.TT}</td>
                   </tr>
                 ))}
               </tbody>
