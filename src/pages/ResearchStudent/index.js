@@ -5,7 +5,7 @@ import './style.scss';
 class Audit extends Component {
   state = {
     courses: []
-  }
+  };
 
   async componentDidMount() {
     const res = await api.get('v_habilitados');
@@ -57,7 +57,7 @@ class Audit extends Component {
                 </tr>
               </thead>
               <tbody>
-              {this.state.courses.map(data => (
+                {this.state.courses.map(data => (
                   <tr>
                     <td>{data.name_course}</td>
                     <td>{data.course_id}</td>
