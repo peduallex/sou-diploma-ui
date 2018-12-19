@@ -6,15 +6,15 @@ import Dowloand from '../../components/Dowloand';
 import ButtonSearch from '../../components/BtnSearch';
 import Menu from '../../components/Menu';
 import BtnEmail from '../../components/BtnEmail';
+import Audited from '../../../src/services/diplomaApi';
 
-import api from '../../../src/services/diplomaApi';
 class Enable extends Component {
   state = {
     courses: []
   };
 
   async componentDidMount() {
-    const res = await api.get('v_em_aberto');
+    const res = await Audited.get('v_auditados');
     this.setState({ courses: res.data });
   }
 
@@ -80,9 +80,12 @@ class Enable extends Component {
               <tbody>
                 {this.state.courses.map(data => (
                   <tr>
-                    <td>{data.name}</td>
-                    <td>{data.academic_register}</td>
-                    <td>{data.name_course}</td>
+                    <td>
+                      <img className="circle" src={user} alt="" />
+                      {data.student_name}
+                    </td>
+                    <td>{data.ra_student}</td>
+                    <td>{data.course_name}</td>
                     <td>{data.year_entry}</td>
                     <td>{data.year_conclusion}</td>
                     <td>

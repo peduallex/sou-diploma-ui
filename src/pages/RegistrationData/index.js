@@ -22,14 +22,20 @@ import PersonalData from '../../../src/services/PersonalDataApi';
 
 class RegistrationData extends Component {
   state = {
-    courses: []
+    courses: [],
+    personal: []
   };
 
   async componentDidMount() {
-    const res = await PersonalData.get(
+    const resPersonal = await PersonalData.get(
       '/v_dados_pessoais?_where=(id,eq,65536)'
     );
-    this.setState({ courses: res.data });
+
+    const resCourse = await PersonalData.get(
+      '/v_dados_ingresso?_where=(id,eq,65537)'
+    );
+
+    this.setState({ courses: resCourse.data, personal: resPersonal.data });
   }
 
   render() {
@@ -53,7 +59,7 @@ class RegistrationData extends Component {
                   <fieldset className="border">
                     <span className="title-box">Nome Civil</span>
 
-                    {this.state.courses.map(data => (
+                    {this.state.personal.map(data => (
                       <p>
                         <img src={editar} />
                         {data.name}
@@ -66,7 +72,7 @@ class RegistrationData extends Component {
                 <div className="col-md-12">
                   <fieldset className="border">
                     <span className="title-box">Nome Social</span>
-                    {this.state.courses.map(data => (
+                    {this.state.personal.map(data => (
                       <p>
                         <img src={editar} />
                         {data.assumed_name}
@@ -117,7 +123,7 @@ class RegistrationData extends Component {
                 <div className="col-md-4">
                   <fieldset className="border">
                     <span className="title-box">Documento de Identidade</span>
-                    {this.state.courses.map(data => (
+                    {this.state.personal.map(data => (
                       <p>
                         <img src={editar} />
                         {data.rg_number}
@@ -129,7 +135,7 @@ class RegistrationData extends Component {
                   <fieldset className="border">
                     <span className="title-box">Emissor/Estado</span>
                     <select class="form-control">
-                      {this.state.courses.map(data => (
+                      {this.state.personal.map(data => (
                         <option>{data.rg_orgao}</option>
                       ))}
                     </select>
@@ -149,7 +155,7 @@ class RegistrationData extends Component {
                 <div className="col-md-4">
                   <fieldset className="border">
                     <span className="title-box">CPF</span>
-                    {this.state.courses.map(data => (
+                    {this.state.personal.map(data => (
                       <p>
                         <img src={editar} />
                         {data.cpf}
@@ -160,7 +166,7 @@ class RegistrationData extends Component {
                 <div className="col-md-4">
                   <fieldset className="border">
                     <span className="title-box">Titulo de Eleitor</span>
-                    {this.state.courses.map(data => (
+                    {this.state.personal.map(data => (
                       <p>
                         <img src={editar} />
                         {data.titulo_number}
@@ -182,9 +188,12 @@ class RegistrationData extends Component {
                 <div className="col-md-12">
                   <fieldset className="border">
                     <span className="title-box">Nome da Mãe</span>
-                    <p>
-                      <img src={editar} /> Pedro Souza
-                    </p>
+                    {this.state.personal.map(data => (
+                      <p>
+                        <img src={editar} />
+                        {data.mothers_name}
+                      </p>
+                    ))}
                   </fieldset>
                 </div>
               </div>
@@ -192,9 +201,12 @@ class RegistrationData extends Component {
                 <div className="col-md-12">
                   <fieldset className="border">
                     <span className="title-box">Nome do Pai</span>
-                    <p>
-                      <img src={editar} /> Pedro Souza
-                    </p>
+                    {this.state.personal.map(data => (
+                      <p>
+                        <img src={editar} />
+                        {data.fathers_name}
+                      </p>
+                    ))}
                   </fieldset>
                 </div>
               </div>
@@ -204,7 +216,7 @@ class RegistrationData extends Component {
                     <span className="title-box">
                       Endereço Residencial (com complementos)
                     </span>
-                    {this.state.courses.map(data => (
+                    {this.state.personal.map(data => (
                       <p>
                         <img src={editar} />
                         {data.street}&nbsp;
@@ -219,7 +231,7 @@ class RegistrationData extends Component {
                 <div className="col-md-3">
                   <fieldset className="border">
                     <span className="title-box">CEP</span>
-                    {this.state.courses.map(data => (
+                    {this.state.personal.map(data => (
                       <p>
                         <img src={editar} />
 
@@ -240,7 +252,7 @@ class RegistrationData extends Component {
                   <fieldset className="border">
                     <span className="title-box">Cidade</span>
                     <select class="form-control">
-                      {this.state.courses.map(data => (
+                      {this.state.personal.map(data => (
                         <p>
                           <img src={editar} />
                           {data.city_id}
@@ -288,7 +300,7 @@ class RegistrationData extends Component {
                 <div className="col-md-6">
                   <fieldset className="border">
                     <span className="title-box">E-mail Pessoal</span>
-                    {this.state.courses.map(data => (
+                    {this.state.personal.map(data => (
                       <p>
                         <img src={editar} />
                         {data.email_pessoal}
@@ -299,7 +311,7 @@ class RegistrationData extends Component {
                 <div className="col-md-6">
                   <fieldset className="border">
                     <span className="title-box">E-mail Institucional</span>
-                    {this.state.courses.map(data => (
+                    {this.state.personal.map(data => (
                       <p>
                         <img src={editar} />
                         {data.email_inst}
@@ -313,19 +325,25 @@ class RegistrationData extends Component {
                 <div className="col-md-4">
                   <fieldset className="border">
                     <span className="title-box">Curso</span>
-                    <p>Pedro Souza</p>
+                    {this.state.courses.map(data => (
+                      <p>{data.name}</p>
+                    ))}
                   </fieldset>
                 </div>
                 <div className="col-md-4">
                   <fieldset className="border">
                     <span className="title-box">Nível do Curso</span>
-                    <p>Pedro Souza</p>
+                    {this.state.courses.map(data => (
+                      <p>{data.nivel}</p>
+                    ))}
                   </fieldset>
                 </div>
                 <div className="col-md-4">
                   <fieldset className="border">
                     <span className="title-box">Tipo de Curso</span>
-                    <p>Pedro Souza</p>
+                    {this.state.courses.map(data => (
+                      <p>{data.name}</p>
+                    ))}
                   </fieldset>
                 </div>
               </div>
@@ -333,19 +351,25 @@ class RegistrationData extends Component {
                 <div className="col-md-4">
                   <fieldset className="border">
                     <span className="title-box">Polo</span>
-                    <p>Pedro Souza</p>
+                    {this.state.courses.map(data => (
+                      <p>{data.polo}</p>
+                    ))}
                   </fieldset>
                 </div>
                 <div className="col-md-4">
                   <fieldset className="border">
                     <span className="title-box">Semestre/Ano de Ingresso</span>
-                    <p>Pedro Souza</p>
+                    {this.state.courses.map(data => (
+                      <p>{data.year_entry}</p>
+                    ))}
                   </fieldset>
                 </div>
                 <div className="col-md-4">
                   <fieldset className="border">
                     <span className="title-box">Semestre/Ano de Conclusão</span>
-                    <p>Pedro Souza</p>
+                    {this.state.courses.map(data => (
+                      <p>{data.date_conclusion}</p>
+                    ))}
                   </fieldset>
                 </div>
               </div>
@@ -353,13 +377,17 @@ class RegistrationData extends Component {
                 <div className="col-md-4">
                   <fieldset className="border">
                     <span className="title-box">Grau Conferido</span>
-                    <p>Pedro Souza</p>
+                    {this.state.courses.map(data => (
+                      <p>{data.grau_conferido}</p>
+                    ))}
                   </fieldset>
                 </div>
                 <div className="col-md-4">
                   <fieldset className="border">
                     <span className="title-box">Data da Colação Grau</span>
-                    <p>Pedro Souza</p>
+                    {this.state.courses.map(data => (
+                      <p>{data.date_collation}</p>
+                    ))}
                   </fieldset>
                 </div>
                 <div className="col-md-4">
