@@ -25,9 +25,84 @@
 .container {
   .diploma {
     background-color: #ccc;
-    p {
-      padding: 20%;
-      text-align: center;
-    }
+  }
+  .diploma-tamanho {
+    width: 100%;
+  }
+  p {
+    padding: 20%;
+    text-align: center;
+  }
+
+  .text-center {
+    text-align: center;
+    margin-left: 370px;
+  }
+
+  .titulo {
+    font-weight: bold;
+    margin-left: 2px;
+  }
+
+  .conteudo-diploma {
+    position: absolute;
+    margin-top: -600px;
+    margin-left: 360px;
+  }
+
+  .subtitulo {
+    margin-left: 105px;
+    color: #000;
+  }
+
+  .subtitulo-2 {
+    color: red;
+    margin-left: 100px;
+    font-weight: bold;
+    margin-top: 50px;
+  }
+
+  .conteudo {
+    text-align: center;
+  }
+
+  .conteudo-titulo {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+
+  .conteudo-texto {
+    margin-left: 15%;
+  }
+
+  .conteudo-texto-1 {
+    margin-left: 5%;
+  }
+
+  .paragrafo {
+    text-align: center;
+    margin-bottom: -40px;
+    margin-top: -60px;
+  }
+
+  .sublinhado {
+    border-top: solid 1px #000;
+    margin-left: 200px;
+  }
+
+  .negrito {
+    font-weight: bold;
+    margin-left: 220px;
+  }
+
+  .negrito-1 {
+    font-weight: bold;
+    margin-left: 250px;
+  }
+
+  .margem-conteudo {
+    margin-top: -80px;
   }
 }
