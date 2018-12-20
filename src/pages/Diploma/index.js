@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './style.scss';
 import Impressora from '../../assets/imgs/impressora.png';
 import Dowloands from '../../assets/imgs/dowloand.svg';
@@ -11,6 +11,14 @@ import Search from '../../components/Search';
 import BtnEmail from '../../components/BtnEmail';
 import BtnDiploma from '../../components/BtnDiploma';
 
+function imprimir() {
+  let conteudo = document.getElementById('print').innerHTML;
+  let tela_impressao = window.open('about:blank');
+  tela_impressao.document.write(conteudo);
+  tela_impressao.window.print();
+  tela_impressao.window.close();
+}
+
 const Diploma = () => {
   return (
     <div>
@@ -20,8 +28,10 @@ const Diploma = () => {
             <div className="col-md-12">
               <div className="float-right" />
               <div className="float-right">
-                <img className="margin" src={Impressora} />
-                <img className="margin" src={Dowloands} />
+                <div id="print" className="conteudo">
+                  <img className="margin" src={Impressora} onClick={imprimir} />
+                  <img className="margin" src={Dowloands} />
+                </div>
               </div>
             </div>
           </div>
