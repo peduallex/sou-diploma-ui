@@ -18,28 +18,10 @@ const Diploma = () => {
         <div className="box-topo">
           <div className="row">
             <div className="col-md-12">
-              <span className="text-diploma">
-                Número do diploma : 12345678910
-              </span>
-
-              <div className="float-right">
-                <div class="form-group input-group">
-                  <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-search" />
-                  </span>
-                  <input
-                    name="consulta"
-                    id="txt_consulta"
-                    placeholder="Consultar"
-                    type="text"
-                    class="form-control"
-                  />
-                </div>
-              </div>
+              <div className="float-right" />
               <div className="float-right">
                 <img className="margin" src={Impressora} />
                 <img className="margin" src={Dowloands} />
-                <img className="margin" src={MenuVertical} />
               </div>
             </div>
           </div>
