@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Jumbotron from '../Jumbotron';
 
-//import Audit from '../../pages/Audit';
+// import Audit from '../../pages/Audit';
 import Students from '../../pages/Students';
 import Process from '../../pages/Process';
 import Enabled from '../../pages/Enabled';
@@ -70,18 +70,18 @@ const Content = () => (
             render={({ match: { url } }) => (
               <Fragment>
                 <Route exact path={`${url}`} component={ResearchStudent} />
-                <Route path={`/students`} component={Students} />
-                <Route path={`/process`} component={Process} />
-                <Route path={`/enabled`} component={Enabled} />
-                <Route path={`/print`} component={Print} />
-                <Route path={`/registration`} component={RegistrationData} />
-                <Route path={`/diploma/:ra`} component={Diploma} />
-                <Route path={`/studentdiploma`} component={StudentDiploma} />
-                <Route path={`/secondway`} component={SecondWay} />
-                <Route path={`/retained`} component={Retained} />
-                <Route path={`/generateticket`} component={GenerateTicket} />
-                <Route path={`/protocol`} component={Protocol} />
-                <Route path={`/alert`} component={Alert} />
+                <Route path="/students" component={Students} />
+                <Route path="/process" component={Process} />
+                <Route path="/enabled" component={Enabled} />
+                <Route path="/print" component={Print} />
+                <Route path="/registration" component={RegistrationData} />
+                <Route path="/diploma/:ra" component={Diploma} />
+                <Route path="/studentdiploma" component={StudentDiploma} />
+                <Route path="/secondway" component={SecondWay} />
+                <Route path="/retained" component={Retained} />
+                <Route path="/generateticket" component={GenerateTicket} />
+                <Route path="/protocol" component={Protocol} />
+                <Route path="/alert" component={Alert} />
               </Fragment>
             )}
           />
