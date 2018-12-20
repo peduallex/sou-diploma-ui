@@ -7,7 +7,12 @@ class Print extends Component {
     employees: []
   };
   saveOnLocalStorage = e => {
-    if (document.getElementById('optSignature').value == 0 || document.getElementById('optSignature2').value == 0) {
+    if (
+      document.getElementById('optSignature').value == 0 ||
+      document.getElementById('optSignature2').value == 0 ||
+      document.getElementById('optEmployee').value == 0 ||
+      document.getElementById('optEmployee2').value == 0
+    ) {
       e.preventDefault();
       alert('As assinaturas e cargos são obrigatórios!');
       return false;
@@ -45,9 +50,10 @@ class Print extends Component {
           <div className="container">
             <fieldset className="fieldset">
               <h5>
-                Você esta imprimindo a 1 via do diploma <br />do aluno(a) (NOME DO ALUNO)<br />
+                Você esta imprimindo a 1 via do diploma <br />
+                do aluno(a) (NOME DO ALUNO)
+                <br />
                 do Curso de Graduação de Engenharia de Produção
-                
               </h5>
 
               <div className="row">
