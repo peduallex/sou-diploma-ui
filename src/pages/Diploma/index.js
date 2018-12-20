@@ -19,7 +19,12 @@ function imprimir() {
   tela_impressao.window.close();
 }
 
-const Diploma = () => {
+const Diploma = ({
+  match: {
+    params: { ra }
+  }
+}) => {
+  console.log(ra);
   return (
     <div>
       <div className="container-fluid">
