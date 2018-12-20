@@ -17,6 +17,24 @@ class Print extends Component {
       alert('As assinaturas e cargos são obrigatórios!');
       return false;
     } else {
+      console.log(document.getElementById('optSignature').value);
+      console.log(document.getElementById('optSignature2').value);
+      console.log(document.getElementById('optEmployee').value);
+      console.log(document.getElementById('optEmployee2').value);
+
+      if (
+        document.getElementById('optSignature').value ==
+          document.getElementById('optSignature2').value ||
+        document.getElementById('optEmployee').value ==
+          document.getElementById('optEmployee2').value
+      ) {
+        e.preventDefault();
+        alert('As assinaturas e cargos não podem serem iguais.');
+        return false;
+      }
+
+      e.preventDefault();
+
       if (
         document.getElementById('optSignature') !=
         document.getElementById('optSignature2')

@@ -89,7 +89,7 @@ class Enable extends Component {
                     <td>{data.year_entry}</td>
                     <td>{data.year_conclusion}</td>
                     <td>
-                      <ButtonSearch />
+                      <ButtonSearch id={data.ra_student} />
                     </td>
                   </tr>
                 ))}
