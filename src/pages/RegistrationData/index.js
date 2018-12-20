@@ -19,11 +19,19 @@ import Upload from '../../assets/imgs/upload.svg';
 import Open from '../../assets/imgs/open.svg';
 import Success from '../../assets/imgs/sucesso_upload.svg';
 import PersonalData from '../../../src/services/PersonalDataApi';
+import City from '../../../src/services/CityApi';
+import Nationality from '../../../src/services/NationalityApi';
+import Emitter from '../../../src/services/EmitterApi';
+import Naturalness from '../../../src/services/NaturalnessApi';
 
 class RegistrationData extends Component {
   state = {
     courses: [],
-    personal: []
+    personal: [],
+    city: [],
+    nationality: [],
+    emitter: [],
+    naturalness: []
   };
 
   async componentDidMount() {
@@ -35,7 +43,28 @@ class RegistrationData extends Component {
       '/v_dados_ingresso?_where=(id,eq,65537)'
     );
 
-    this.setState({ courses: resCourse.data, personal: resPersonal.data });
+    const resCity = await PersonalData.get('/v_cidade?_where=(id,eq,4966)');
+
+    const resNationality = await PersonalData.get(
+      '/v_nacionalidade?_where=(id,eq,46)'
+    );
+
+    const resEmitter = await PersonalData.get(
+      '/v_orgao_emissor?_where=(id,eq,14)'
+    );
+
+    const resNaturalness = await PersonalData.get(
+      '/v_cidade2?_where=(id2,eq,1584)'
+    );
+
+    this.setState({
+      courses: resCourse.data,
+      personal: resPersonal.data,
+      city: resCity.data,
+      nationality: resNationality.data,
+      emitter: resEmitter.data,
+      naturalness: resNaturalness.data
+    });
   }
 
   render() {
@@ -135,8 +164,8 @@ class RegistrationData extends Component {
                   <fieldset className="border">
                     <span className="title-box">Emissor/Estado</span>
                     <select class="form-control">
-                      {this.state.personal.map(data => (
-                        <option>{data.rg_orgao}</option>
+                      {this.state.emitter.map(data => (
+                        <option>{data.name}</option>
                       ))}
                     </select>
                   </fieldset>
@@ -145,7 +174,9 @@ class RegistrationData extends Component {
                   <fieldset className="border">
                     <span className="title-box">Nacionalidade</span>
                     <select class="form-control">
-                      <option>Default select</option>
+                      {this.state.nationality.map(data => (
+                        <option>{data.portuguese_name}</option>
+                      ))}
                     </select>
                   </fieldset>
                 </div>
@@ -178,7 +209,9 @@ class RegistrationData extends Component {
                   <fieldset className="border">
                     <span className="title-box">Naturalidade</span>
                     <select class="form-control">
-                      <option>Default select</option>
+                      {this.state.naturalness.map(data => (
+                        <option>{data.name2}</option>
+                      ))}
                     </select>
                   </fieldset>
                 </div>
@@ -243,20 +276,20 @@ class RegistrationData extends Component {
                 <div className="col-md-3">
                   <fieldset className="border">
                     <span className="title-box">Bairro</span>
-                    <p>
-                      <img src={editar} /> Pedro Souza
-                    </p>
+                    {this.state.personal.map(data => (
+                      <p>
+                        <img src={editar} />
+                        {data.neighborhood}
+                      </p>
+                    ))}
                   </fieldset>
                 </div>
                 <div className="col-md-3">
                   <fieldset className="border">
                     <span className="title-box">Cidade</span>
                     <select class="form-control">
-                      {this.state.personal.map(data => (
-                        <p>
-                          <img src={editar} />
-                          {data.city_id}
-                        </p>
+                      {this.state.city.map(data => (
+                        <option>{data.name}</option>
                       ))}
                     </select>
                   </fieldset>
