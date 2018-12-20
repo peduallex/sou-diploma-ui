@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 
 import Pagination from 'react-js-pagination';
 import './style.scss';
@@ -12,7 +11,14 @@ import Open from '../../../src/services/OpenProcessApi';
 class Process extends Component {
   state = {
     courses: [],
-    search: ''
+    search: '',
+    activePage: 1,
+    countPerPage: 10
+  };
+
+  handlePageChange = pageNumber => {
+    console.log(`active page is ${pageNumber}`);
+    this.setState({ activePage: pageNumber });
   };
 
   async componentDidMount() {
@@ -75,6 +81,12 @@ class Process extends Component {
               <tbody>
                 {this.state.courses
                   .filter(data => RegExp(this.state.search).test(data.name))
+                  .filter(
+                    (data, index) =>
+                      index >
+                        this.state.countPerPage * (this.state.activePage - 1) &&
+                      index < this.state.countPerPage * this.state.activePage
+                  )
                   .map(data => (
                     <tr>
                       <td>
@@ -89,6 +101,13 @@ class Process extends Component {
                   ))}
               </tbody>
             </table>
+            <Pagination
+              activePage={this.state.activePage}
+              itemsCountPerPage={10}
+              totalItemsCount={this.state.courses.length}
+              pageRangeDisplayed={5}
+              onChange={this.handlePageChange}
+            />
           </fieldset>
           <br />
           <div className="row">

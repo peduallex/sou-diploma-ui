@@ -18,6 +18,10 @@ class Audit extends Component {
     //console.log(this.state.search)
   };
 
+  handleClick = id => {
+    this.props.history.push(`/students/${id}`);
+  };
+
   render() {
     return (
       <div>
@@ -67,7 +71,7 @@ class Audit extends Component {
                 {this.state.courses
                   .filter(data => RegExp(this.state.search).test(data.name))
                   .map(data => (
-                    <tr>
+                    <tr onClick={() => this.handleClick(data.id)}>
                       <td>{data.name}</td>
                       <td>{data.year_entry}</td>
                       <td>{data.ano_conclusao}</td>
@@ -77,19 +81,6 @@ class Audit extends Component {
               </tbody>
             </table>
           </div>
-          <br />
-          <div className="container">
-            <div className="row">
-              <div className="col-md-12">
-                <div className="float-right">
-                  <a className="selecionar" href="tg">
-                    SELECIONAR
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <br />
         </div>
       </div>
     );
