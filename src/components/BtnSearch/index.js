@@ -1,12 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ButtonSearch from '../../assets/imgs/btnsearch.png';
 
-const BtnSearch = () => {
+const BtnSearch = ({ id }) => {
   return (
     <div>
-      <a href="btn">
+      <Link to={`/diploma/${id}`}>
         <img src={ButtonSearch} />
-      </a>
+      </Link>
     </div>
   );
 };

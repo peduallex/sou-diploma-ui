@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './style.scss';
 import Impressora from '../../assets/imgs/impressora.png';
 import Dowloands from '../../assets/imgs/dowloand.svg';
@@ -11,35 +11,32 @@ import Search from '../../components/Search';
 import BtnEmail from '../../components/BtnEmail';
 import BtnDiploma from '../../components/BtnDiploma';
 
-const Diploma = () => {
+function imprimir() {
+  let conteudo = document.getElementById('print').innerHTML;
+  let tela_impressao = window.open('about:blank');
+  tela_impressao.document.write(conteudo);
+  tela_impressao.window.print();
+  tela_impressao.window.close();
+}
+
+const Diploma = ({
+  match: {
+    params: { ra }
+  }
+}) => {
+  console.log(ra);
   return (
     <div>
       <div className="container-fluid">
         <div className="box-topo">
           <div className="row">
             <div className="col-md-12">
-              <span className="text-diploma">
-                Número do diploma : 12345678910
-              </span>
-
+              <div className="float-right" />
               <div className="float-right">
-                <div class="form-group input-group">
-                  <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-search" />
-                  </span>
-                  <input
-                    name="consulta"
-                    id="txt_consulta"
-                    placeholder="Consultar"
-                    type="text"
-                    class="form-control"
-                  />
+                <div id="print" className="conteudo">
+                  <img className="margin" src={Impressora} onClick={imprimir} />
+                  <img className="margin" src={Dowloands} />
                 </div>
-              </div>
-              <div className="float-right">
-                <img className="margin" src={Impressora} />
-                <img className="margin" src={Dowloands} />
-                <img className="margin" src={MenuVertical} />
               </div>
             </div>
           </div>
