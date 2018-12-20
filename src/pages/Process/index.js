@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+
+import Pagination from 'react-js-pagination';
 import './style.scss';
 import user from '../../assets/imgs/user.jpg';
 import Search from '../../components/Search';
