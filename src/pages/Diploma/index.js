@@ -71,7 +71,7 @@ class Diploma extends Component {
   };
 
   handleClick = id => {
-    this.props.history.push(`/studentdiploma/${id}`);
+    this.props.history.push(`/print/${id}`);
   };
 
   render() {
@@ -81,11 +81,13 @@ class Diploma extends Component {
           <div className="box-topo">
             <div className="row">
               <div className="col-md-12">
-                <div className="float-right" />
                 <div className="float-right">
                   <div id="print" className="conteudo">
-                    <img src={Impressora} className="margin" />
-
+                    {this.state.courses.map(data => (
+                      <a onClick={() => this.handleClick(data.id)}>
+                        <img src={Impressora} className="margin" />
+                      </a>
+                    ))}
                     <img className="margin" src={Dowloands} />
                   </div>
                 </div>

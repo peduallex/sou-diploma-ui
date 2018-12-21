@@ -234,7 +234,6 @@ class Print extends Component {
                     type="submit"
                     value="IMPRIMIR 1º VIA"
                   />
-
                   {/*<a className="selecionar" onClick={this.saveOnLocalStorage}>
                   IMPRIMIR 1º VIA
                   </a>*/}
