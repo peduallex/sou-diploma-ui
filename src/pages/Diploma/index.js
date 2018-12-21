@@ -82,16 +82,9 @@ class Diploma extends Component {
               <div className="col-md-12">
                 <div className="float-right">
                   <div id="print" className="conteudo">
-<<<<<<< HEAD
-                    {this.state.courses.map(data => (
-                      <a onClick={() => this.handleClick(data.id)}>
-                        <img src={Impressora} className="margin" />
-                      </a>
-                    ))}
-=======
                     <img src={Impressora} className="margin" />
                     <button>Imprimir</button>
->>>>>>> upstream/devel
+
                     <img className="margin" src={Dowloands} />
                   </div>
                 </div>
