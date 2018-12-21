@@ -1,26 +1,45 @@
-import React from 'react';
-
-const Menu = () => {
-  return (
-    <div>
-      <nav id="menu">
-        <ul>
-          <li>
-            <a href="#">Em Aberto</a>
-          </li>
-          <li>
-            <a className="link1 active">Auditados</a>
-          </li>
-          <li>
-            <a href="#">Retidos</a>
-          </li>
-          <li>
-            <a href="#">Diplomados</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  );
-};
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Actions, Action } from './style';
+class Menu extends Component {
+  state = {
+    tab: 0
+  };
+  render() {
+    const { tab } = this.state;
+    return (
+      <div>
+        <nav id="menu">
+          <Actions>
+            <Action
+              active={tab === 0}
+              onClick={() => this.setState({ tab: 0 })}
+            >
+              <b>Em Abertos</b>
+            </Action>
+            <Action
+              active={tab === 1}
+              onClick={() => this.setState({ tab: 1 })}
+            >
+              <b>Auditados</b>
+            </Action>
+            <Action
+              active={tab === 2}
+              onClick={() => this.setState({ tab: 2 })}
+            >
+              <b>Retidos</b>
+            </Action>
+            <Action
+              active={tab === 3}
+              onClick={() => this.setState({ tab: 3 })}
+            >
+              <b>Diplomado</b>
+            </Action>
+          </Actions>
+        </nav>
+      </div>
+    );
+  }
+}
 
 export default Menu;
