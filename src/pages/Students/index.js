@@ -71,22 +71,14 @@ class Students extends Component {
                 {this.state.courses
                   .filter(data => RegExp(this.state.search).test(data.name))
                   .map(data => (
-                    <tr>
-                      <td onClick={() => this.handleClick(data.id)}>
-                        <img className="circle" src={user} alt="" /> {data.name}
-                      </td>
-                      <td onClick={() => this.handleClick(data.id)}>
-                        {data.academic_register}
-                      </td>
-                      <td onClick={() => this.handleClick(data.id)}>
-                        {data.polo}
-                      </td>
-                      <td onClick={() => this.handleClick(data.id)}>
-                        {data.year_entry}
-                      </td>
-                      <td onClick={() => this.handleClick(data.id)}>
-                        {data.year_conclusion}
-                      </td>
+
+                    <tr onClick={() => this.handleClick(data.id)}>
+                      <td>{data.name}</td>
+                      <td>{data.academic_register}</td>
+                      <td>{data.polo}</td>
+                      <td>{data.year_entry}</td>
+                      <td>{data.year_conclusion}</td>
+
                       <td>
                         <Submit />
                       </td>
