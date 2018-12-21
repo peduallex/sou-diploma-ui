@@ -34,27 +34,31 @@ class RegistrationData extends Component {
     naturalness: []
   };
 
+  handleClick = id => {
+    this.props.history.push(`/registration/${id}`);
+  };
+
   async componentDidMount() {
     const resPersonal = await PersonalData.get(
-      '/v_dados_pessoais?_where=(id,eq,65536)'
+      '/v_dados_pessoais?_where=(id,eq,id)'
     );
 
     const resCourse = await PersonalData.get(
-      '/v_dados_ingresso?_where=(id,eq,65537)'
+      '/v_dados_ingresso?_where=(id,eq,id)'
     );
 
-    const resCity = await PersonalData.get('/v_cidade?_where=(id,eq,4966)');
+    const resCity = await PersonalData.get('/v_cidade?_where=(id,eq,data.id)');
 
     const resNationality = await PersonalData.get(
-      '/v_nacionalidade?_where=(id,eq,46)'
+      '/v_nacionalidade?_where=(id,eq,id)'
     );
 
     const resEmitter = await PersonalData.get(
-      '/v_orgao_emissor?_where=(id,eq,14)'
+      '/v_orgao_emissor?_where=(id,eq,id)'
     );
 
     const resNaturalness = await PersonalData.get(
-      '/v_cidade2?_where=(id2,eq,1584)'
+      '/v_cidade2?_where=(id2,eq,id)'
     );
 
     this.setState({

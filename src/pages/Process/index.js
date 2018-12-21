@@ -31,6 +31,10 @@ class Process extends Component {
     //console.log(this.state.search)
   };
 
+  handleClick = id => {
+    this.props.history.push(`/registration/${id}`);
+  };
+
   render() {
     return (
       <div>
@@ -88,7 +92,7 @@ class Process extends Component {
                       index < this.state.countPerPage * this.state.activePage
                   )
                   .map(data => (
-                    <tr>
+                    <tr onClick={() => this.handleClick(data.id)}>
                       <td>
                         <img className="circle" src={user} alt="" /> {data.name}
                       </td>

@@ -231,7 +231,6 @@ class Print extends Component {
                 <div className="float-right">
                   <input
                     className="selecionar"
-                    onClick={this.saveOnLocalStorage}
                     type="submit"
                     value="IMPRIMIR 1º VIA"
                   />
