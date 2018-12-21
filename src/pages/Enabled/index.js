@@ -28,24 +28,7 @@ class Enable extends Component {
         <div className="container">
           <h2 className="title">Nome do Curso - 1º VIA</h2>
           <fieldset>
-            <div>
-              <nav id="menu">
-                <ul>
-                  <li>
-                    <a href="#">Em Aberto</a>
-                  </li>
-                  <li>
-                    <a className="link1 active">Auditados</a>
-                  </li>
-                  <li>
-                    <a href="#">Retidos</a>
-                  </li>
-                  <li>
-                    <a href="#">Diplomados</a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
+            <Menu />
           </fieldset>
           <fieldset>
             <div class="row">
@@ -83,11 +66,8 @@ class Enable extends Component {
               </thead>
               <tbody>
                 {this.state.courses.map(data => (
-                  <tr onClick={() => this.handleClick(data.id)}>
-                    <td>
-                      <img className="circle" src={user} alt="" />
-                      {data.student_name}
-                    </td>
+                  <tr>
+                    <td>{data.student_name}</td>
                     <td>{data.ra_student}</td>
                     <td>{data.course_name}</td>
                     <td>{data.year_entry}</td>

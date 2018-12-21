@@ -35,31 +35,35 @@ class RegistrationData extends Component {
   };
 
   handleClick = id => {
-    this.props.history.push(`/registration/${id}`);
+    this.props.history.push(`/enabled/${id}`);
   };
 
   async componentDidMount() {
+    const { id } = this.props.match.params;
+
     const resPersonal = await PersonalData.get(
-      '/v_dados_pessoais?_where=(id,eq,id)'
+      `/v_dados_pessoais?_where=(id,eq,${id})`
     );
 
     const resCourse = await PersonalData.get(
-      '/v_dados_ingresso?_where=(id,eq,id)'
+      `/v_dados_ingresso?_where=(id,eq,${id})`
     );
 
-    const resCity = await PersonalData.get('/v_cidade?_where=(id,eq,data.id)');
+    const resCity = await PersonalData.get(`/v_cidade?_where=(id,eq,${id})`);
 
     const resNationality = await PersonalData.get(
-      '/v_nacionalidade?_where=(id,eq,id)'
+      `/v_nacionalidade?_where=(id,eq,${id})`
     );
 
     const resEmitter = await PersonalData.get(
-      '/v_orgao_emissor?_where=(id,eq,id)'
+      `/v_orgao_emissor?_where=(id,eq,${id})`
     );
 
     const resNaturalness = await PersonalData.get(
-      '/v_cidade2?_where=(id2,eq,id)'
+      `/v_cidade2?_where=(id2,eq,${id})`
     );
+
+    console.log(resPersonal.data);
 
     this.setState({
       courses: resCourse.data,
@@ -79,19 +83,11 @@ class RegistrationData extends Component {
           render={({ setFieldValue, values }) => (
             <div className="container-fluid wrap">
               <h3 className="title-registration">Dados Cadastrais</h3>
-              <div className="img">
-                <img src={user} />
-                <br />
-                <a className="link" href="link">
-                  Link para o Diploma
-                  <img className="link" src={Open} />
-                </a>
-              </div>
+
               <div className="row espaco">
                 <div className="col-md-12">
                   <fieldset className="border">
                     <span className="title-box">Nome Civil</span>
-
                     {this.state.personal.map(data => (
                       <p>
                         <img src={editar} />
@@ -441,9 +437,14 @@ class RegistrationData extends Component {
                 <div className="row">
                   <div className="col-md-12">
                     <div className="float-right">
-                      <a className="selecionar" href="tg">
-                        DEFERIR
-                      </a>
+                      {this.state.courses.map(data => (
+                        <a
+                          className="selecionar"
+                          onClick={() => this.handleClick(data.id)}
+                        >
+                          DEFERIR
+                        </a>
+                      ))}
                     </div>
                     <div className="float-right">
                       <a className="voltar" href="tg">
