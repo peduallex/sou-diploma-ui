@@ -17,6 +17,10 @@ class Retained extends Component {
     this.setState({ courses: res.data });
   }
 
+  handleClick = id => {
+    this.props.history.push(`/generateticket/${id}`);
+  };
+
   render() {
     return (
       <div>
@@ -52,7 +56,7 @@ class Retained extends Component {
               </thead>
               <tbody>
                 {this.state.courses.map(data => (
-                  <tr>
+                  <tr onClick={() => this.handleClick(data.id)}>
                     <td>{data.student_name}</td>
                     <td>{data.ra_student}</td>
                     <td>{data.course_name}</td>

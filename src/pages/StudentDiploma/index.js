@@ -1,139 +1,140 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './style.scss';
 
-const StudentDiploma = () => {
-  return (
-    <div>
-      <div className="container">
-        <fieldset className="fieldset">
-          <h5>
-            Você esta imprimindo a 1º Via do Diploma para Augusto Cavalcante
-          </h5>
+class StudentDiploma extends Component {
+  state = {
+    signatures: [],
+    employees: []
+  };
+  Validate = e => {
+    if (document.getElementById('numberPaper').value == 0) {
+      e.preventDefault();
+      alert('O número de série e obrigatório!');
+      return false;
+    }
 
-          <div className="row">
-            <div className="col-md-6">
-              <div className="form-group">
-                <label for="exampleInput1">
-                  Número de série da primeira folha
-                </label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exampleInput1"
-                  aria-describedby="emailHelp"
-                  placeholder=""
-                />
-              </div>
-            </div>
-            <div className="col-md-6">
-              <div className="form-group">
-                <label for="exampleInput2">Quantidade de impressos</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="exampleInput2"
-                  aria-describedby="emailHelp"
-                  placeholder=""
-                />
-              </div>
-            </div>
-          </div>
+    if (document.getElementById('numberPrint').value == 0) {
+      e.preventDefault();
+      alert('Quantidade de impressos obrigatório!');
+      return false;
+    }
+  };
 
-          <div className="row">
-            <div className="col-md-6">
-              <div className="form-group">
-                <label for="exampleFormControlSelect1">Assinaturas</label>
-                <select className="form-control" id="exampleFormControlSelect1">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-              </div>
-            </div>
-            <div className="col-md-6">
-              <div className="form-group">
-                <label for="exampleInputEmail1">Funcionário</label>
-                <input
-                  type="email"
-                  className="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                  placeholder="Enter email"
-                />
-              </div>
-            </div>
-          </div>
+  render() {
+    return (
+      <div>
+        <div className="container">
+          <fieldset className="fieldset">
+            <h5>
+              Você esta imprimindo a 1º Via do Diploma para Augusto Cavalcante
+            </h5>
 
-          <div className="row">
-            <div className="col-md-6">
-              <div className="form-group">
-                <label for="exampleFormControlSelect1">Assinaturas</label>
-                <select className="form-control" id="exampleFormControlSelect1">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
+            <div className="row">
+              <div className="col-md-6">
+                <div className="form-group">
+                  <label for="numberPaper">
+                    Número de série da primeira folha
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="numberPaper"
+                    aria-describedby="emailHelp"
+                    placeholder=""
+                    name="numberPaper"
+                  />
+                </div>
+              </div>
+              <div className="col-md-6">
+                <div className="form-group">
+                  <label for="numberPrint">Quantidade de impressos</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="numberPrint"
+                    aria-describedby="emailHelp"
+                    name="numberPrint"
+                    placeholder=""
+                  />
+                </div>
               </div>
             </div>
-            <div className="col-md-6">
-              <div className="form-group">
-                <label for="exampleInputEmail1">Funcionário</label>
-                <input
-                  type="email"
-                  className="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                  placeholder="Enter email"
-                />
-              </div>
-            </div>
-          </div>
 
+            <div className="row">
+              <div className="col-md-6">
+                <div className="form-group">
+                  <label for="exampleFormControlSelect1">Assinaturas</label>
+                  <select
+                    className="form-control"
+                    id="exampleFormControlSelect1"
+                  >
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </div>
+              <div className="col-md-6">
+                <div className="form-group">
+                  <label for="exampleInputEmail1">Funcionário</label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                    placeholder="Enter email"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-md-6">
+                <div className="form-group">
+                  <label for="exampleFormControlSelect1">Assinaturas</label>
+                  <select
+                    className="form-control"
+                    id="exampleFormControlSelect1"
+                  >
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </div>
+              <div className="col-md-6">
+                <div className="form-group">
+                  <label for="exampleInputEmail1">Funcionário</label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                    placeholder="Enter email"
+                  />
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <br />
           <div className="row">
-            <div className="col-md-6">
-              <div class="form-group">
-                <label for="exampleFormControlSelect1">Assinaturas</label>
-                <select className="form-control" id="exampleFormControlSelect1">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-              </div>
-            </div>
-            <div className="col-md-6">
-              <div className="form-group">
-                <label for="exampleInputEmail1">Funcionário</label>
-                <input
-                  type="email"
-                  className="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                  placeholder="Enter email"
-                />
+            <div className="col-md-12">
+              <div className="float-right">
+                <a className="selecionar" href="tg" onClick={this.Validate}>
+                  IMPRIMIR 1º VIA
+                </a>
               </div>
             </div>
           </div>
-        </fieldset>
-        <br />
-        <div className="row">
-          <div className="col-md-12">
-            <div className="float-right">
-              <a className="selecionar" href="tg">
-                IMPRIMIR 1º VIA
-              </a>
-            </div>
-          </div>
+          <br />
         </div>
-        <br />
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default StudentDiploma;
