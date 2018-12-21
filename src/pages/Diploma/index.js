@@ -10,16 +10,6 @@ import Menu from '../../components/Menu';
 import Search from '../../components/Search';
 import BtnEmail from '../../components/BtnEmail';
 import BtnDiploma from '../../components/BtnDiploma';
-
-// function imprimir() {
-/*let conteudo = document.getElementById('print').innerHTML;
-  let tela_impressao = window.open(
-    'C:/sou-diploma-ui/src/pages/Diploma/index.js'
-  );
-  tela_impressao.document.write(conteudo);
-  tela_impressao.window.print();
-  tela_impressao.window.close();*/
-// }
 import apiDiploma from '../../services/diplomaApi';
 import api from '../../services/api';
 
