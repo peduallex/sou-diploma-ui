@@ -30,7 +30,8 @@ const months = [
 ];
 class Diploma extends Component {
   state = {
-    diploma: {}
+    diploma: {},
+    courses: []
   };
 
   async componentDidMount() {
@@ -69,6 +70,10 @@ class Diploma extends Component {
     await api.post(`/report/pdf`, data);
   };
 
+  handleClick = id => {
+    this.props.history.push(`/studentdiploma/${id}`);
+  };
+
   render() {
     return (
       <div>
@@ -79,16 +84,9 @@ class Diploma extends Component {
                 <div className="float-right" />
                 <div className="float-right">
                   <div id="print" className="conteudo">
-                    <img
-                      className="margin"
-                      src={Impressora}
-                      onClick={this.imprimir}
-                    />
-                    <img
-                      className="margin"
-                      src={Dowloands}
-                      onClick={this.download}
-                    />
+                    <img src={Impressora} className="margin" />
+
+                    <img className="margin" src={Dowloands} />
                   </div>
                 </div>
               </div>
