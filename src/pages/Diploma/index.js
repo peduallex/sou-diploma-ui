@@ -12,11 +12,13 @@ import BtnEmail from '../../components/BtnEmail';
 import BtnDiploma from '../../components/BtnDiploma';
 
 function imprimir() {
-  let conteudo = document.getElementById('print').innerHTML;
-  let tela_impressao = window.open('about:blank');
+  /*let conteudo = document.getElementById('print').innerHTML;
+  let tela_impressao = window.open(
+    'C:/sou-diploma-ui/src/pages/Diploma/index.js'
+  );
   tela_impressao.document.write(conteudo);
   tela_impressao.window.print();
-  tela_impressao.window.close();
+  tela_impressao.window.close();*/
 }
 
 const Diploma = ({
@@ -34,7 +36,7 @@ const Diploma = ({
               <div className="float-right" />
               <div className="float-right">
                 <div id="print" className="conteudo">
-                  <img className="margin" src={Impressora} onClick={imprimir} />
+                  <button>Imprimir</button>
                   <img className="margin" src={Dowloands} />
                 </div>
               </div>
