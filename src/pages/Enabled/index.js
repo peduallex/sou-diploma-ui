@@ -18,6 +18,10 @@ class Enable extends Component {
     this.setState({ courses: res.data });
   }
 
+  handleClick = id => {
+    this.props.history.push(`/diploma/${id}`);
+  };
+
   render() {
     return (
       <div>
@@ -79,7 +83,7 @@ class Enable extends Component {
               </thead>
               <tbody>
                 {this.state.courses.map(data => (
-                  <tr>
+                  <tr onClick={() => this.handleClick(data.id)}>
                     <td>
                       <img className="circle" src={user} alt="" />
                       {data.student_name}

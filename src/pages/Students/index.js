@@ -22,6 +22,10 @@ class Students extends Component {
     //console.log(this.state.search)
   };
 
+  handleClick = id => {
+    this.props.history.push(`/process/${id}`);
+  };
+
   render() {
     return (
       <div>
@@ -67,12 +71,12 @@ class Students extends Component {
                 {this.state.courses
                   .filter(data => RegExp(this.state.search).test(data.name))
                   .map(data => (
-                    <tr>
+                    <tr onClick={() => this.handleClick(data.id)}>
                       <td>
                         <img className="circle" src={user} alt="" /> {data.name}
                       </td>
                       <td>{data.academic_register}</td>
-                      <td>{data.name_course}</td>
+                      <td>{data.polo}</td>
                       <td>{data.year_entry}</td>
                       <td>{data.year_conclusion}</td>
                       <td>
