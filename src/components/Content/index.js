@@ -82,6 +82,12 @@ const Content = () => (
                 <Route path="/generateticket" component={GenerateTicket} />
                 <Route path="/protocol" component={Protocol} />
                 <Route path="/alert" component={Alert} />
+                {/* <Route path="/alert/:id" component={Alert} /> */}
+                {/* class dsauhdhusahu extends Component {} */}
+                {/* this.props.match.params.id */}
+                {/* (props) => {} */}
+                {/* props.match.params.id */}
+                {/* <Link to={`/students/${data.id}`}></Link> */}
               </Fragment>
             )}
           />
