@@ -83,8 +83,6 @@ class Diploma extends Component {
                 <div className="float-right">
                   <div id="print" className="conteudo">
                     <img src={Impressora} className="margin" />
-                    <button>Imprimir</button>
-
                     <img className="margin" src={Dowloands} />
                   </div>
                 </div>
