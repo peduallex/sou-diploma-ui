@@ -90,7 +90,12 @@ class RegistrationData extends Component {
                     <span className="title-box">Nome Civil</span>
                     {this.state.personal.map(data => (
                       <p>
-                        <img src={editar} />
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onclick="load_modal('');"
+                          src={editar}
+                        />
                         {data.name}
                       </p>
                     ))}
@@ -103,7 +108,12 @@ class RegistrationData extends Component {
                     <span className="title-box">Nome Social</span>
                     {this.state.personal.map(data => (
                       <p>
-                        <img src={editar} />
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onclick="load_modal('');"
+                          src={editar}
+                        />
                         {data.assumed_name}
                       </p>
                     ))}
@@ -154,7 +164,12 @@ class RegistrationData extends Component {
                     <span className="title-box">Documento de Identidade</span>
                     {this.state.personal.map(data => (
                       <p>
-                        <img src={editar} />
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onclick="load_modal('');"
+                          src={editar}
+                        />
                         {data.rg_number}
                       </p>
                     ))}
@@ -188,7 +203,12 @@ class RegistrationData extends Component {
                     <span className="title-box">CPF</span>
                     {this.state.personal.map(data => (
                       <p>
-                        <img src={editar} />
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onclick="load_modal('');"
+                          src={editar}
+                        />
                         {data.cpf}
                       </p>
                     ))}
@@ -199,7 +219,12 @@ class RegistrationData extends Component {
                     <span className="title-box">Titulo de Eleitor</span>
                     {this.state.personal.map(data => (
                       <p>
-                        <img src={editar} />
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onclick="load_modal('');"
+                          src={editar}
+                        />
                         {data.titulo_number}
                       </p>
                     ))}
@@ -223,7 +248,12 @@ class RegistrationData extends Component {
                     <span className="title-box">Nome da Mãe</span>
                     {this.state.personal.map(data => (
                       <p>
-                        <img src={editar} />
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onclick="load_modal('');"
+                          src={editar}
+                        />
                         {data.mothers_name}
                       </p>
                     ))}
@@ -236,7 +266,12 @@ class RegistrationData extends Component {
                     <span className="title-box">Nome do Pai</span>
                     {this.state.personal.map(data => (
                       <p>
-                        <img src={editar} />
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onclick="load_modal('');"
+                          src={editar}
+                        />
                         {data.fathers_name}
                       </p>
                     ))}
@@ -251,7 +286,12 @@ class RegistrationData extends Component {
                     </span>
                     {this.state.personal.map(data => (
                       <p>
-                        <img src={editar} />
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onclick="load_modal('');"
+                          src={editar}
+                        />
                         {data.street}&nbsp;
                         {data.street_number}&nbsp;-&nbsp;
                         {data.street_complement}
@@ -266,7 +306,12 @@ class RegistrationData extends Component {
                     <span className="title-box">CEP</span>
                     {this.state.personal.map(data => (
                       <p>
-                        <img src={editar} />
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onclick="load_modal('');"
+                          src={editar}
+                        />
 
                         {data.zipcode}
                       </p>
@@ -278,7 +323,12 @@ class RegistrationData extends Component {
                     <span className="title-box">Bairro</span>
                     {this.state.personal.map(data => (
                       <p>
-                        <img src={editar} />
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onclick="load_modal('');"
+                          src={editar}
+                        />
                         {data.neighborhood}
                       </p>
                     ))}
@@ -335,7 +385,12 @@ class RegistrationData extends Component {
                     <span className="title-box">E-mail Pessoal</span>
                     {this.state.personal.map(data => (
                       <p>
-                        <img src={editar} />
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onclick="load_modal('');"
+                          src={editar}
+                        />
                         {data.email_pessoal}
                       </p>
                     ))}
@@ -346,7 +401,12 @@ class RegistrationData extends Component {
                     <span className="title-box">E-mail Institucional</span>
                     {this.state.personal.map(data => (
                       <p>
-                        <img src={editar} />
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onclick="load_modal('');"
+                          src={editar}
+                        />
                         {data.email_inst}
                       </p>
                     ))}
@@ -455,6 +515,52 @@ class RegistrationData extends Component {
                 </div>
               </div>
               <br />
+
+              <div
+                className="modal fade"
+                id="myModal"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="myModalLabel"
+              >
+                <div className="modal-dialog" role="document">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <h4 className="modal-title" id="myModalLabel">
+                        Alterando Usuário
+                      </h4>
+                      <button
+                        type="button"
+                        className="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                      >
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div className="modal-body">
+                      <form className="form-inline" method="post">
+                        <div className="input-group">
+                          <span className="input-group-addon glyphicon glyphicon-user" />
+                          <input
+                            name="name"
+                            type="text"
+                            class="form-control"
+                            required
+                            value=""
+                          />
+                        </div>
+                        <input
+                          name="alterar"
+                          type="submit"
+                          className="btn btn-warning"
+                          value="Alterar"
+                        />
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           )}
         />
