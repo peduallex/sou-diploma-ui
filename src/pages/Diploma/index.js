@@ -10,7 +10,6 @@ import Menu from '../../components/Menu';
 import Search from '../../components/Search';
 import BtnEmail from '../../components/BtnEmail';
 import BtnDiploma from '../../components/BtnDiploma';
-
 import apiDiploma from '../../services/diplomaApi';
 import api from '../../services/api';
 
@@ -71,7 +70,7 @@ class Diploma extends Component {
   };
 
   handleClick = id => {
-    this.props.history.push(`/studentdiploma/${id}`);
+    this.props.history.push(`/print/${id}`);
   };
 
   render() {
@@ -81,11 +80,9 @@ class Diploma extends Component {
           <div className="box-topo">
             <div className="row">
               <div className="col-md-12">
-                <div className="float-right" />
                 <div className="float-right">
                   <div id="print" className="conteudo">
                     <img src={Impressora} className="margin" />
-
                     <img className="margin" src={Dowloands} />
                   </div>
                 </div>

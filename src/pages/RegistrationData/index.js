@@ -35,31 +35,35 @@ class RegistrationData extends Component {
   };
 
   handleClick = id => {
-    this.props.history.push(`/registration/${id}`);
+    this.props.history.push(`/enabled/${id}`);
   };
 
   async componentDidMount() {
+    const { id } = this.props.match.params;
+
     const resPersonal = await PersonalData.get(
-      '/v_dados_pessoais?_where=(id,eq,id)'
+      `/v_dados_pessoais?_where=(id,eq,${id})`
     );
 
     const resCourse = await PersonalData.get(
-      '/v_dados_ingresso?_where=(id,eq,id)'
+      `/v_dados_ingresso?_where=(id,eq,${id})`
     );
 
-    const resCity = await PersonalData.get('/v_cidade?_where=(id,eq,data.id)');
+    const resCity = await PersonalData.get(`/v_cidade?_where=(id,eq,${id})`);
 
     const resNationality = await PersonalData.get(
-      '/v_nacionalidade?_where=(id,eq,id)'
+      `/v_nacionalidade?_where=(id,eq,${id})`
     );
 
     const resEmitter = await PersonalData.get(
-      '/v_orgao_emissor?_where=(id,eq,id)'
+      `/v_orgao_emissor?_where=(id,eq,${id})`
     );
 
     const resNaturalness = await PersonalData.get(
-      '/v_cidade2?_where=(id2,eq,id)'
+      `/v_cidade2?_where=(id2,eq,${id})`
     );
+
+    console.log(resPersonal.data);
 
     this.setState({
       courses: resCourse.data,
@@ -79,22 +83,19 @@ class RegistrationData extends Component {
           render={({ setFieldValue, values }) => (
             <div className="container-fluid wrap">
               <h3 className="title-registration">Dados Cadastrais</h3>
-              <div className="img">
-                <img src={user} />
-                <br />
-                <a className="link" href="link">
-                  Link para o Diploma
-                  <img className="link" src={Open} />
-                </a>
-              </div>
+
               <div className="row espaco">
                 <div className="col-md-12">
                   <fieldset className="border">
                     <span className="title-box">Nome Civil</span>
-
                     {this.state.personal.map(data => (
                       <p>
-                        <img src={editar} />
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onclick="load_modal('');"
+                          src={editar}
+                        />
                         {data.name}
                       </p>
                     ))}
@@ -107,7 +108,12 @@ class RegistrationData extends Component {
                     <span className="title-box">Nome Social</span>
                     {this.state.personal.map(data => (
                       <p>
-                        <img src={editar} />
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onclick="load_modal('');"
+                          src={editar}
+                        />
                         {data.assumed_name}
                       </p>
                     ))}
@@ -158,7 +164,12 @@ class RegistrationData extends Component {
                     <span className="title-box">Documento de Identidade</span>
                     {this.state.personal.map(data => (
                       <p>
-                        <img src={editar} />
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onclick="load_modal('');"
+                          src={editar}
+                        />
                         {data.rg_number}
                       </p>
                     ))}
@@ -192,7 +203,12 @@ class RegistrationData extends Component {
                     <span className="title-box">CPF</span>
                     {this.state.personal.map(data => (
                       <p>
-                        <img src={editar} />
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onclick="load_modal('');"
+                          src={editar}
+                        />
                         {data.cpf}
                       </p>
                     ))}
@@ -203,7 +219,12 @@ class RegistrationData extends Component {
                     <span className="title-box">Titulo de Eleitor</span>
                     {this.state.personal.map(data => (
                       <p>
-                        <img src={editar} />
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onclick="load_modal('');"
+                          src={editar}
+                        />
                         {data.titulo_number}
                       </p>
                     ))}
@@ -227,7 +248,12 @@ class RegistrationData extends Component {
                     <span className="title-box">Nome da Mãe</span>
                     {this.state.personal.map(data => (
                       <p>
-                        <img src={editar} />
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onclick="load_modal('');"
+                          src={editar}
+                        />
                         {data.mothers_name}
                       </p>
                     ))}
@@ -240,7 +266,12 @@ class RegistrationData extends Component {
                     <span className="title-box">Nome do Pai</span>
                     {this.state.personal.map(data => (
                       <p>
-                        <img src={editar} />
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onclick="load_modal('');"
+                          src={editar}
+                        />
                         {data.fathers_name}
                       </p>
                     ))}
@@ -255,7 +286,12 @@ class RegistrationData extends Component {
                     </span>
                     {this.state.personal.map(data => (
                       <p>
-                        <img src={editar} />
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onclick="load_modal('');"
+                          src={editar}
+                        />
                         {data.street}&nbsp;
                         {data.street_number}&nbsp;-&nbsp;
                         {data.street_complement}
@@ -270,7 +306,12 @@ class RegistrationData extends Component {
                     <span className="title-box">CEP</span>
                     {this.state.personal.map(data => (
                       <p>
-                        <img src={editar} />
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onclick="load_modal('');"
+                          src={editar}
+                        />
 
                         {data.zipcode}
                       </p>
@@ -282,7 +323,12 @@ class RegistrationData extends Component {
                     <span className="title-box">Bairro</span>
                     {this.state.personal.map(data => (
                       <p>
-                        <img src={editar} />
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onclick="load_modal('');"
+                          src={editar}
+                        />
                         {data.neighborhood}
                       </p>
                     ))}
@@ -339,7 +385,12 @@ class RegistrationData extends Component {
                     <span className="title-box">E-mail Pessoal</span>
                     {this.state.personal.map(data => (
                       <p>
-                        <img src={editar} />
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onclick="load_modal('');"
+                          src={editar}
+                        />
                         {data.email_pessoal}
                       </p>
                     ))}
@@ -350,7 +401,12 @@ class RegistrationData extends Component {
                     <span className="title-box">E-mail Institucional</span>
                     {this.state.personal.map(data => (
                       <p>
-                        <img src={editar} />
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onclick="load_modal('');"
+                          src={editar}
+                        />
                         {data.email_inst}
                       </p>
                     ))}
@@ -441,9 +497,14 @@ class RegistrationData extends Component {
                 <div className="row">
                   <div className="col-md-12">
                     <div className="float-right">
-                      <a className="selecionar" href="tg">
-                        DEFERIR
-                      </a>
+                      {this.state.courses.map(data => (
+                        <a
+                          className="selecionar"
+                          onClick={() => this.handleClick(data.id)}
+                        >
+                          DEFERIR
+                        </a>
+                      ))}
                     </div>
                     <div className="float-right">
                       <a className="voltar" href="tg">
@@ -454,6 +515,52 @@ class RegistrationData extends Component {
                 </div>
               </div>
               <br />
+
+              <div
+                className="modal fade"
+                id="myModal"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="myModalLabel"
+              >
+                <div className="modal-dialog" role="document">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <h4 className="modal-title" id="myModalLabel">
+                        Alterando Usuário
+                      </h4>
+                      <button
+                        type="button"
+                        className="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                      >
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div className="modal-body">
+                      <form className="form-inline" method="post">
+                        <div className="input-group">
+                          <span className="input-group-addon glyphicon glyphicon-user" />
+                          <input
+                            name="name"
+                            type="text"
+                            class="form-control"
+                            required
+                            value=""
+                          />
+                        </div>
+                        <input
+                          name="alterar"
+                          type="submit"
+                          className="btn btn-warning"
+                          value="Alterar"
+                        />
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           )}
         />
