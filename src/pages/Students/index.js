@@ -71,8 +71,8 @@ class Students extends Component {
                 {this.state.courses
                   .filter(data => RegExp(this.state.search).test(data.name))
                   .map(data => (
-
-                    <tr onClick={() => this.handleClick(data.id)}>
+                    <tr>
+                    {/*<tr onClick={() => this.handleClick(data.id)}*/}
                       <td>{data.name}</td>
                       <td>{data.academic_register}</td>
                       <td>{data.polo}</td>
