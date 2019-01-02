@@ -11,7 +11,10 @@ import Pagination from 'react-js-pagination';
 
 class Enable extends Component {
   state = {
-    courses: []
+    courses: [],
+    search: '',
+    activePage: 1,
+    countPerPage: 5
   };
 
   async componentDidMount() {
@@ -76,11 +79,21 @@ class Enable extends Component {
                   )
                   .map(data => (
                     <tr>
-                      <td>{data.student_name}</td>
-                      <td>{data.ra_student}</td>
-                      <td>{data.course_name}</td>
-                      <td>{data.year_entry}</td>
-                      <td>{data.year_conclusion}</td>
+                      <td onClick={() => this.handleClick(data.id)}>
+                        {data.student_name}
+                      </td>
+                      <td onClick={() => this.handleClick(data.id)}>
+                        {data.ra_student}
+                      </td>
+                      <td onClick={() => this.handleClick(data.id)}>
+                        {data.course_name}
+                      </td>
+                      <td onClick={() => this.handleClick(data.id)}>
+                        {data.year_entry}
+                      </td>
+                      <td onClick={() => this.handleClick(data.id)}>
+                        {data.year_conclusion}
+                      </td>
                       <td>
                         <ButtonSearch id={data.ra_student} />
                       </td>

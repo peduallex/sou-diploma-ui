@@ -84,7 +84,6 @@ class StudentDiploma extends Component {
                     className="form-control"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
-                    placeholder="Enter email"
                   />
                 </div>
               </div>
@@ -114,7 +113,6 @@ class StudentDiploma extends Component {
                     className="form-control"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
-                    placeholder="Enter email"
                   />
                 </div>
               </div>

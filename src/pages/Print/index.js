@@ -61,6 +61,10 @@ class Print extends Component {
     }
   };
 
+  handleClick = id => {
+    this.props.history.push(`/studentdiploma/${id}`);
+  };
+
   render() {
     return (
       <div>
@@ -230,6 +234,7 @@ class Print extends Component {
               <div className="col-md-12">
                 <div className="float-right">
                   <input
+                    onClick={() => this.handleClick(this.props.match.params.id)}
                     className="selecionar"
                     type="submit"
                     value="IMPRIMIR 1º VIA"
