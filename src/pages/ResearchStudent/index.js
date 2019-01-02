@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
-
 import { Link } from 'react-router-dom';
-
+import Pagination from 'react-js-pagination';
 import api from '../../../src/services/diplomaApi';
 import './style.scss';
 
 class Audit extends Component {
   state = {
     courses: [],
-    search: ''
+    search: '',
+    activePage: 1,
+    countPerPage: 5
+  };
+
+  handlePageChange = pageNumber => {
+    console.log(`active page is ${pageNumber}`);
+    this.setState({ activePage: pageNumber });
   };
 
   async componentDidMount() {
@@ -30,7 +36,7 @@ class Audit extends Component {
     return (
       <div>
         <div className="col-md-12">
-          <div className="col-md-9 border center">
+          <div className="col-md-9 border  center">
             <div className="text-center">
               <h5>
                 Selecione o curso de GRADUAÇÃO E ANO DE INGRESSO que deseja
@@ -74,6 +80,12 @@ class Audit extends Component {
               <tbody>
                 {this.state.courses
                   .filter(item => RegExp(search, 'i').test(item.name))
+                  .filter(
+                    (data, index) =>
+                      index >=
+                        this.state.countPerPage * (this.state.activePage - 1) &&
+                      index < this.state.countPerPage * this.state.activePage
+                  )
                   .map(data => (
                     <tr onClick={() => this.handleClick(data.id)}>
                       <td>{data.name}</td>
@@ -84,8 +96,23 @@ class Audit extends Component {
                   ))}
               </tbody>
             </table>
+            <div className="float-right">
+              <div className="padding">
+                <Pagination
+                  activePage={this.state.activePage}
+                  itemsCountPerPage={5}
+                  totalItemsCount={this.state.courses.length}
+                  pageRangeDisplayed={5}
+                  onChange={this.handlePageChange}
+                  innerClass="pagination"
+                  itemClass="page-item"
+                  linkClass="page-link"
+                />
+              </div>
+            </div>
           </div>
         </div>
+
         <br />
       </div>
     );
