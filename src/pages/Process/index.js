@@ -13,7 +13,7 @@ class Process extends Component {
     courses: [],
     search: '',
     activePage: 1,
-    countPerPage: 10
+    countPerPage: 5
   };
 
   handlePageChange = pageNumber => {
@@ -93,9 +93,7 @@ class Process extends Component {
                   )
                   .map(data => (
                     <tr onClick={() => this.handleClick(data.id)}>
-                      <td>
-                        <img className="circle" src={user} alt="" /> {data.name}
-                      </td>
+                      <td>{data.name}</td>
                       <td>{data.academic_register}</td>
                       <td>{data.polo}</td>
                       <td>{data.year_entry}</td>
@@ -107,14 +105,14 @@ class Process extends Component {
             </table>
             <Pagination
               activePage={this.state.activePage}
-              itemsCountPerPage={10}
+              itemsCountPerPage={5}
               totalItemsCount={this.state.courses.length}
               pageRangeDisplayed={5}
               onChange={this.handlePageChange}
             />
           </fieldset>
           <br />
-          <div className="row">
+          {/* <div className="row">
             <div className="col-md-12">
               <div className="float-right">
                 <a className="selecionar" href="tg">
@@ -122,7 +120,7 @@ class Process extends Component {
                 </a>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
         <br />
       </div>

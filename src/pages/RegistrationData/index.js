@@ -38,6 +38,10 @@ class RegistrationData extends Component {
     this.props.history.push(`/enabled/${id}`);
   };
 
+  handleBack = id => {
+    this.props.history.push(`/process/${id}`);
+  };
+
   async componentDidMount() {
     const { id } = this.props.match.params;
 
@@ -507,9 +511,14 @@ class RegistrationData extends Component {
                       ))}
                     </div>
                     <div className="float-right">
-                      <a className="voltar" href="tg">
-                        VOLTAR
-                      </a>
+                      {this.state.courses.map(data => (
+                        <a
+                          className="voltar"
+                          onClick={() => this.handleBack(data.id)}
+                        >
+                          Voltar
+                        </a>
+                      ))}
                     </div>
                   </div>
                 </div>
