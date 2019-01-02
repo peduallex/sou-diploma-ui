@@ -7,6 +7,7 @@ import Search from '../../components/Search';
 import Dowloand from '../../components/Dowloand';
 import Menu from '../../components/Menu';
 import Open from '../../../src/services/OpenProcessApi';
+require('bootstrap/scss/bootstrap.scss');
 
 class Process extends Component {
   state = {
@@ -59,7 +60,7 @@ class Process extends Component {
           </fieldset>
           <fieldset>
             <div class="row top">
-              <div className="col-md-5">
+              <div className="col-md-4">
                 <Search />
               </div>
               {/*<div className="col-md-7">
@@ -87,7 +88,7 @@ class Process extends Component {
                   .filter(data => RegExp(this.state.search).test(data.name))
                   .filter(
                     (data, index) =>
-                      index >
+                      index >=
                         this.state.countPerPage * (this.state.activePage - 1) &&
                       index < this.state.countPerPage * this.state.activePage
                   )
@@ -103,13 +104,20 @@ class Process extends Component {
                   ))}
               </tbody>
             </table>
-            <Pagination
-              activePage={this.state.activePage}
-              itemsCountPerPage={5}
-              totalItemsCount={this.state.courses.length}
-              pageRangeDisplayed={5}
-              onChange={this.handlePageChange}
-            />
+            <div className="float-right">
+              <div className="padding">
+                <Pagination
+                  activePage={this.state.activePage}
+                  itemsCountPerPage={5}
+                  totalItemsCount={this.state.courses.length}
+                  pageRangeDisplayed={5}
+                  onChange={this.handlePageChange}
+                  innerClass="pagination"
+                  itemClass="page-item"
+                  linkClass="page-link"
+                />
+              </div>
+            </div>
           </fieldset>
           <br />
           {/* <div className="row">
