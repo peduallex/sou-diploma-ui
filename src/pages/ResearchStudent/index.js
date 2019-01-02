@@ -26,6 +26,7 @@ class Audit extends Component {
   };
 
   render() {
+    const { search } = this.state;
     return (
       <div>
         <div className="col-md-12">
@@ -72,7 +73,7 @@ class Audit extends Component {
               </thead>
               <tbody>
                 {this.state.courses
-                  .filter(data => RegExp(this.state.search).test(data.name))
+                  .filter(item => RegExp(search, 'i').test(item.name))
                   .map(data => (
                     <tr onClick={() => this.handleClick(data.id)}>
                       <td>{data.name}</td>
@@ -85,6 +86,7 @@ class Audit extends Component {
             </table>
           </div>
         </div>
+        <br />
       </div>
     );
   }
