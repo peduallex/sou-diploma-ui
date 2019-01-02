@@ -82,7 +82,14 @@ class Diploma extends Component {
               <div className="col-md-12">
                 <div className="float-right">
                   <div id="print" className="conteudo">
-                    <img src={Impressora} className="margin" />
+                    <a
+                      className="selecionar"
+                      onClick={() =>
+                        this.handleClick(this.props.match.params.id)
+                      }
+                    >
+                      <img src={Impressora} className="margin" />
+                    </a>
                     <img className="margin" src={Dowloands} />
                   </div>
                 </div>
