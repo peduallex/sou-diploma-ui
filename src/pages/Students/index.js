@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './style.scss';
+import Pagination from 'react-js-pagination';
 import user from '../../assets/imgs/user.jpg';
 import Submit from '../../components/Submit';
 import Dowloand from '../../components/Dowloand';
@@ -9,7 +10,14 @@ import Open from '../../../src/services/OpenProcessApi';
 class Students extends Component {
   state = {
     courses: [],
-    search: ''
+    search: '',
+    activePage: 1,
+    countPerPage: 5
+  };
+
+  handlePageChange = pageNumber => {
+    console.log(`active page is ${pageNumber}`);
+    this.setState({ activePage: pageNumber });
   };
 
   async componentDidMount() {
@@ -70,6 +78,12 @@ class Students extends Component {
               <tbody>
                 {this.state.courses
                   .filter(data => RegExp(this.state.search).test(data.name))
+                  .filter(
+                    (data, index) =>
+                      index >=
+                        this.state.countPerPage * (this.state.activePage - 1) &&
+                      index < this.state.countPerPage * this.state.activePage
+                  )
                   .map(data => (
                     <tr>
                       <td onClick={() => this.handleClick(data.id)}>
@@ -87,7 +101,6 @@ class Students extends Component {
                       <td onClick={() => this.handleClick(data.id)}>
                         {data.year_conclusion}
                       </td>
-
                       <td>
                         <Submit />
                       </td>
@@ -95,9 +108,23 @@ class Students extends Component {
                   ))}
               </tbody>
             </table>
+            <div className="float-right">
+              <div className="padding">
+                <Pagination
+                  activePage={this.state.activePage}
+                  itemsCountPerPage={5}
+                  totalItemsCount={this.state.courses.length}
+                  pageRangeDisplayed={5}
+                  onChange={this.handlePageChange}
+                  innerClass="pagination"
+                  itemClass="page-item"
+                  linkClass="page-link"
+                />
+              </div>
+            </div>
           </fieldset>
           <br />
-          <div className="row">
+          {/* <div className="row">
             <div className="col-md-12">
               <div className="float-right">
                 <a className="selecionar" href="tg">
@@ -105,7 +132,7 @@ class Students extends Component {
                 </a>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
         <br />
       </div>
