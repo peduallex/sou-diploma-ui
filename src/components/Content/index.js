@@ -77,9 +77,9 @@ const Content = () => (
                 <Route path="/diploma/:id" component={Diploma} />
                 <Route path="/print/:id" component={Print} />
                 <Route path="/secondway" component={SecondWay} />
-                <Route path="/studentdiploma" component={StudentDiploma} />
-                <Route path="/retained" component={Retained} />
-                <Route path="/generateticket" component={GenerateTicket} />
+                <Route path="/studentdiploma/:id" component={StudentDiploma} />
+                <Route path="/retained/:id" component={Retained} />
+                <Route path="/generateticket/:id" component={GenerateTicket} />
                 <Route path="/protocol" component={Protocol} />
                 <Route path="/alert" component={Alert} />
                 {/* <Route path="/alert/:id" component={Alert} /> */}

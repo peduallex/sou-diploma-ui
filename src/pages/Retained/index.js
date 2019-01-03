@@ -7,9 +7,24 @@ import Menu from '../../components/Menu';
 import Search from '../../components/Search';
 import BtnEmail from '../../components/BtnEmail';
 import Retaineds from '../../../src/services/RetainedApi';
+import Pagination from 'react-js-pagination';
+
 class Retained extends Component {
   state = {
-    courses: []
+    courses: [],
+    search: '',
+    activePage: 1,
+    countPerPage: 5
+  };
+
+  handlePageChange = pageNumber => {
+    console.log(`active page is ${pageNumber}`);
+    this.setState({ activePage: pageNumber });
+  };
+
+  handleSearch = ({ target }) => {
+    this.setState({ search: target.value });
+    //console.log(this.state.search)
   };
 
   async componentDidMount() {
@@ -31,7 +46,7 @@ class Retained extends Component {
           </fieldset>
           <fieldset>
             <div class="row">
-              <div className="col-md-5">
+              <div className="col-md-4">
                 <Search />
               </div>
               {/*<div className="col-md-7">
@@ -55,18 +70,40 @@ class Retained extends Component {
                 </tr>
               </thead>
               <tbody>
-                {this.state.courses.map(data => (
-                  <tr onClick={() => this.handleClick(data.id)}>
-                    <td>{data.student_name}</td>
-                    <td>{data.ra_student}</td>
-                    <td>{data.course_name}</td>
-                    <td>{data.year_entry}</td>
-                    <td>{data.year_conclusion}</td>
-                    <td>{data.reason_retention}</td>
-                  </tr>
-                ))}
+                {this.state.courses
+                  // .filter(item => RegExp(search, 'i').test(item.student_name))
+                  .filter(
+                    (data, index) =>
+                      index >=
+                        this.state.countPerPage * (this.state.activePage - 1) &&
+                      index < this.state.countPerPage * this.state.activePage
+                  )
+                  .map(data => (
+                    <tr onClick={() => this.handleClick(data.id)}>
+                      <td>{data.student_name}</td>
+                      <td>{data.ra_student}</td>
+                      <td>{data.course_name}</td>
+                      <td>{data.year_entry}</td>
+                      <td>{data.year_conclusion}</td>
+                      <td>{data.reason_retention}</td>
+                    </tr>
+                  ))}
               </tbody>
             </table>
+            <div className="float-right">
+              <div className="padding">
+                <Pagination
+                  activePage={this.state.activePage}
+                  itemsCountPerPage={5}
+                  totalItemsCount={this.state.courses.length}
+                  pageRangeDisplayed={5}
+                  onChange={this.handlePageChange}
+                  innerClass="pagination"
+                  itemClass="page-item"
+                  linkClass="page-link"
+                />
+              </div>
+            </div>
           </fieldset>
           <br />
           <div className="row">

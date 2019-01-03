@@ -20,6 +20,10 @@ class StudentDiploma extends Component {
     }
   };
 
+  handleClick = id => {
+    this.props.history.push(`/retained/${id}`);
+  };
+
   render() {
     return (
       <div>
@@ -122,7 +126,10 @@ class StudentDiploma extends Component {
           <div className="row">
             <div className="col-md-12">
               <div className="float-right">
-                <a className="selecionar" href="tg" onClick={this.Validate}>
+                <a
+                  className="selecionar"
+                  onClick={() => this.handleClick(this.props.match.params.id)}
+                >
                   IMPRIMIR 1º VIA
                 </a>
               </div>
