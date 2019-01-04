@@ -3,9 +3,9 @@ import styled, { css } from 'styled-components';
 const Section = styled.section`
   display: flex;
   width: 100%;
-  height: 130px;
+  height: 120px;
   padding: 1.8rem 3rem 0 3rem;
-  background-color: #162834;
+  background-color: var(--black);
   flex-direction: column;
   grid-area: jumbotron;
 `;
@@ -24,7 +24,7 @@ const Icon = styled.img`
 const Title = styled.h1`
   display: inline-block;
   margin: 0 0 0 10px;
-  color: #fff;
+  color: var(--zero);
   text-transform: uppercase;
 `;
 
@@ -38,13 +38,13 @@ const Links = styled.ul`
 const Item = styled.li`
   list-style: none;
   &:not(:last-of-type) {
-    margin-right: 1rem;
+    margin-right: 1.2rem;
   }
 `;
 
 const Link = styled.a`
   position: relative;
-  color: #fff;
+  color: var(--zero);
   text-decoration: none;
   ${props =>
     props.active &&
@@ -54,9 +54,9 @@ const Link = styled.a`
         position: absolute;
         width: 100%;
         height: 5px;
-        background-color: #b13239;
+        background-color: var(--red-darken);
         left: 0;
-        bottom: -0.8rem;
+        bottom: -0.75rem;
       }
     `}
 `;

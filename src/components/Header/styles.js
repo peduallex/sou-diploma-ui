@@ -3,11 +3,10 @@ import styled from 'styled-components';
 const Header = styled.header`
   display: flex;
   width: 100%;
-  height: 80px;
-  background-color: #627981;
+  background-color: var(--gray-darken);
   justify-content: space-between;
   align-items: center;
-  padding: 0 5vw;
+  padding: 0px 1.5vw;
   grid-area: header;
 `;
 
@@ -29,6 +28,7 @@ const Action = styled.li`
   text-indent: -9999px;
   background-image: url(${props => props.icon});
   background-repeat: no-repeat;
+  background-size: 28px;
   &:not(:last-child) {
     margin-right: 1.5rem;
   }

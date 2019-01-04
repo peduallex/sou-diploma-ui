@@ -522,7 +522,9 @@ class RegistrationData extends Component {
                     <span className="title-box">
                       Data de Expedição do Diploma
                     </span>
-                    <p>Pedro Souza</p>
+                    {this.state.personal.map(data => (
+                      <p>{data.name}</p>
+                    ))}
                   </fieldset>
                 </div>
               </div>
