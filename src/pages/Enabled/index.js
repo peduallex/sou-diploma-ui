@@ -22,8 +22,18 @@ class Enable extends Component {
     this.setState({ courses: res.data });
   }
 
+  handlePageChange = pageNumber => {
+    console.log(`active page is ${pageNumber}`);
+    this.setState({ activePage: pageNumber });
+  };
+
+  handleSearch = ({ target }) => {
+    this.setState({ search: target.value });
+    //console.log(this.state.search)
+  };
+
   handleClick = id => {
-    this.props.history.push(`/diploma/${id}`);
+    this.props.history.push(`/students/${id}`);
   };
 
   render() {
@@ -79,21 +89,11 @@ class Enable extends Component {
                   )
                   .map(data => (
                     <tr>
-                      <td onClick={() => this.handleClick(data.id)}>
-                        {data.student_name}
-                      </td>
-                      <td onClick={() => this.handleClick(data.id)}>
-                        {data.ra_student}
-                      </td>
-                      <td onClick={() => this.handleClick(data.id)}>
-                        {data.course_name}
-                      </td>
-                      <td onClick={() => this.handleClick(data.id)}>
-                        {data.year_entry}
-                      </td>
-                      <td onClick={() => this.handleClick(data.id)}>
-                        {data.year_conclusion}
-                      </td>
+                      <td>{data.student_name}</td>
+                      <td>{data.ra_student}</td>
+                      <td>{data.course_name}</td>
+                      <td>{data.year_entry}</td>
+                      <td>{data.year_conclusion}</td>
                       <td>
                         <ButtonSearch id={data.ra_student} />
                       </td>
