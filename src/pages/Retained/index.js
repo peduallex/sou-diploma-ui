@@ -79,7 +79,7 @@ class Retained extends Component {
                       index < this.state.countPerPage * this.state.activePage
                   )
                   .map(data => (
-                    <tr onClick={() => this.handleClick(data.id)}>
+                    <tr onClick={() => this.handleClick(data.ra_student)}>
                       <td>{data.student_name}</td>
                       <td>{data.ra_student}</td>
                       <td>{data.course_name}</td>
