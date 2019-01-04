@@ -52,6 +52,12 @@
   }
 }
 
+.page-item.active .page-link {
+  color: rgb(98, 121, 128);
+  background-color: rgb(178, 50, 57);
+  border-color: rgb(16, 28, 33);
+}
+
 a:hover {
   text-decoration: none;
 }
