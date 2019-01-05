@@ -1,0 +1,75 @@
+@page {
+  size: landscape;
+  margin: 0mm;
+}
+@media print {
+  body {
+    width: 29.7cm;
+    height: 21cm;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: -1px;
+    #diploma {
+      display: block;
+    }
+  }
+}
+
+#diploma {
+  display: none;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  .content {
+    display: inline-block;
+    width: 800px;
+    text-align: center;
+    margin: 20% 0 0 20%;
+
+    .paragraph {
+      margin: 0;
+      font-weight: 300;
+
+      span {
+        font-weight: bold;
+      }
+      &.-marginBottom {
+        margin-bottom: 40px;
+      }
+    }
+    #name {
+      text-transform: uppercase;
+      font-size: 1.5rem;
+      margin: 20px 0;
+      color: #af1c27;
+    }
+    #course {
+      display: block;
+      font-size: 1.3rem;
+      margin: 17px auto;
+      max-width: 550px;
+    }
+  }
+
+  .signatures {
+    display: flex;
+    text-align: center;
+    margin-top: 60px;
+    .signature {
+      width: 22%;
+
+      border-top: 1px solid black;
+      span {
+        display: block;
+        font-weight: bold;
+      }
+      &:first-child {
+        margin-left: 18%;
+      }
+      &:not(:last-child) {
+        margin-right: 6%;
+      }
+    }
+  }
+}
