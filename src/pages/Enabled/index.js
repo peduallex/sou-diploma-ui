@@ -7,10 +7,14 @@ import ButtonSearch from '../../components/BtnSearch';
 import Menu from '../../components/Menu';
 import BtnEmail from '../../components/BtnEmail';
 import Audited from '../../../src/services/diplomaApi';
+import Pagination from 'react-js-pagination';
 
 class Enable extends Component {
   state = {
-    courses: []
+    courses: [],
+    search: '',
+    activePage: 1,
+    countPerPage: 5
   };
 
   async componentDidMount() {
@@ -18,8 +22,18 @@ class Enable extends Component {
     this.setState({ courses: res.data });
   }
 
+  handlePageChange = pageNumber => {
+    console.log(`active page is ${pageNumber}`);
+    this.setState({ activePage: pageNumber });
+  };
+
+  handleSearch = ({ target }) => {
+    this.setState({ search: target.value });
+    //console.log(this.state.search)
+  };
+
   handleClick = id => {
-    this.props.history.push(`/diploma/${id}`);
+    this.props.history.push(`/students/${id}`);
   };
 
   render() {
@@ -65,31 +79,53 @@ class Enable extends Component {
                 </tr>
               </thead>
               <tbody>
-                {this.state.courses.map(data => (
-                  <tr>
-                    <td>{data.student_name}</td>
-                    <td>{data.ra_student}</td>
-                    <td>{data.course_name}</td>
-                    <td>{data.year_entry}</td>
-                    <td>{data.year_conclusion}</td>
-                    <td>
-                      <ButtonSearch id={data.ra_student} />
-                    </td>
-                  </tr>
-                ))}
+                {this.state.courses
+                  .filter(data => RegExp(this.state.search).test(data.name))
+                  .filter(
+                    (data, index) =>
+                      index >=
+                        this.state.countPerPage * (this.state.activePage - 1) &&
+                      index < this.state.countPerPage * this.state.activePage
+                  )
+                  .map(data => (
+                    <tr>
+                      <td>{data.student_name}</td>
+                      <td>{data.ra_student}</td>
+                      <td>{data.course_name}</td>
+                      <td>{data.year_entry}</td>
+                      <td>{data.year_conclusion}</td>
+                      <td>
+                        <ButtonSearch id={data.ra_student} />
+                      </td>
+                    </tr>
+                  ))}
               </tbody>
             </table>
-          </fieldset>
-          <br />
-          <div className="row">
-            <div className="col-md-12">
-              <div className="float-right">
-                {/*<a className="selecionar" href="tg">
-                IMPRIMIR
-</a>*/}
+            <div className="float-right">
+              <div className="padding">
+                <Pagination
+                  activePage={this.state.activePage}
+                  itemsCountPerPage={5}
+                  totalItemsCount={this.state.courses.length}
+                  pageRangeDisplayed={5}
+                  onChange={this.handlePageChange}
+                  innerClass="pagination"
+                  itemClass="page-item"
+                  linkClass="page-link"
+                />
               </div>
             </div>
-          </div>
+          </fieldset>
+          <br />
+          {/* <div className="row">
+            <div className="col-md-12">
+              <div className="float-right">
+                <a className="selecionar" href="tg">
+                IMPRIMIR
+                 </a>
+              </div>
+            </div>
+          </div> */}
         </div>
         <br />
       </div>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import Pagination from 'react-js-pagination';
 import './style.scss';
 import user from '../../assets/imgs/user.jpg';
@@ -13,7 +12,7 @@ class Process extends Component {
     courses: [],
     search: '',
     activePage: 1,
-    countPerPage: 10
+    countPerPage: 5
   };
 
   handlePageChange = pageNumber => {
@@ -59,7 +58,7 @@ class Process extends Component {
           </fieldset>
           <fieldset>
             <div class="row top">
-              <div className="col-md-5">
+              <div className="col-md-4">
                 <Search />
               </div>
               {/*<div className="col-md-7">
@@ -87,15 +86,13 @@ class Process extends Component {
                   .filter(data => RegExp(this.state.search).test(data.name))
                   .filter(
                     (data, index) =>
-                      index >
+                      index >=
                         this.state.countPerPage * (this.state.activePage - 1) &&
                       index < this.state.countPerPage * this.state.activePage
                   )
                   .map(data => (
                     <tr onClick={() => this.handleClick(data.id)}>
-                      <td>
-                        <img className="circle" src={user} alt="" /> {data.name}
-                      </td>
+                      <td>{data.name}</td>
                       <td>{data.academic_register}</td>
                       <td>{data.polo}</td>
                       <td>{data.year_entry}</td>
@@ -105,16 +102,23 @@ class Process extends Component {
                   ))}
               </tbody>
             </table>
-            <Pagination
-              activePage={this.state.activePage}
-              itemsCountPerPage={10}
-              totalItemsCount={this.state.courses.length}
-              pageRangeDisplayed={5}
-              onChange={this.handlePageChange}
-            />
+            <div className="float-right">
+              <div className="padding">
+                <Pagination
+                  activePage={this.state.activePage}
+                  itemsCountPerPage={5}
+                  totalItemsCount={this.state.courses.length}
+                  pageRangeDisplayed={5}
+                  onChange={this.handlePageChange}
+                  innerClass="pagination"
+                  itemClass="page-item"
+                  linkClass="page-link"
+                />
+              </div>
+            </div>
           </fieldset>
           <br />
-          <div className="row">
+          {/* <div className="row">
             <div className="col-md-12">
               <div className="float-right">
                 <a className="selecionar" href="tg">
@@ -122,7 +126,7 @@ class Process extends Component {
                 </a>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
         <br />
       </div>
