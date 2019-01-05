@@ -216,6 +216,7 @@ class Print extends Component {
                         employees[1] =
                           e.target.options[e.target.selectedIndex].text;
                         this.setState({ employees });
+                        console.log(employees);
                       }}
                     >
                       <option value="0">Selecione um Analista</option>
@@ -234,7 +235,7 @@ class Print extends Component {
               <div className="col-md-12">
                 <div className="float-right">
                   <input
-                    onClick={() => this.handleClick(this.props.match.params.id)}
+                    onClick={this.saveOnLocalStorage}
                     className="selecionar"
                     type="submit"
                     value="IMPRIMIR 1º VIA"
