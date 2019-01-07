@@ -6,7 +6,7 @@ import audited from '../../services/AuditedApi';
 
 class Submit extends Component {
   handleClick = (id, name) => {
-    audited.post('finalurl', { id, name });
+    audited.post('responsible-process', { id, name });
   };
   render() {
     return (
