@@ -118,7 +118,7 @@ class Students extends Component {
                   onChange={this.handlePageChange}
                   innerClass="pagination"
                   itemClass="page-item"
-                  linkClass="page-link"
+                  linkClass="page-link link-cor"
                 />
               </div>
             </div>
