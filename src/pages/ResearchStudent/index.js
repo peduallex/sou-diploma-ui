@@ -36,80 +36,83 @@ class Audit extends Component {
     return (
       <div>
         <div className="col-md-12">
-          <div className="col-md-9 border  center">
-            <div className="text-center">
-              <h5>
-                Selecione o curso de GRADUAÇÃO E ANO DE INGRESSO que deseja
-                acessar:
-              </h5>
-            </div>
-            <div class="row">
-              <div className="col-md-5 center">
-                <div className="text-center">
-                  <form action="fs" method="post">
-                    <div class="submit-line">
-                      <input
-                        placeholder="Pesquise curso ou ano de ingresso"
-                        type="text"
-                        onChange={this.handleSearch}
-                      />
-                      <button class="submit-lente" type="submit">
-                        <i class="fa fa-search" />
-                      </button>
-                    </div>
-                  </form>
+          <div className="col-md-9 center">
+            <fieldset className="border">
+              <div className="text-center">
+                <h5>
+                  Selecione o curso de GRADUAÇÃO E ANO DE INGRESSO que deseja
+                  acessar:
+                </h5>
+              </div>
+              <div class="row">
+                <div className="col-md-5 center">
+                  <div className="text-center">
+                    <form action="fs" method="post">
+                      <div class="submit-line">
+                        <input
+                          placeholder="Pesquise curso ou ano de ingresso"
+                          type="text"
+                          onChange={this.handleSearch}
+                        />
+                        <button class="submit-lente" type="submit">
+                          <i class="fa fa-search" />
+                        </button>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               </div>
-            </div>
-            <table className="table table-hover borda-tabela-titulos">
-              <thead>
-                <tr>
-                  <th scope="col">Nome do Curso</th>
-                  <th scope="col">
-                    Semestre / <br /> Ano do Ingresso
-                  </th>
-                  <th scope="col">
-                    Semestre / <br /> Ano de Conclusão
-                  </th>
-                  <th scope="col">
-                    Numeros de <br />
-                    Alunos Habilitados
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {this.state.courses
-                  .filter(item => RegExp(search, 'i').test(item.name))
-                  .filter(
-                    (data, index) =>
-                      index >=
-                        this.state.countPerPage * (this.state.activePage - 1) &&
-                      index < this.state.countPerPage * this.state.activePage
-                  )
-                  .map(data => (
-                    <tr onClick={() => this.handleClick(data.id)}>
-                      <td>{data.name}</td>
-                      <td>{data.year_entry}</td>
-                      <td>{data.ano_conclusao}</td>
-                      <td>{data.TT}</td>
-                    </tr>
-                  ))}
-              </tbody>
-            </table>
-            <div className="float-right">
-              <div className="padding">
-                <Pagination
-                  activePage={this.state.activePage}
-                  itemsCountPerPage={5}
-                  totalItemsCount={this.state.courses.length}
-                  pageRangeDisplayed={5}
-                  onChange={this.handlePageChange}
-                  innerClass="pagination"
-                  itemClass="page-item"
-                  linkClass="page-link"
-                />
+              <table className="table table-hover borda-tabela-titulos">
+                <thead>
+                  <tr>
+                    <th scope="col">Nome do Curso</th>
+                    <th scope="col">
+                      Semestre / <br /> Ano do Ingresso
+                    </th>
+                    <th scope="col">
+                      Semestre / <br /> Ano de Conclusão
+                    </th>
+                    <th scope="col">
+                      Numeros de <br />
+                      Alunos Habilitados
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {this.state.courses
+                    .filter(item => RegExp(search, 'i').test(item.name))
+                    .filter(
+                      (data, index) =>
+                        index >=
+                          this.state.countPerPage *
+                            (this.state.activePage - 1) &&
+                        index < this.state.countPerPage * this.state.activePage
+                    )
+                    .map(data => (
+                      <tr onClick={() => this.handleClick(data.id)}>
+                        <td>{data.name}</td>
+                        <td>{data.year_entry}</td>
+                        <td>{data.ano_conclusao}</td>
+                        <td>{data.TT}</td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
+              <div className="float-right">
+                <div className="padding">
+                  <Pagination
+                    activePage={this.state.activePage}
+                    itemsCountPerPage={5}
+                    totalItemsCount={this.state.courses.length}
+                    pageRangeDisplayed={5}
+                    onChange={this.handlePageChange}
+                    innerClass="pagination"
+                    itemClass="page-item"
+                    linkClass="page-link"
+                  />
+                </div>
               </div>
-            </div>
+            </fieldset>
           </div>
         </div>
 
