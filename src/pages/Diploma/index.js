@@ -101,22 +101,22 @@ class Diploma extends Component {
         </div>
         <div className="container">
           <div id="diploma">
-            <div class="content">
-              <p class="paragraph">
+            <div className="content">
+              <p className="paragraph">
                 A presidente da{' '}
                 <span>Universidade Virtual do Estado de São Paulo</span>,
               </p>
-              <p class="paragraph -marginBottom">
+              <p className="paragraph -marginBottom">
                 no uso de suas atribuições, confere a
               </p>
               <h1 id="name">{this.state.diploma.name}</h1>
-              <p class="paragraph">
+              <p className="paragraph">
                 de nacionalidade {this.state.diploma.nacionalidade},
               </p>
-              <p class="paragraph">
+              <p className="paragraph">
                 portador da cédula de identidade RG {this.state.diploma.RG} SP,
               </p>
-              <p class="paragraph">
+              <p className="paragraph">
                 nascido em{' '}
                 {this.state.diploma['birth_date']
                   ? this.state.diploma['birth_date'].split('/')[0]
@@ -132,10 +132,10 @@ class Diploma extends Component {
                   ? this.state.diploma['birth_date'].split('/')[2]
                   : ''}
               </p>
-              <p class="paragraph">e natural do Estado de São Paulo,</p>
-              <p class="paragraph">o diploma do</p>
+              <p className="paragraph">e natural do Estado de São Paulo,</p>
+              <p className="paragraph">o diploma do</p>
               <h2 id="course">{this.state.diploma['course_name']}</h2>
-              <p class="paragraph">
+              <p className="paragraph">
                 concluído em{' '}
                 {this.state.diploma['date_conclusion']
                   ? months[
@@ -149,22 +149,22 @@ class Diploma extends Component {
                   ? this.state.diploma['date_conclusion'].split('/')[2]
                   : ''}
               </p>
-              <p class="paragraph -marginBottom">
+              <p className="paragraph -marginBottom">
                 para que possa gozar dos direitos e prerrogativas legais.
               </p>
-              <p class="paragraph">
+              <p className="paragraph">
                 São Paulo, {new Date().getDate()} de{' '}
                 {months[new Date().getMonth()]} de {new Date().getFullYear()}.
               </p>
             </div>
-            <div class="signatures">
-              <p class="signature">
+            <div className="signatures">
+              <p className="signature">
                 &nbsp; <span>&nbsp;</span>
               </p>
-              <p class="signature">
+              <p className="signature">
                 &nbsp; <span>&nbsp;</span>
               </p>
-              <p class="signature">
+              <p className="signature">
                 <span>Diplomado(a)</span>{' '}
               </p>
             </div>
@@ -172,9 +172,7 @@ class Diploma extends Component {
           <div className="row">
             <div className="col-md-12">
               <div className="float-right">
-                <a className="selecionar" href="tg">
-                  VOLTAR
-                </a>
+                <a className="selecionar">VOLTAR</a>
               </div>
             </div>
           </div>
