@@ -189,7 +189,7 @@ class RegistrationData extends Component {
                 <div className="col-md-4">
                   <fieldset className="border">
                     <span className="title-box">Emissor/Estado</span>
-                    <select class="form-control">
+                    <select className="form-control">
                       {this.state.emitter.map(data => (
                         <option>{data.name}</option>
                       ))}
@@ -199,7 +199,7 @@ class RegistrationData extends Component {
                 <div className="col-md-4">
                   <fieldset className="border">
                     <span className="title-box">Nacionalidade</span>
-                    <select class="form-control">
+                    <select className="form-control">
                       {this.state.nationality.map(data => (
                         <option>{data.portuguese_name}</option>
                       ))}
@@ -248,7 +248,7 @@ class RegistrationData extends Component {
                 <div className="col-md-4">
                   <fieldset className="border">
                     <span className="title-box">Naturalidade</span>
-                    <select class="form-control">
+                    <select className="form-control">
                       {this.state.naturalness.map(data => (
                         <option>{data.name2}</option>
                       ))}
@@ -367,7 +367,7 @@ class RegistrationData extends Component {
                 <div className="col-md-3">
                   <fieldset className="border">
                     <span className="title-box">Cidade</span>
-                    <select class="form-control">
+                    <select className="form-control">
                       {this.state.city.map(data => (
                         <option>{data.name}</option>
                       ))}
@@ -377,7 +377,7 @@ class RegistrationData extends Component {
                 <div className="col-md-3">
                   <fieldset className="border">
                     <span className="title-box">Estado</span>
-                    <select class="form-control">
+                    <select className="form-control">
                       <option value="AC">Acre</option>
                       <option value="AL">Alagoas</option>
                       <option value="AP">Amapá</option>
@@ -586,7 +586,7 @@ class RegistrationData extends Component {
                           <input
                             name="name"
                             type="text"
-                            class="form-control"
+                            className="form-control"
                             required
                             value={this.state.modalValue}
                           />
