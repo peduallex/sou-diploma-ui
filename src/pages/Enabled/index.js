@@ -32,11 +32,19 @@ class Enable extends Component {
     //console.log(this.state.search)
   };
 
-  handleClick = id => {
-    this.props.history.push(`/students/${id}`);
+  handleClick = ra_student => {
+    this.props.history.push(`/students/${ra_student}`);
   };
 
+  handleClicks = id => {
+    this.props.history.push(`/studentdiploma/${id}`);
+  };
   render() {
+    const {
+      match: {
+        params: { id }
+      }
+    } = this.props;
     return (
       <div>
         <div className="container">
@@ -117,15 +125,15 @@ class Enable extends Component {
             </div>
           </fieldset>
           <br />
-          {/* <div className="row">
+          <div className="row">
             <div className="col-md-12">
               <div className="float-right">
-                <a className="selecionar" href="tg">
-                IMPRIMIR
-                 </a>
+                <a className="selecionar" onClick={() => this.handleClicks(id)}>
+                  IMPRIMIR
+                </a>
               </div>
             </div>
-          </div> */}
+          </div>
         </div>
         <br />
       </div>
