@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import ReactToPrint from 'react-to-print';
+
+import Diploma from '../LayoutDiploma';
+
 import './style.scss';
 
 class Print extends Component {
@@ -61,7 +65,34 @@ class Print extends Component {
     }
   };
 
+  handleClick = id => {
+    this.props.history.push(`/studentdiploma/${id}`);
+  };
+
+  renderContent = () => {
+    // eslint-disable-line arrow-body-style
+    return this.componentRef;
+  };
+
+  renderTrigger = () => {
+    // eslint-disable-line arrow-body-style
+    return (
+      <button
+        className="selecionar"
+        onClick={this.saveOnLocalStorage}
+        type="button"
+      >
+        IMPRIMIR 1º VIA
+      </button>
+    );
+  };
+
+  setRef = ref => {
+    this.componentRef = ref;
+  };
+
   render() {
+    const { signatures, employees } = this.state;
     return (
       <div>
         <form>
@@ -229,11 +260,11 @@ class Print extends Component {
             <div className="row">
               <div className="col-md-12">
                 <div className="float-right">
-                  <input
-                    className="selecionar"
-                    type="submit"
-                    value="IMPRIMIR 1º VIA"
+                  <ReactToPrint
+                    trigger={this.renderTrigger}
+                    content={this.renderContent}
                   />
+
                   {/*<a className="selecionar" onClick={this.saveOnLocalStorage}>
                   IMPRIMIR 1º VIA
                   </a>*/}
@@ -243,6 +274,12 @@ class Print extends Component {
             <br />
           </div>
         </form>
+        <Diploma
+          diploma={JSON.parse(localStorage.getItem('diploma'))}
+          employees={employees}
+          signatures={signatures}
+          ref={this.setRef}
+        />
       </div>
     );
   }

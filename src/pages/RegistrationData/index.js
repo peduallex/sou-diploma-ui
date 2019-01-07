@@ -31,11 +31,16 @@ class RegistrationData extends Component {
     city: [],
     nationality: [],
     emitter: [],
-    naturalness: []
+    naturalness: [],
+    modalValue: ''
   };
 
   handleClick = id => {
     this.props.history.push(`/enabled/${id}`);
+  };
+
+  handleBack = id => {
+    this.props.history.push(`/process/${id}`);
   };
 
   async componentDidMount() {
@@ -93,7 +98,9 @@ class RegistrationData extends Component {
                         <img
                           data-toggle="modal"
                           data-target="#myModal"
-                          onclick="load_modal('');"
+                          onClick={() => {
+                            this.setState({ modalValue: data.name });
+                          }}
                           src={editar}
                         />
                         {data.name}
@@ -111,7 +118,9 @@ class RegistrationData extends Component {
                         <img
                           data-toggle="modal"
                           data-target="#myModal"
-                          onclick="load_modal('');"
+                          onClick={() => {
+                            this.setState({ modalValue: data.assumed_name });
+                          }}
                           src={editar}
                         />
                         {data.assumed_name}
@@ -167,7 +176,9 @@ class RegistrationData extends Component {
                         <img
                           data-toggle="modal"
                           data-target="#myModal"
-                          onclick="load_modal('');"
+                          onClick={() => {
+                            this.setState({ modalValue: data.rg_number });
+                          }}
                           src={editar}
                         />
                         {data.rg_number}
@@ -206,7 +217,9 @@ class RegistrationData extends Component {
                         <img
                           data-toggle="modal"
                           data-target="#myModal"
-                          onclick="load_modal('');"
+                          onClick={() => {
+                            this.setState({ modalValue: data.cpf });
+                          }}
                           src={editar}
                         />
                         {data.cpf}
@@ -222,7 +235,9 @@ class RegistrationData extends Component {
                         <img
                           data-toggle="modal"
                           data-target="#myModal"
-                          onclick="load_modal('');"
+                          onClick={() => {
+                            this.setState({ modalValue: data.titulo_number });
+                          }}
                           src={editar}
                         />
                         {data.titulo_number}
@@ -251,7 +266,9 @@ class RegistrationData extends Component {
                         <img
                           data-toggle="modal"
                           data-target="#myModal"
-                          onclick="load_modal('');"
+                          onClick={() => {
+                            this.setState({ modalValue: data.mothers_name });
+                          }}
                           src={editar}
                         />
                         {data.mothers_name}
@@ -269,7 +286,9 @@ class RegistrationData extends Component {
                         <img
                           data-toggle="modal"
                           data-target="#myModal"
-                          onclick="load_modal('');"
+                          onClick={() => {
+                            this.setState({ modalValue: data.fathers_name });
+                          }}
                           src={editar}
                         />
                         {data.fathers_name}
@@ -289,7 +308,14 @@ class RegistrationData extends Component {
                         <img
                           data-toggle="modal"
                           data-target="#myModal"
-                          onclick="load_modal('');"
+                          onClick={() => {
+                            this.setState({
+                              modalValue:
+                                data.street +
+                                data.street_number +
+                                data.street_complement
+                            });
+                          }}
                           src={editar}
                         />
                         {data.street}&nbsp;
@@ -309,7 +335,9 @@ class RegistrationData extends Component {
                         <img
                           data-toggle="modal"
                           data-target="#myModal"
-                          onclick="load_modal('');"
+                          onClick={() => {
+                            this.setState({ modalValue: data.zipcode });
+                          }}
                           src={editar}
                         />
 
@@ -326,7 +354,9 @@ class RegistrationData extends Component {
                         <img
                           data-toggle="modal"
                           data-target="#myModal"
-                          onclick="load_modal('');"
+                          onClick={() => {
+                            this.setState({ modalValue: data.neighborhood });
+                          }}
                           src={editar}
                         />
                         {data.neighborhood}
@@ -388,7 +418,9 @@ class RegistrationData extends Component {
                         <img
                           data-toggle="modal"
                           data-target="#myModal"
-                          onclick="load_modal('');"
+                          onClick={() => {
+                            this.setState({ modalValue: data.email_pessoal });
+                          }}
                           src={editar}
                         />
                         {data.email_pessoal}
@@ -404,7 +436,9 @@ class RegistrationData extends Component {
                         <img
                           data-toggle="modal"
                           data-target="#myModal"
-                          onclick="load_modal('');"
+                          onClick={() => {
+                            this.setState({ modalValue: data.email_inst });
+                          }}
                           src={editar}
                         />
                         {data.email_inst}
@@ -488,7 +522,9 @@ class RegistrationData extends Component {
                     <span className="title-box">
                       Data de Expedição do Diploma
                     </span>
-                    <p>Pedro Souza</p>
+                    {this.state.personal.map(data => (
+                      <p>{data.name}</p>
+                    ))}
                   </fieldset>
                 </div>
               </div>
@@ -507,9 +543,14 @@ class RegistrationData extends Component {
                       ))}
                     </div>
                     <div className="float-right">
-                      <a className="voltar" href="tg">
-                        VOLTAR
-                      </a>
+                      {this.state.courses.map(data => (
+                        <a
+                          className="voltar"
+                          onClick={() => this.handleBack(data.id)}
+                        >
+                          Voltar
+                        </a>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -547,7 +588,7 @@ class RegistrationData extends Component {
                             type="text"
                             class="form-control"
                             required
-                            value=""
+                            value={this.state.modalValue}
                           />
                         </div>
                         <input
