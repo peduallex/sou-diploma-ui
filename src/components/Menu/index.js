@@ -15,7 +15,7 @@ class Menu extends Component {
               active={tab === 0}
               onClick={() => this.setState({ tab: 0 })}
             >
-              <b>Em Abertos</b>
+              <b>Em Aberto</b>
             </Action>
             <Action
               active={tab === 1}
