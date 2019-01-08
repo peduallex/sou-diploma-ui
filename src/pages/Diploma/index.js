@@ -92,7 +92,6 @@ class Diploma extends Component {
                     >
                       <img src={Impressora} className="margin" />
                     </a>
-                    <img className="margin" src={Dowloands} />
                   </div>
                 </div>
               </div>
@@ -100,7 +99,7 @@ class Diploma extends Component {
           </div>
         </div>
         <div className="container">
-          <div id="diploma">
+          <div id="diploma" className="show">
             <div className="content">
               <p className="paragraph">
                 A presidente da{' '}

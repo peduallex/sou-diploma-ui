@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactToPrint from 'react-to-print';
+import { Link } from 'react-router-dom';
 
 import Diploma from '../LayoutDiploma';
 

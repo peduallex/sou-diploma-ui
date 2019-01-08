@@ -46,9 +46,10 @@ class Process extends Component {
             <nav id="menu">
               <ul>
                 <li>
-                  <a className="link1 active" href="#">
+                  {/*<a className="link1 active" href="#">
                     Processos em aberto
-                  </a>
+    </a>*/}
+            <Menu/>
                 </li>
                 {/*<li>
                 <a>Alunos habilitados</a>
