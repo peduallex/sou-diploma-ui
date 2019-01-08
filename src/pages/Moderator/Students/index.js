@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import Pagination from 'react-js-pagination';
 import './style.scss';
+import Pagination from 'react-js-pagination';
 import user from '../../assets/imgs/user.jpg';
-import Search from '../../components/Search';
+import Submit from '../../components/Submit';
 import Dowloand from '../../components/Dowloand';
 import Menu from '../../components/Menu';
 import Open from '../../../src/services/OpenProcessApi';
 
-class Process extends Component {
+class Students extends Component {
   state = {
     courses: [],
     search: '',
@@ -31,54 +31,47 @@ class Process extends Component {
   };
 
   handleClick = id => {
-    this.props.history.push(`/registration/${id}`);
+    this.props.history.push(`/process/${id}`);
   };
 
   render() {
     return (
       <div>
         <div className="container">
-          <h2 className="title">Nome do Curso - 1º VIA </h2>
-
-          <br />
-
+          <h2 className="title">Nome do Curso - 1º VIA</h2>
           <fieldset>
-            <nav id="menu">
-              <ul>
-                <li>
-                  {/*<a className="link1 active" href="#">
-                    Processos em aberto
-    </a>*/}
-            <Menu/>
-                </li>
-                {/*<li>
-                <a>Alunos habilitados</a>
-              </li>*/}
-              </ul>
-            </nav>
+            <Menu />
           </fieldset>
           <fieldset>
-            <div class="row top">
-              <div className="col-md-4">
-                <Search />
+            <div className="row">
+              <div className="col-md-6">
+                <div className="custom-control custom-checkbox">
+                  <input
+                    type="checkbox"
+                    className="custom-control-input"
+                    id="defaultChecked2"
+                  />
+                  {/* <label class="custom-control-label" for="defaultChecked2">
+                  Selecionar Todos
+  </label>*/}
+                </div>
               </div>
-              {/*<div className="col-md-7">
+              {/*<div className="col-md-6">
               <div className="right" /> <Dowloand />
-  </div>*/}
+</div>*/}
             </div>
             <table className="table table-hover borda-tabela-titulos table2">
               <thead>
                 <tr>
                   <th scope="col">Nome</th>
                   <th scope="col">RA</th>
-                  <th scope="col">Curso</th>
+                  <th scope="col">Polo</th>
                   <th scope="col">
                     Semestre / <br /> Ano de Ingresso
                   </th>
                   <th scope="col">
                     Semestre / <br /> de Conclusão
                   </th>
-                  <th scope="col">Atribuido em</th>
                   <th scope="col" />
                 </tr>
               </thead>
@@ -92,13 +85,25 @@ class Process extends Component {
                       index < this.state.countPerPage * this.state.activePage
                   )
                   .map(data => (
-                    <tr onClick={() => this.handleClick(data.id)}>
-                      <td>{data.name}</td>
-                      <td>{data.academic_register}</td>
-                      <td>{data.polo}</td>
-                      <td>{data.year_entry}</td>
-                      <td>{data.year_conclusion}</td>
-                      <td>xxxxxxx</td>
+                    <tr>
+                      <td onClick={() => this.handleClick(data.id)}>
+                        {data.name}
+                      </td>
+                      <td onClick={() => this.handleClick(data.id)}>
+                        {data.academic_register}
+                      </td>
+                      <td onClick={() => this.handleClick(data.id)}>
+                        {data.polo}
+                      </td>
+                      <td onClick={() => this.handleClick(data.id)}>
+                        {data.year_entry}
+                      </td>
+                      <td onClick={() => this.handleClick(data.id)}>
+                        {data.year_conclusion}
+                      </td>
+                      <td>
+                        <Submit />
+                      </td>
                     </tr>
                   ))}
               </tbody>
@@ -113,7 +118,7 @@ class Process extends Component {
                   onChange={this.handlePageChange}
                   innerClass="pagination"
                   itemClass="page-item"
-                  linkClass="page-link"
+                  linkClass="page-link link-cor"
                 />
               </div>
             </div>
@@ -123,7 +128,7 @@ class Process extends Component {
             <div className="col-md-12">
               <div className="float-right">
                 <a className="selecionar" href="tg">
-                  SELECIONAR
+                  VISUALIZAR
                 </a>
               </div>
             </div>
@@ -135,4 +140,4 @@ class Process extends Component {
   }
 }
 
-export default Process;
+export default Students;

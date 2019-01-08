@@ -6,7 +6,7 @@ import impressora from '../../assets/imgs/impressora.png';
 const Protocol = () => {
   return (
     <div>
-      <div className="container">
+      {/*<div className="container">
         <h2 className=" titulo">Protocolo de Entrega do Diploma</h2>
         <span className="subtitulos">
           Este protocolo já foi Impresso por Maria Souza, às 18:45h do dia
@@ -86,7 +86,7 @@ const Protocol = () => {
           </div>
         </div>
         <br />
-      </div>
+  </div>*/}
     </div>
   );
 };
