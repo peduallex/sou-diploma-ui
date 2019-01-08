@@ -43,12 +43,12 @@ class Students extends Component {
             <Menu />
           </fieldset>
           <fieldset>
-            <div class="row">
+            <div className="row">
               <div className="col-md-6">
-                <div class="custom-control custom-checkbox">
+                <div className="custom-control custom-checkbox">
                   <input
                     type="checkbox"
-                    class="custom-control-input"
+                    className="custom-control-input"
                     id="defaultChecked2"
                   />
                   {/* <label class="custom-control-label" for="defaultChecked2">
