@@ -13,7 +13,7 @@ class Students extends Component {
     search: '',
     activePage: 1,
     countPerPage: 5
-  };
+  }; 
 
   handlePageChange = pageNumber => {
     console.log(`active page is ${pageNumber}`);
