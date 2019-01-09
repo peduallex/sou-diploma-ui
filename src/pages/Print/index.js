@@ -3,15 +3,15 @@ import ReactToPrint from 'react-to-print';
 import { Link } from 'react-router-dom';
 
 import Diploma from '../LayoutDiploma';
+import { Formik, Form, ErrorMessage } from 'formik';
 
-import './style.scss';
-
+import './style.scss'
 class Print extends Component {
   state = {
     signatures: [],
     employees: []
   };
-  saveOnLocalStorage = e => {
+  /* saveOnLocalStorage = e => {
     if (
       document.getElementById('optSignature').value == 0 ||
       document.getElementById('optSignature2').value == 0 ||
@@ -48,15 +48,15 @@ class Print extends Component {
       } else {
         localStorage.setItem('signatures', '');
       }
-    }
+    }*/
 
-    /* if (document.getElementById('optSignature') == '') {
+  /* if (document.getElementById('optSignature') == '') {
       alert('Por favor, selecione uma opção valida');
       document.getElementById('optSignature').focus();
       return false;
     }*/
 
-    if (
+  /* if (
       document.getElementById('optEmployee') !=
       document.getElementById('optEmployee2')
     ) {
@@ -64,7 +64,7 @@ class Print extends Component {
     } else {
       localStorage.setItem('employees', '');
     }
-  };
+  };*/
 
   handleClick = id => {
     this.props.history.push(`/studentdiploma/${id}`);
@@ -275,6 +275,7 @@ class Print extends Component {
             <br />
           </div>
         </form>
+        />
         <Diploma
           diploma={JSON.parse(localStorage.getItem('diploma'))}
           employees={employees}

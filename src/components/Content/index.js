@@ -20,6 +20,7 @@ import Alert from '../../pages/Alert';
 
 import Main from './styles';
 import Avaliations from '../../assets/imgs/avaliacoes.svg';
+import ApprovalLaws from '../../pages/ApprovalLaws';
 
 const links = [
   {
@@ -82,6 +83,7 @@ const Content = () => (
                 <Route path="/generateticket/:id" component={GenerateTicket} />
                 <Route path="/protocol" component={Protocol} />
                 <Route path="/alert" component={Alert} />
+                <Route path="/approvallaws/:id" component={ApprovalLaws} />
                 {/* <Route path="/alert/:id" component={Alert} /> */}
                 {/* class dsauhdhusahu extends Component {} */}
                 {/* this.props.match.params.id */}
