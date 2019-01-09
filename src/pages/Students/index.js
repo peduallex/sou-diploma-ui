@@ -101,9 +101,6 @@ class Students extends Component {
                       <td onClick={() => this.handleClick(data.id)}>
                         {data.year_conclusion}
                       </td>
-                      <td>
-                        <Submit/>
-                      </td>
                     </tr>
                   ))}
               </tbody>
