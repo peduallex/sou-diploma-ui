@@ -99,7 +99,10 @@ class RegistrationData extends Component {
                           data-toggle="modal"
                           data-target="#myModal"
                           onClick={() => {
-                            this.setState({ modalValue: data.name });
+                            this.setState({
+                              modalValue: data.name,
+                              modalName: 'name'
+                            });
                           }}
                           src={editar}
                         />
@@ -119,7 +122,10 @@ class RegistrationData extends Component {
                           data-toggle="modal"
                           data-target="#myModal"
                           onClick={() => {
-                            this.setState({ modalValue: data.assumed_name });
+                            this.setState({
+                              modalValue: data.assumed_name,
+                              modalName: 'assumed_name'
+                            });
                           }}
                           src={editar}
                         />
@@ -177,7 +183,10 @@ class RegistrationData extends Component {
                           data-toggle="modal"
                           data-target="#myModal"
                           onClick={() => {
-                            this.setState({ modalValue: data.rg_number });
+                            this.setState({
+                              modalValue: data.rg_number,
+                              modalName: 'rg_number'
+                            });
                           }}
                           src={editar}
                         />
@@ -218,7 +227,10 @@ class RegistrationData extends Component {
                           data-toggle="modal"
                           data-target="#myModal"
                           onClick={() => {
-                            this.setState({ modalValue: data.cpf });
+                            this.setState({
+                              modalValue: data.cpf,
+                              modalName: 'cpf'
+                            });
                           }}
                           src={editar}
                         />
@@ -236,7 +248,10 @@ class RegistrationData extends Component {
                           data-toggle="modal"
                           data-target="#myModal"
                           onClick={() => {
-                            this.setState({ modalValue: data.titulo_number });
+                            this.setState({
+                              modalValue: data.titulo_number,
+                              modalName: 'titulo_number'
+                            });
                           }}
                           src={editar}
                         />
@@ -267,7 +282,10 @@ class RegistrationData extends Component {
                           data-toggle="modal"
                           data-target="#myModal"
                           onClick={() => {
-                            this.setState({ modalValue: data.mothers_name });
+                            this.setState({
+                              modalValue: data.mothers_name,
+                              modalName: 'mothers_name'
+                            });
                           }}
                           src={editar}
                         />
@@ -287,7 +305,10 @@ class RegistrationData extends Component {
                           data-toggle="modal"
                           data-target="#myModal"
                           onClick={() => {
-                            this.setState({ modalValue: data.fathers_name });
+                            this.setState({
+                              modalValue: data.fathers_name,
+                              modalName: 'fathers_name'
+                            });
                           }}
                           src={editar}
                         />
@@ -310,10 +331,11 @@ class RegistrationData extends Component {
                           data-target="#myModal"
                           onClick={() => {
                             this.setState({
-                              modalValue:
-                                data.street +
-                                data.street_number +
-                                data.street_complement
+                              modalValue: data.street,
+                              modalName: 'street' + data.street_number,
+                              modalName:
+                                'street_number' + data.street_complement,
+                              modalName: 'street_complement'
                             });
                           }}
                           src={editar}
@@ -336,7 +358,10 @@ class RegistrationData extends Component {
                           data-toggle="modal"
                           data-target="#myModal"
                           onClick={() => {
-                            this.setState({ modalValue: data.zipcode });
+                            this.setState({
+                              modalValue: data.zipcode,
+                              modalName: 'zipcode'
+                            });
                           }}
                           src={editar}
                         />
@@ -355,7 +380,10 @@ class RegistrationData extends Component {
                           data-toggle="modal"
                           data-target="#myModal"
                           onClick={() => {
-                            this.setState({ modalValue: data.neighborhood });
+                            this.setState({
+                              modalValue: data.neighborhood,
+                              modalName: 'neighbordhood'
+                            });
                           }}
                           src={editar}
                         />
@@ -419,7 +447,10 @@ class RegistrationData extends Component {
                           data-toggle="modal"
                           data-target="#myModal"
                           onClick={() => {
-                            this.setState({ modalValue: data.email_pessoal });
+                            this.setState({
+                              modalValue: data.email_pessoal,
+                              modalName: 'email_pessoal'
+                            });
                           }}
                           src={editar}
                         />
@@ -437,7 +468,10 @@ class RegistrationData extends Component {
                           data-toggle="modal"
                           data-target="#myModal"
                           onClick={() => {
-                            this.setState({ modalValue: data.email_inst });
+                            this.setState({
+                              modalValue: data.email_inst,
+                              modalName: 'email_inst'
+                            });
                           }}
                           src={editar}
                         />
@@ -523,7 +557,7 @@ class RegistrationData extends Component {
                       Data de Expedição do Diploma
                     </span>
                     {this.state.personal.map(data => (
-                      <p>{data.name}</p>
+                      <p />
                     ))}
                   </fieldset>
                 </div>
@@ -538,7 +572,7 @@ class RegistrationData extends Component {
                           className="selecionar"
                           onClick={() => this.handleClick(data.id)}
                         >
-                          DEFERIR
+                          APROVAR
                         </a>
                       ))}
                     </div>
@@ -584,11 +618,17 @@ class RegistrationData extends Component {
                         <div className="input-group">
                           <span className="input-group-addon glyphicon glyphicon-user" />
                           <input
-                            name="name"
+                            name={this.state.modalName}
                             type="text"
                             className="form-control"
                             required
                             value={this.state.modalValue}
+                            onChange={e =>
+                              this.setState({
+                                [e.target.name]: e.target.value,
+                                modalValue: e.target.value
+                              })
+                            }
                           />
                         </div>
                         <input

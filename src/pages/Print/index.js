@@ -256,6 +256,124 @@ class Print extends Component {
                   </div>
                 </div>
               </div>
+              <div className="row">
+                <div className="col-md-6">
+                  <div class="form-group">
+                    <label for="optSignature">Assinaturas*</label>
+                    <select
+                      class="form-control"
+                      id="optSignature"
+                      name="optSignature"
+                      required
+                      oninvalid="this.setCustomValidity(\'Selecione uma opção valida\')"
+                      onChange={e => {
+                        let { signatures } = this.state;
+                        signatures[1] =
+                          e.target.options[e.target.selectedIndex].text;
+                        this.setState({ signatures });
+                      }}
+                    >
+                      <option value="0">Selecione um Cargo</option>
+                      <option value="1">
+                        Gerente de Registros Acadêmicos e Apoio Administrativo
+                      </option>
+                      <option value="2">
+                        Coordenado(a) de Registros Acadêmicos e Apoio
+                        Administrativo
+                      </option>
+                      <option value="3">
+                        Especialista em Sistemas Educacional
+                      </option>
+                      <option value="4">Analista de Gestão Operacional</option>
+                      <option value="5">Analista de Gestão Educacional</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <div class="form-group">
+                    <label for="optEmployee2">Funcionário*</label>
+                    <select
+                      class="form-control"
+                      id="optEmployee2"
+                      required
+                      oninvalid="this.setCustomValidity(\'Selecione uma opção valida\')"
+                      name="optEmployee2"
+                      onChange={e => {
+                        let { employees } = this.state;
+                        employees[1] =
+                          e.target.options[e.target.selectedIndex].text;
+                        this.setState({ employees });
+                      }}
+                    >
+                      <option value="0">Selecione um Analista</option>
+                      <option value="1">Genivaldo Linhares Brandão</option>
+                      <option value="2">Andréa Gonçalves Mariano Souza</option>
+                      <option value="3">Leila Costa Somenk</option>
+                      <option value="4">Haroldo Avellar</option>
+                      <option value="5">Caio Fernandes</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-md-6">
+                  <div class="form-group">
+                    <label for="optSignature">Assinaturas*</label>
+                    <select
+                      class="form-control"
+                      id="optSignature"
+                      name="optSignature"
+                      required
+                      oninvalid="this.setCustomValidity(\'Selecione uma opção valida\')"
+                      onChange={e => {
+                        let { signatures } = this.state;
+                        signatures[1] =
+                          e.target.options[e.target.selectedIndex].text;
+                        this.setState({ signatures });
+                      }}
+                    >
+                      <option value="0">Selecione um Cargo</option>
+                      <option value="1">
+                        Gerente de Registros Acadêmicos e Apoio Administrativo
+                      </option>
+                      <option value="2">
+                        Coordenado(a) de Registros Acadêmicos e Apoio
+                        Administrativo
+                      </option>
+                      <option value="3">
+                        Especialista em Sistemas Educacional
+                      </option>
+                      <option value="4">Analista de Gestão Operacional</option>
+                      <option value="5">Analista de Gestão Educacional</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <div class="form-group">
+                    <label for="optEmployee2">Funcionário*</label>
+                    <select
+                      class="form-control"
+                      id="optEmployee2"
+                      required
+                      oninvalid="this.setCustomValidity(\'Selecione uma opção valida\')"
+                      name="optEmployee2"
+                      onChange={e => {
+                        let { employees } = this.state;
+                        employees[1] =
+                          e.target.options[e.target.selectedIndex].text;
+                        this.setState({ employees });
+                      }}
+                    >
+                      <option value="0">Selecione um Analista</option>
+                      <option value="1">Genivaldo Linhares Brandão</option>
+                      <option value="2">Andréa Gonçalves Mariano Souza</option>
+                      <option value="3">Leila Costa Somenk</option>
+                      <option value="4">Haroldo Avellar</option>
+                      <option value="5">Caio Fernandes</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
             </fieldset>
             <br />
             <div className="row">
