@@ -43,19 +43,7 @@ class Process extends Component {
           <br />
 
           <fieldset>
-            <nav id="menu">
-              <ul>
-                <li>
-                  {/*<a className="link1 active" href="#">
-                    Processos em aberto
-    </a>*/}
-            <Menu/>
-                </li>
-                {/*<li>
-                <a>Alunos habilitados</a>
-              </li>*/}
-              </ul>
-            </nav>
+            <Menu />
           </fieldset>
           <fieldset>
             <div class="row top">

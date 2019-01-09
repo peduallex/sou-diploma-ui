@@ -40,7 +40,7 @@ class Students extends Component {
         <div className="container">
           <h2 className="title">Nome do Curso - 1º VIA</h2>
           <fieldset>
-            <Menu />
+            {/* <Menu /> */}
           </fieldset>
           <fieldset>
             <div className="row">
@@ -102,7 +102,7 @@ class Students extends Component {
                         {data.year_conclusion}
                       </td>
                       <td>
-                        <Submit/>
+                        <Submit student_id={data.academic_register}  />
                       </td>
                     </tr>
                   ))}
