@@ -6,7 +6,8 @@ import audited from '../../services/AuditedApi';
 
 class Submit extends Component {
   handleClick = (id, name) => {
-    audited.post('responsible-process', { id, name });
+    const { student_id } = this.props;
+    audited.post('responsible-process', { id, student_id, name });
   };
   render() {
     return (
