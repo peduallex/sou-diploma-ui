@@ -523,7 +523,7 @@ class RegistrationData extends Component {
                       Data de Expedição do Diploma
                     </span>
                     {this.state.personal.map(data => (
-                      <p>{data.name}</p>
+                      <p />
                     ))}
                   </fieldset>
                 </div>
@@ -538,7 +538,7 @@ class RegistrationData extends Component {
                           className="selecionar"
                           onClick={() => this.handleClick(data.id)}
                         >
-                          DEFERIR
+                          APROVAR
                         </a>
                       ))}
                     </div>
