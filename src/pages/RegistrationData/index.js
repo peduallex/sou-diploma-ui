@@ -540,7 +540,7 @@ class RegistrationData extends Component {
                     <span className="title-box">Grau Conferido</span>
                     {this.state.courses.map(data => (
                       <p>{data.grau_conferido}</p>
-                    ))}
+                    ))} 
                   </fieldset>
                 </div>
                 <div className="col-md-4">
