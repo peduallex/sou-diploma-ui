@@ -48,18 +48,18 @@ class Audit extends Component {
                   acessar:
                 </h5>
               </div>
-              <div class="row">
+              <div className="row">
                 <div className="col-md-5 center">
                   <div className="text-center">
-                    <form action="fs" method="post">
-                      <div class="submit-line">
+                    <form method="post">
+                      <div className="submit-line">
                         <input
                           placeholder="Pesquise curso ou ano de ingresso"
                           type="text"
                           onChange={this.handleSearch}
                         />
-                        <button class="submit-lente" type="submit">
-                          <i class="fa fa-search" />
+                        <button className="submit-lente" type="submit">
+                          <i className="fa fa-search" />
                         </button>
                       </div>
                     </form>

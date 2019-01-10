@@ -71,7 +71,7 @@ const Content = () => (
             render={({ match: { url } }) => (
               <Fragment>
                 <Route exact path={`${url}`} component={ResearchStudent} />
-                {/* <Route path="/Moderator/students/:id" component={Students} /> */}
+                 <Route path="/Moderator/students/:id" component={Students} />
                 <Route path="/students/:id" component={Students} />
                 <Route path="/process/:id" component={Process} />
                 <Route path="/enabled/:id" component={Enabled} />
