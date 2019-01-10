@@ -80,6 +80,10 @@ class Audit extends Component {
                       Numeros de <br />
                       Alunos Habilitados
                     </th>
+                    <th scope="col">
+                      Numero do <br />
+                      Processo
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -98,6 +102,7 @@ class Audit extends Component {
                         <td>{data.year_entry}</td>
                         <td>{data.ano_conclusao}</td>
                         <td>{data.TT}</td>
+                        <td />
                       </tr>
                     ))}
                 </tbody>

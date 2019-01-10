@@ -49,7 +49,7 @@ class Process extends Component {
                   {/*<a className="link1 active" href="#">
                     Processos em aberto
     </a>*/}
-            <Menu/>
+                  <Menu />
                 </li>
                 {/*<li>
                 <a>Alunos habilitados</a>
@@ -79,7 +79,10 @@ class Process extends Component {
                     Semestre / <br /> de Conclusão
                   </th>
                   <th scope="col">Atribuido em</th>
-                  <th scope="col" />
+                  <th scope="col">
+                    Numero do <br />
+                    Processo
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -99,6 +102,7 @@ class Process extends Component {
                       <td>{data.year_entry}</td>
                       <td>{data.year_conclusion}</td>
                       <td>xxxxxxx</td>
+                      <td />
                     </tr>
                   ))}
               </tbody>

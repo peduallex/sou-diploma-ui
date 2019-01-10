@@ -13,7 +13,7 @@ class Students extends Component {
     search: '',
     activePage: 1,
     countPerPage: 5
-  }; 
+  };
 
   handlePageChange = pageNumber => {
     console.log(`active page is ${pageNumber}`);
@@ -72,6 +72,10 @@ class Students extends Component {
                   <th scope="col">
                     Semestre / <br /> de Conclusão
                   </th>
+                  <th scope="col">
+                    Numero do <br />
+                    Processo
+                  </th>
                   <th scope="col" />
                 </tr>
               </thead>
@@ -101,8 +105,9 @@ class Students extends Component {
                       <td onClick={() => this.handleClick(data.id)}>
                         {data.year_conclusion}
                       </td>
+                      <td />
                       <td>
-                        <Submit/>
+                        <Submit />
                       </td>
                     </tr>
                   ))}
