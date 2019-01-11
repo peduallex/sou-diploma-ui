@@ -540,7 +540,7 @@ class RegistrationData extends Component {
                     <span className="title-box">Grau Conferido</span>
                     {this.state.courses.map(data => (
                       <p>{data.grau_conferido}</p>
-                    ))} 
+                    ))}
                   </fieldset>
                 </div>
                 <div className="col-md-4">
@@ -548,16 +548,6 @@ class RegistrationData extends Component {
                     <span className="title-box">Data da Colação Grau</span>
                     {this.state.courses.map(data => (
                       <p>{data.date_collation}</p>
-                    ))}
-                  </fieldset>
-                </div>
-                <div className="col-md-4">
-                  <fieldset className="border">
-                    <span className="title-box">
-                      Data de Expedição do Diploma
-                    </span>
-                    {this.state.personal.map(data => (
-                      <p />
                     ))}
                   </fieldset>
                 </div>

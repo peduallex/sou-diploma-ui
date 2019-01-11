@@ -10,15 +10,6 @@ class ApprovalLaws extends Component {
     audited.post('responsible-process', { id, name });
   };
 
-  showButton() {
-    if (document.getElementById('proximo').checkbox != '') {
-      document.getElementById('proximo').style.display = 'block';
-    }
-    if (document.getElementById('proximo').checkbox == '') {
-      document.getElementById('proximo').style.visibility = 'none';
-    }
-  }
-
   render() {
     return (
       <div>
@@ -97,16 +88,12 @@ class ApprovalLaws extends Component {
           <div className="row">
             <div className="col-md-12">
               <div className="float-right">
-                <Link to="/students/:id" id="proximo">
+                <Link to="/students/:id" id="btnProximo">
                   <a className="selecionar">PRÓXIMO</a>
                 </Link>
               </div>
 
-              <input
-                type="checkbox"
-                className="aceitar"
-                onClick={this.showButton}
-              />
+              <input type="checkbox" id="aceitar" onClick={this.showButton} />
               <span className="opcoes">ACEITAR</span>
             </div>
           </div>
@@ -115,6 +102,15 @@ class ApprovalLaws extends Component {
         </div>
       </div>
     );
+  }
+  showButton() {
+    let ativo = document.getElementById('aceitar').checked;
+
+    if (ativo) {
+      document.getElementById('btnProximo').style.display = 'block';
+    } else {
+      document.getElementById('btnProximo').style.display = 'none';
+    }
   }
 }
 
