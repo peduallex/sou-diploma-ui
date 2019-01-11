@@ -5,6 +5,7 @@ import Submit from '../../components/Submit';
 import Dowloand from '../../components/Dowloand';
 import ButtonSearch from '../../components/BtnSearch';
 import Menu from '../../components/Menu';
+
 import BtnEmail from '../../components/BtnEmail';
 import Audited from '../../../src/services/diplomaApi';
 import Pagination from 'react-js-pagination';
@@ -14,7 +15,8 @@ class Enable extends Component {
     courses: [],
     search: '',
     activePage: 1,
-    countPerPage: 5
+    countPerPage: 5,
+    tab: '1'
   };
 
   async componentDidMount() {
@@ -36,21 +38,17 @@ class Enable extends Component {
     this.props.history.push(`/students/${ra_student}`);
   };
 
-  handleClicks = id => {
-    this.props.history.push(`/studentdiploma/${id}`);
-  };
+  // handleClicks = id => {
+  //   this.props.history.push(`/studentdiploma/${id}`);
+  // };
   render() {
-    const {
-      match: {
-        params: { id }
-      }
-    } = this.props;
+    const { tab } = this.state;
     return (
       <div>
         <div className="container">
           <h2 className="title">Nome do Curso - 1º VIA</h2>
           <fieldset>
-            <Menu />
+            <Menu handleClick={val => this.setState({ tab: val })} tab={tab} />
           </fieldset>
           <fieldset>
             <div class="row">
@@ -88,6 +86,8 @@ class Enable extends Component {
               </thead>
               <tbody>
                 {this.state.courses
+
+                  .filter(item => item.proc_status == tab)
                   .filter(data => RegExp(this.state.search).test(data.name))
                   .filter(
                     (data, index) =>
@@ -128,9 +128,7 @@ class Enable extends Component {
           <div className="row">
             <div className="col-md-12">
               <div className="float-right">
-                <a className="selecionar" onClick={() => this.handleClicks(id)}>
-                  IMPRIMIR
-                </a>
+                <a className="selecionar">IMPRIMIR</a>
               </div>
             </div>
           </div>
