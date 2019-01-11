@@ -32,6 +32,8 @@ class RegistrationData extends Component {
     nationality: [],
     emitter: [],
     naturalness: [],
+    cities: [],
+    states: [],
     modalValue: ''
   };
 
@@ -68,7 +70,15 @@ class RegistrationData extends Component {
       `/v_cidade2?_where=(id2,eq,${id})`
     );
 
-    console.log(resPersonal.data);
+    const resCities = await PersonalData.get(
+      `/cities?_fields=id,name,?_where=(states_id,eq,${resPersonal.data[0].state})`
+    );
+
+    const resStates = await PersonalData.get(
+      `/states?_sort=uf`
+    );
+
+    console.log(resPersonal.data[0].state);
 
     this.setState({
       courses: resCourse.data,
@@ -76,17 +86,15 @@ class RegistrationData extends Component {
       city: resCity.data,
       nationality: resNationality.data,
       emitter: resEmitter.data,
-      naturalness: resNaturalness.data
+      naturalness: resNaturalness.data,
+      cities: resCities.data,
+      states: resStates.data,
     });
   }
 
   render() {
-    return (
-      <div>
-        <Formik
-          initialValues={{ files: { rg: {}, history: {}, conclusion: {} } }}
-          render={({ setFieldValue, values }) => (
-            <div className="container-fluid wrap">
+    return <div>
+        <Formik initialValues={{ files: { rg: {}, history: {}, conclusion: {} } }} render={({ setFieldValue, values }) => <div className="container-fluid wrap">
               <h3 className="title-registration">Dados Cadastrais</h3>
 
               <div className="row espaco">
@@ -107,8 +115,7 @@ class RegistrationData extends Component {
                           src={editar}
                         />
                         {data.name}
-                      </p>
-                    ))}
+                      </p>)}
                   </fieldset>
                 </div>
               </div>
@@ -130,8 +137,7 @@ class RegistrationData extends Component {
                           src={editar}
                         />
                         {data.assumed_name}
-                      </p>
-                    ))}
+                      </p>)}
                   </fieldset>
                 </div>
               </div>
@@ -139,36 +145,21 @@ class RegistrationData extends Component {
               <div className="col-md-4">
                 <Row>
                   <Col>
-                    <Dropzone
-                      accept="image/jpeg,image/jpg,image/png,image/bmp,application/pdf"
-                      onDrop={([file, ...rest]) => {
-                        setFieldValue(
-                          'files.rg',
-                          Object.assign(file, {
+                    <Dropzone accept="image/jpeg,image/jpg,image/png,image/bmp,application/pdf" onDrop={([file, ...rest]) => {
+                        setFieldValue('files.rg', Object.assign(file, {
                             preview: URL.createObjectURL(file)
-                          })
-                        );
-                      }}
-                      multiple={false}
-                    >
-                      {({ getRootProps, getInputProps }) => (
-                        <DragDrop {...getRootProps()}>
+                          }));
+                      }} multiple={false}>
+                      {({ getRootProps, getInputProps }) => <DragDrop {...getRootProps()}>
                           <Document>RG</Document>
                           <Text>Arraste para cá ou</Text>
-                          <Icon
-                            src={
-                              JSON.stringify(values.files.rg) !== '{}'
-                                ? Success
-                                : Upload
-                            }
-                          />
+                          <Icon src={JSON.stringify(values.files.rg) !== '{}' ? Success : Upload} />
                           <Field {...getInputProps()} />
                           <Button>Procure no computador</Button>
                           <Accepted>
                             Arquivos aceitos: pdf, jpg, png, bmp
                           </Accepted>
-                        </DragDrop>
-                      )}
+                        </DragDrop>}
                     </Dropzone>
                   </Col>
                 </Row>
@@ -191,8 +182,7 @@ class RegistrationData extends Component {
                           src={editar}
                         />
                         {data.rg_number}
-                      </p>
-                    ))}
+                      </p>)}
                   </fieldset>
                 </div>
                 <div className="col-md-4">
@@ -235,8 +225,7 @@ class RegistrationData extends Component {
                           src={editar}
                         />
                         {data.cpf}
-                      </p>
-                    ))}
+                      </p>)}
                   </fieldset>
                 </div>
                 <div className="col-md-4">
@@ -256,8 +245,7 @@ class RegistrationData extends Component {
                           src={editar}
                         />
                         {data.titulo_number}
-                      </p>
-                    ))}
+                      </p>)}
                   </fieldset>
                 </div>
                 <div className="col-md-4">
@@ -290,8 +278,7 @@ class RegistrationData extends Component {
                           src={editar}
                         />
                         {data.mothers_name}
-                      </p>
-                    ))}
+                      </p>)}
                   </fieldset>
                 </div>
               </div>
@@ -313,8 +300,7 @@ class RegistrationData extends Component {
                           src={editar}
                         />
                         {data.fathers_name}
-                      </p>
-                    ))}
+                      </p>)}
                   </fieldset>
                 </div>
               </div>
@@ -324,12 +310,8 @@ class RegistrationData extends Component {
                     <span className="title-box">
                       Endereço Residencial (com complementos)
                     </span>
-                    {this.state.personal.map(data => (
-                      <p>
-                        <img
-                          data-toggle="modal"
-                          data-target="#myModal"
-                          onClick={() => {
+                    {this.state.personal.map(data => <p>
+                        <img data-toggle="modal" data-target="#myModal" onClick={() => {
                             this.setState({
                               modalValue: data.street,
                               modalName: 'street' + data.street_number,
@@ -337,14 +319,11 @@ class RegistrationData extends Component {
                                 'street_number' + data.street_complement,
                               modalName: 'street_complement'
                             });
-                          }}
-                          src={editar}
-                        />
+                          }} src={editar} />
                         {data.street}&nbsp;
                         {data.street_number}&nbsp;-&nbsp;
                         {data.street_complement}
-                      </p>
-                    ))}
+                      </p>)}
                   </fieldset>
                 </div>
               </div>
@@ -365,10 +344,8 @@ class RegistrationData extends Component {
                           }}
                           src={editar}
                         />
-
                         {data.zipcode}
-                      </p>
-                    ))}
+                      </p>)}
                   </fieldset>
                 </div>
                 <div className="col-md-3">
@@ -388,17 +365,16 @@ class RegistrationData extends Component {
                           src={editar}
                         />
                         {data.neighborhood}
-                      </p>
-                    ))}
+                      </p>)}
                   </fieldset>
                 </div>
                 <div className="col-md-3">
                   <fieldset className="border">
                     <span className="title-box">Cidade</span>
                     <select className="form-control">
-                      {this.state.city.map(data => (
+                      {this.state.cities.map(data => (
                         <option>{data.name}</option>
-                      ))}
+                        ))}
                     </select>
                   </fieldset>
                 </div>
@@ -406,33 +382,9 @@ class RegistrationData extends Component {
                   <fieldset className="border">
                     <span className="title-box">Estado</span>
                     <select className="form-control">
-                      <option value="AC">Acre</option>
-                      <option value="AL">Alagoas</option>
-                      <option value="AP">Amapá</option>
-                      <option value="AM">Amazonas</option>
-                      <option value="BA">Bahia</option>
-                      <option value="CE">Ceará</option>
-                      <option value="DF">Distrito Federal</option>
-                      <option value="ES">Espírito Santo</option>
-                      <option value="GO">Goiás</option>
-                      <option value="MA">Maranhão</option>
-                      <option value="MT">Mato Grosso</option>
-                      <option value="MS">Mato Grosso do Sul</option>
-                      <option value="MG">Minas Gerais</option>
-                      <option value="PA">Pará</option>
-                      <option value="PB">Paraíba</option>
-                      <option value="PR">Paraná</option>
-                      <option value="PE">Pernambuco</option>
-                      <option value="PI">Piauí</option>
-                      <option value="RJ">Rio de Janeiro</option>
-                      <option value="RN">Rio Grande do Norte</option>
-                      <option value="RS">Rio Grande do Sul</option>
-                      <option value="RO">Rondônia</option>
-                      <option value="RR">Roraima</option>
-                      <option value="SC">Santa Catarina</option>
-                      <option value="SP">São Paulo</option>
-                      <option value="SE">Sergipe</option>
-                      <option value="TO">Tocantins</option>
+                      {this.state.states.map(data => (
+                        <option>{data.uf}</option>
+                      ))}
                     </select>
                   </fieldset>
                 </div>
@@ -455,8 +407,7 @@ class RegistrationData extends Component {
                           src={editar}
                         />
                         {data.email_pessoal}
-                      </p>
-                    ))}
+                      </p>)}
                   </fieldset>
                 </div>
                 <div className="col-md-6">
@@ -476,8 +427,7 @@ class RegistrationData extends Component {
                           src={editar}
                         />
                         {data.email_inst}
-                      </p>
-                    ))}
+                      </p>)}
                   </fieldset>
                 </div>
               </div>
@@ -486,25 +436,19 @@ class RegistrationData extends Component {
                 <div className="col-md-4">
                   <fieldset className="border">
                     <span className="title-box">Curso</span>
-                    {this.state.courses.map(data => (
-                      <p>{data.name}</p>
-                    ))}
+                    {this.state.courses.map(data => <p>{data.name}</p>)}
                   </fieldset>
                 </div>
                 <div className="col-md-4">
                   <fieldset className="border">
                     <span className="title-box">Nível do Curso</span>
-                    {this.state.courses.map(data => (
-                      <p>{data.nivel}</p>
-                    ))}
+                    {this.state.courses.map(data => <p>{data.nivel}</p>)}
                   </fieldset>
                 </div>
                 <div className="col-md-4">
                   <fieldset className="border">
                     <span className="title-box">Tipo de Curso</span>
-                    {this.state.courses.map(data => (
-                      <p>{data.name}</p>
-                    ))}
+                    {this.state.courses.map(data => <p>{data.name}</p>)}
                   </fieldset>
                 </div>
               </div>
@@ -512,14 +456,14 @@ class RegistrationData extends Component {
                 <div className="col-md-4">
                   <fieldset className="border">
                     <span className="title-box">Polo</span>
-                    {this.state.courses.map(data => (
-                      <p>{data.polo}</p>
-                    ))}
+                    {this.state.courses.map(data => <p>{data.polo}</p>)}
                   </fieldset>
                 </div>
                 <div className="col-md-4">
                   <fieldset className="border">
-                    <span className="title-box">Semestre/Ano de Ingresso</span>
+                    <span className="title-box">
+                      Semestre/Ano de Ingresso
+                    </span>
                     {this.state.courses.map(data => (
                       <p>{data.year_entry}</p>
                     ))}
@@ -527,7 +471,9 @@ class RegistrationData extends Component {
                 </div>
                 <div className="col-md-4">
                   <fieldset className="border">
-                    <span className="title-box">Semestre/Ano de Conclusão</span>
+                    <span className="title-box">
+                      Semestre/Ano de Conclusão
+                    </span>
                     {this.state.courses.map(data => (
                       <p>{data.date_conclusion}</p>
                     ))}
@@ -556,9 +502,7 @@ class RegistrationData extends Component {
                     <span className="title-box">
                       Data de Expedição do Diploma
                     </span>
-                    {this.state.personal.map(data => (
-                      <p />
-                    ))}
+                    {this.state.personal.map(data => <p>{data.name}</p>)}
                   </fieldset>
                 </div>
               </div>
@@ -591,25 +535,14 @@ class RegistrationData extends Component {
               </div>
               <br />
 
-              <div
-                className="modal fade"
-                id="myModal"
-                tabindex="-1"
-                role="dialog"
-                aria-labelledby="myModalLabel"
-              >
+              <div className="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div className="modal-dialog" role="document">
                   <div className="modal-content">
                     <div className="modal-header">
                       <h4 className="modal-title" id="myModalLabel">
                         Alterando Usuário
                       </h4>
-                      <button
-                        type="button"
-                        className="close"
-                        data-dismiss="modal"
-                        aria-label="Close"
-                      >
+                      <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
@@ -631,22 +564,14 @@ class RegistrationData extends Component {
                             }
                           />
                         </div>
-                        <input
-                          name="alterar"
-                          type="submit"
-                          className="btn btn-warning"
-                          value="Alterar"
-                        />
+                        <input name="alterar" type="submit" className="btn btn-warning" value="Alterar" />
                       </form>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          )}
-        />
-      </div>
-    );
+            </div>} />
+      </div>;
   }
 }
 
