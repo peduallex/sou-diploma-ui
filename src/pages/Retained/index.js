@@ -14,7 +14,8 @@ class Retained extends Component {
     courses: [],
     search: '',
     activePage: 1,
-    countPerPage: 5
+    countPerPage: 5,
+    tab: 2
   };
 
   handlePageChange = pageNumber => {
@@ -37,12 +38,14 @@ class Retained extends Component {
   };
 
   render() {
+    const { tab } = this.state;
+
     return (
       <div>
         <div className="container">
           <h2 className="title">Nome do Curso - 1º VIA</h2>
           <fieldset>
-            <Menu />
+            <Menu handleClick={val => this.setState({ tab: val })} tab={tab} />
           </fieldset>
           <fieldset>
             <div class="row">
@@ -71,6 +74,7 @@ class Retained extends Component {
               </thead>
               <tbody>
                 {this.state.courses
+                  .filter(item => item.proc_status == tab)
                   // .filter(item => RegExp(search, 'i').test(item.student_name))
                   .filter(
                     (data, index) =>
