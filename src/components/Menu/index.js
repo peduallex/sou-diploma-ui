@@ -1,45 +1,25 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Actions, Action } from './style';
-class Menu extends Component {
-  state = {
-    tab: 0
-  };
-  render() {
-    const { tab } = this.state;
-    return (
-      <div>
-        <nav id="menu">
-          <Actions>
-            <Action
-              active={tab === 0}
-              onClick={() => this.setState({ tab: 0 })}
-            >
-              <b>Em Abertos</b>
-            </Action>
-            <Action
-              active={tab === 1}
-              onClick={() => this.setState({ tab: 1 })}
-            >
-              <b>Auditados</b>
-            </Action>
-            <Action
-              active={tab === 2}
-              onClick={() => this.setState({ tab: 2 })}
-            >
-              <b>Retidos</b>
-            </Action>
-            <Action
-              active={tab === 3}
-              onClick={() => this.setState({ tab: 3 })}
-            >
-              <b>Diplomado</b>
-            </Action>
-          </Actions>
-        </nav>
-      </div>
-    );
-  }
-}
+import { Tabs, TabList, TabPanel, Tab } from 'react-re-super-tabs';
+import CustomTab from './CustomTab';
+import Info from '../../pages/Enabled';
+import About from '../../pages/Retained';
+import Contact from '../../pages/Process';
+
+const Menu = () => (
+  <div>
+    <Tabs activeTab="about">
+      <TabList>
+        <Tab component={CustomTab} label="Info" id="info" />
+        <Tab compoffnent={CustomTab} label="About" id="about" />
+        <Tab component={CustomTab} label="Contact" id="contact" />
+      </TabList>
+      <TabList>
+        <TabPanel component={Info} id="info" />
+        <TabPanel component={About} id="about" />
+        <TabPanel component={Contact} id="contact" />
+      </TabList>
+    </Tabs>
+  </div>
+);
 
 export default Menu;

@@ -101,10 +101,19 @@ class RegistrationData extends Component {
                 <div className="col-md-12">
                   <fieldset className="border">
                     <span className="title-box">Nome Civil</span>
-                    {this.state.personal.map(data => <p>
-                        <img data-toggle="modal" data-target="#myModal" onClick={() => {
-                            this.setState({ modalValue: data.name });
-                          }} src={editar} />
+                    {this.state.personal.map(data => (
+                      <p>
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onClick={() => {
+                            this.setState({
+                              modalValue: data.name,
+                              modalName: 'name'
+                            });
+                          }}
+                          src={editar}
+                        />
                         {data.name}
                       </p>)}
                   </fieldset>
@@ -114,12 +123,19 @@ class RegistrationData extends Component {
                 <div className="col-md-12">
                   <fieldset className="border">
                     <span className="title-box">Nome Social</span>
-                    {this.state.personal.map(data => <p>
-                        <img data-toggle="modal" data-target="#myModal" onClick={() => {
+                    {this.state.personal.map(data => (
+                      <p>
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onClick={() => {
                             this.setState({
-                              modalValue: data.assumed_name
+                              modalValue: data.assumed_name,
+                              modalName: 'assumed_name'
                             });
-                          }} src={editar} />
+                          }}
+                          src={editar}
+                        />
                         {data.assumed_name}
                       </p>)}
                   </fieldset>
@@ -151,13 +167,20 @@ class RegistrationData extends Component {
               <div className="row espaco">
                 <div className="col-md-4">
                   <fieldset className="border">
-                    <span className="title-box">
-                      Documento de Identidade
-                    </span>
-                    {this.state.personal.map(data => <p>
-                        <img data-toggle="modal" data-target="#myModal" onClick={() => {
-                            this.setState({ modalValue: data.rg_number });
-                          }} src={editar} />
+                    <span className="title-box">Documento de Identidade</span>
+                    {this.state.personal.map(data => (
+                      <p>
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onClick={() => {
+                            this.setState({
+                              modalValue: data.rg_number,
+                              modalName: 'rg_number'
+                            });
+                          }}
+                          src={editar}
+                        />
                         {data.rg_number}
                       </p>)}
                   </fieldset>
@@ -188,10 +211,19 @@ class RegistrationData extends Component {
                 <div className="col-md-4">
                   <fieldset className="border">
                     <span className="title-box">CPF</span>
-                    {this.state.personal.map(data => <p>
-                        <img data-toggle="modal" data-target="#myModal" onClick={() => {
-                            this.setState({ modalValue: data.cpf });
-                          }} src={editar} />
+                    {this.state.personal.map(data => (
+                      <p>
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onClick={() => {
+                            this.setState({
+                              modalValue: data.cpf,
+                              modalName: 'cpf'
+                            });
+                          }}
+                          src={editar}
+                        />
                         {data.cpf}
                       </p>)}
                   </fieldset>
@@ -199,12 +231,19 @@ class RegistrationData extends Component {
                 <div className="col-md-4">
                   <fieldset className="border">
                     <span className="title-box">Titulo de Eleitor</span>
-                    {this.state.personal.map(data => <p>
-                        <img data-toggle="modal" data-target="#myModal" onClick={() => {
+                    {this.state.personal.map(data => (
+                      <p>
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onClick={() => {
                             this.setState({
-                              modalValue: data.titulo_number
+                              modalValue: data.titulo_number,
+                              modalName: 'titulo_number'
                             });
-                          }} src={editar} />
+                          }}
+                          src={editar}
+                        />
                         {data.titulo_number}
                       </p>)}
                   </fieldset>
@@ -225,12 +264,19 @@ class RegistrationData extends Component {
                 <div className="col-md-12">
                   <fieldset className="border">
                     <span className="title-box">Nome da Mãe</span>
-                    {this.state.personal.map(data => <p>
-                        <img data-toggle="modal" data-target="#myModal" onClick={() => {
+                    {this.state.personal.map(data => (
+                      <p>
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onClick={() => {
                             this.setState({
-                              modalValue: data.mothers_name
+                              modalValue: data.mothers_name,
+                              modalName: 'mothers_name'
                             });
-                          }} src={editar} />
+                          }}
+                          src={editar}
+                        />
                         {data.mothers_name}
                       </p>)}
                   </fieldset>
@@ -240,12 +286,19 @@ class RegistrationData extends Component {
                 <div className="col-md-12">
                   <fieldset className="border">
                     <span className="title-box">Nome do Pai</span>
-                    {this.state.personal.map(data => <p>
-                        <img data-toggle="modal" data-target="#myModal" onClick={() => {
+                    {this.state.personal.map(data => (
+                      <p>
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onClick={() => {
                             this.setState({
-                              modalValue: data.fathers_name
+                              modalValue: data.fathers_name,
+                              modalName: 'fathers_name'
                             });
-                          }} src={editar} />
+                          }}
+                          src={editar}
+                        />
                         {data.fathers_name}
                       </p>)}
                   </fieldset>
@@ -260,10 +313,11 @@ class RegistrationData extends Component {
                     {this.state.personal.map(data => <p>
                         <img data-toggle="modal" data-target="#myModal" onClick={() => {
                             this.setState({
-                              modalValue:
-                                data.street +
-                                data.street_number +
-                                data.street_complement
+                              modalValue: data.street,
+                              modalName: 'street' + data.street_number,
+                              modalName:
+                                'street_number' + data.street_complement,
+                              modalName: 'street_complement'
                             });
                           }} src={editar} />
                         {data.street}&nbsp;
@@ -277,11 +331,19 @@ class RegistrationData extends Component {
                 <div className="col-md-3">
                   <fieldset className="border">
                     <span className="title-box">CEP</span>
-                    {this.state.personal.map(data => <p>
-                        <img data-toggle="modal" data-target="#myModal" onClick={() => {
-                            this.setState({ modalValue: data.zipcode });
-                          }} src={editar} />
-
+                    {this.state.personal.map(data => (
+                      <p>
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onClick={() => {
+                            this.setState({
+                              modalValue: data.zipcode,
+                              modalName: 'zipcode'
+                            });
+                          }}
+                          src={editar}
+                        />
                         {data.zipcode}
                       </p>)}
                   </fieldset>
@@ -289,12 +351,19 @@ class RegistrationData extends Component {
                 <div className="col-md-3">
                   <fieldset className="border">
                     <span className="title-box">Bairro</span>
-                    {this.state.personal.map(data => <p>
-                        <img data-toggle="modal" data-target="#myModal" onClick={() => {
+                    {this.state.personal.map(data => (
+                      <p>
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onClick={() => {
                             this.setState({
-                              modalValue: data.neighborhood
+                              modalValue: data.neighborhood,
+                              modalName: 'neighbordhood'
                             });
-                          }} src={editar} />
+                          }}
+                          src={editar}
+                        />
                         {data.neighborhood}
                       </p>)}
                   </fieldset>
@@ -324,12 +393,19 @@ class RegistrationData extends Component {
                 <div className="col-md-6">
                   <fieldset className="border">
                     <span className="title-box">E-mail Pessoal</span>
-                    {this.state.personal.map(data => <p>
-                        <img data-toggle="modal" data-target="#myModal" onClick={() => {
+                    {this.state.personal.map(data => (
+                      <p>
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onClick={() => {
                             this.setState({
-                              modalValue: data.email_pessoal
+                              modalValue: data.email_pessoal,
+                              modalName: 'email_pessoal'
                             });
-                          }} src={editar} />
+                          }}
+                          src={editar}
+                        />
                         {data.email_pessoal}
                       </p>)}
                   </fieldset>
@@ -337,10 +413,19 @@ class RegistrationData extends Component {
                 <div className="col-md-6">
                   <fieldset className="border">
                     <span className="title-box">E-mail Institucional</span>
-                    {this.state.personal.map(data => <p>
-                        <img data-toggle="modal" data-target="#myModal" onClick={() => {
-                            this.setState({ modalValue: data.email_inst });
-                          }} src={editar} />
+                    {this.state.personal.map(data => (
+                      <p>
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          onClick={() => {
+                            this.setState({
+                              modalValue: data.email_inst,
+                              modalName: 'email_inst'
+                            });
+                          }}
+                          src={editar}
+                        />
                         {data.email_inst}
                       </p>)}
                   </fieldset>
@@ -431,7 +516,7 @@ class RegistrationData extends Component {
                           className="selecionar"
                           onClick={() => this.handleClick(data.id)}
                         >
-                          DEFERIR
+                          APROVAR
                         </a>
                       ))}
                     </div>
@@ -465,7 +550,19 @@ class RegistrationData extends Component {
                       <form className="form-inline" method="post">
                         <div className="input-group">
                           <span className="input-group-addon glyphicon glyphicon-user" />
-                          <input name="name" type="text" className="form-control" required value={this.state.modalValue} />
+                          <input
+                            name={this.state.modalName}
+                            type="text"
+                            className="form-control"
+                            required
+                            value={this.state.modalValue}
+                            onChange={e =>
+                              this.setState({
+                                [e.target.name]: e.target.value,
+                                modalValue: e.target.value
+                              })
+                            }
+                          />
                         </div>
                         <input name="alterar" type="submit" className="btn btn-warning" value="Alterar" />
                       </form>
