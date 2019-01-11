@@ -101,7 +101,7 @@ class RegistrationData extends Component {
                 <div className="col-md-12">
                   <fieldset className="border">
                     <span className="title-box">Nome Civil</span>
-                    {this.state.personal.map(data => (
+                    {this.state.personal.map((data) => (
                       <p>
                         <img
                           data-toggle="modal"
@@ -115,7 +115,7 @@ class RegistrationData extends Component {
                           src={editar}
                         />
                         {data.name}
-                      </p>)}
+                      </p>))}
                   </fieldset>
                 </div>
               </div>
@@ -123,7 +123,7 @@ class RegistrationData extends Component {
                 <div className="col-md-12">
                   <fieldset className="border">
                     <span className="title-box">Nome Social</span>
-                    {this.state.personal.map(data => (
+                    {this.state.personal.map((data) => (
                       <p>
                         <img
                           data-toggle="modal"
@@ -137,7 +137,7 @@ class RegistrationData extends Component {
                           src={editar}
                         />
                         {data.assumed_name}
-                      </p>)}
+                      </p>))}
                   </fieldset>
                 </div>
               </div>
@@ -168,7 +168,7 @@ class RegistrationData extends Component {
                 <div className="col-md-4">
                   <fieldset className="border">
                     <span className="title-box">Documento de Identidade</span>
-                    {this.state.personal.map(data => (
+                    {this.state.personal.map((data) => (
                       <p>
                         <img
                           data-toggle="modal"
@@ -182,7 +182,7 @@ class RegistrationData extends Component {
                           src={editar}
                         />
                         {data.rg_number}
-                      </p>)}
+                      </p>))}
                   </fieldset>
                 </div>
                 <div className="col-md-4">
@@ -211,7 +211,7 @@ class RegistrationData extends Component {
                 <div className="col-md-4">
                   <fieldset className="border">
                     <span className="title-box">CPF</span>
-                    {this.state.personal.map(data => (
+                    {this.state.personal.map((data) => (
                       <p>
                         <img
                           data-toggle="modal"
@@ -225,13 +225,13 @@ class RegistrationData extends Component {
                           src={editar}
                         />
                         {data.cpf}
-                      </p>)}
+                      </p>))}
                   </fieldset>
                 </div>
                 <div className="col-md-4">
                   <fieldset className="border">
                     <span className="title-box">Titulo de Eleitor</span>
-                    {this.state.personal.map(data => (
+                    {this.state.personal.map((data) => (
                       <p>
                         <img
                           data-toggle="modal"
@@ -245,7 +245,7 @@ class RegistrationData extends Component {
                           src={editar}
                         />
                         {data.titulo_number}
-                      </p>)}
+                      </p>))}
                   </fieldset>
                 </div>
                 <div className="col-md-4">
@@ -264,7 +264,7 @@ class RegistrationData extends Component {
                 <div className="col-md-12">
                   <fieldset className="border">
                     <span className="title-box">Nome da Mãe</span>
-                    {this.state.personal.map(data => (
+                    {this.state.personal.map((data) => (
                       <p>
                         <img
                           data-toggle="modal"
@@ -278,7 +278,7 @@ class RegistrationData extends Component {
                           src={editar}
                         />
                         {data.mothers_name}
-                      </p>)}
+                      </p>))}
                   </fieldset>
                 </div>
               </div>
@@ -286,7 +286,7 @@ class RegistrationData extends Component {
                 <div className="col-md-12">
                   <fieldset className="border">
                     <span className="title-box">Nome do Pai</span>
-                    {this.state.personal.map(data => (
+                    {this.state.personal.map((data) => (
                       <p>
                         <img
                           data-toggle="modal"
@@ -300,7 +300,7 @@ class RegistrationData extends Component {
                           src={editar}
                         />
                         {data.fathers_name}
-                      </p>)}
+                      </p>))}
                   </fieldset>
                 </div>
               </div>
@@ -331,7 +331,7 @@ class RegistrationData extends Component {
                 <div className="col-md-3">
                   <fieldset className="border">
                     <span className="title-box">CEP</span>
-                    {this.state.personal.map(data => (
+                    {this.state.personal.map((data) => (
                       <p>
                         <img
                           data-toggle="modal"
@@ -345,13 +345,13 @@ class RegistrationData extends Component {
                           src={editar}
                         />
                         {data.zipcode}
-                      </p>)}
+                      </p>))}
                   </fieldset>
                 </div>
                 <div className="col-md-3">
                   <fieldset className="border">
                     <span className="title-box">Bairro</span>
-                    {this.state.personal.map(data => (
+                    {this.state.personal.map((data) => (
                       <p>
                         <img
                           data-toggle="modal"
@@ -365,7 +365,7 @@ class RegistrationData extends Component {
                           src={editar}
                         />
                         {data.neighborhood}
-                      </p>)}
+                      </p>))}
                   </fieldset>
                 </div>
                 <div className="col-md-3">
@@ -393,7 +393,7 @@ class RegistrationData extends Component {
                 <div className="col-md-6">
                   <fieldset className="border">
                     <span className="title-box">E-mail Pessoal</span>
-                    {this.state.personal.map(data => (
+                    {this.state.personal.map((data) => (
                       <p>
                         <img
                           data-toggle="modal"
@@ -407,13 +407,13 @@ class RegistrationData extends Component {
                           src={editar}
                         />
                         {data.email_pessoal}
-                      </p>)}
+                      </p>))}
                   </fieldset>
                 </div>
                 <div className="col-md-6">
                   <fieldset className="border">
                     <span className="title-box">E-mail Institucional</span>
-                    {this.state.personal.map(data => (
+                    {this.state.personal.map((data) => (
                       <p>
                         <img
                           data-toggle="modal"
@@ -427,7 +427,7 @@ class RegistrationData extends Component {
                           src={editar}
                         />
                         {data.email_inst}
-                      </p>)}
+                      </p>))}
                   </fieldset>
                 </div>
               </div>
