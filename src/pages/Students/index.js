@@ -12,8 +12,9 @@ class Students extends Component {
     courses: [],
     search: '',
     activePage: 1,
-    countPerPage: 5
-  }; 
+    countPerPage: 5,
+    tab: 0
+  };
 
   handlePageChange = pageNumber => {
     console.log(`active page is ${pageNumber}`);
@@ -35,12 +36,13 @@ class Students extends Component {
   };
 
   render() {
+    const { tab } = this.state;
     return (
       <div>
         <div className="container">
           <h2 className="title">Nome do Curso - 1º VIA</h2>
           <fieldset>
-            {/* <Menu /> */}
+            <Menu handleClick={val => this.setState({ tab: val })} tab={tab} />
           </fieldset>
           <fieldset>
             <div className="row">
@@ -77,6 +79,7 @@ class Students extends Component {
               </thead>
               <tbody>
                 {this.state.courses
+                  .filter(item => item.proc_status == tab)
                   .filter(data => RegExp(this.state.search).test(data.name))
                   .filter(
                     (data, index) =>
@@ -100,9 +103,6 @@ class Students extends Component {
                       </td>
                       <td onClick={() => this.handleClick(data.id)}>
                         {data.year_conclusion}
-                      </td>
-                      <td>
-                        <Submit student_id={data.academic_register}  />
                       </td>
                     </tr>
                   ))}

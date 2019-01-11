@@ -1,25 +1,47 @@
 import React, { Component } from 'react';
-import { Tabs, TabList, TabPanel, Tab } from 'react-re-super-tabs';
-import CustomTab from './CustomTab';
-import Info from '../../pages/Enabled';
-import About from '../../pages/Retained';
-import Contact from '../../pages/Process';
+import {
+  Container,
+  Avatar,
+  Icon,
+  Table,
+  Head,
+  Row,
+  Th,
+  Body,
+  Td,
+  Section,
+  Title,
+  SearchInput,
+  Search,
+  Nav,
+  Actions,
+  Action
+} from './style';
 
-const Menu = () => (
-  <div>
-    <Tabs activeTab="about">
-      <TabList>
-        <Tab component={CustomTab} label="Info" id="info" />
-        <Tab compoffnent={CustomTab} label="About" id="about" />
-        <Tab component={CustomTab} label="Contact" id="contact" />
-      </TabList>
-      <TabList>
-        <TabPanel component={Info} id="info" />
-        <TabPanel component={About} id="about" />
-        <TabPanel component={Contact} id="contact" />
-      </TabList>
-    </Tabs>
-  </div>
-);
+class Menu extends Component {
+  render() {
+    const { handleClick, tab } = this.props;
+    return (
+      <div>
+        <Nav>
+          <Actions>
+            <Action active={tab === 0} onClick={() => handleClick(0)}>
+              Em abertos
+            </Action>
+            <Action active={tab === 1} onClick={() => handleClick(1)}>
+              Auditados
+            </Action>
+            <Action active={tab === 2} onClick={() => handleClick(2)}>
+              Retidos
+            </Action>
+            <Action active={tab === 3} onClick={() => handleClick(3)}>
+              Diplomados
+            </Action>
+          </Actions>
+        </Nav>
+      </div>
+    );
+  }
+}
 
 export default Menu;
