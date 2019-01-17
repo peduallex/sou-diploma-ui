@@ -6,8 +6,9 @@ import './style.scss';
 
 class Audit extends Component {
   state = {
-    courses: [],
     search: '',
+    courses: [],
+    academicRegister: [],
     activePage: 1,
     countPerPage: 5
   };
@@ -20,6 +21,9 @@ class Audit extends Component {
   async componentDidMount() {
     const res = await api.get('v_geral');
     this.setState({ courses: res.data });
+
+    const resAcademicRegister = await api.get('v_diploma');
+    this.setState({ academicRegister: resAcademicRegister.data });
   }
 
   handleSearch = ({ target }) => {
@@ -102,7 +106,7 @@ class Audit extends Component {
                         <td>{data.year_entry}</td>
                         <td>{data.ano_conclusao}</td>
                         <td>{data.TT}</td>
-                        <td />
+                        <td>{}</td>
                       </tr>
                     ))}
                 </tbody>
