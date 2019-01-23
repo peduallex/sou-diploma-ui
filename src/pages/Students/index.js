@@ -17,7 +17,6 @@ class Students extends Component {
   };
 
   handlePageChange = pageNumber => {
-    console.log(`active page is ${pageNumber}`);
     this.setState({ activePage: pageNumber });
   };
 
@@ -28,7 +27,6 @@ class Students extends Component {
 
   handleSearch = ({ target }) => {
     this.setState({ search: target.value });
-    //console.log(this.state.search)
   };
 
   handleClick = id => {
@@ -89,19 +87,19 @@ class Students extends Component {
                   )
                   .map(data => (
                     <tr>
-                      <td onClick={() => this.handleClick(data.id)}>
+                      <td onClick={() => this.handleClick(data.academic_register)}>
                         {data.name}
                       </td>
-                      <td onClick={() => this.handleClick(data.id)}>
+                      <td onClick={() => this.handleClick(data.academic_register)}>
                         {data.academic_register}
                       </td>
-                      <td onClick={() => this.handleClick(data.id)}>
+                      <td onClick={() => this.handleClick(data.academic_register)}>
                         {data.polo}
                       </td>
-                      <td onClick={() => this.handleClick(data.id)}>
+                      <td onClick={() => this.handleClick(data.academic_register)}>
                         {data.year_entry}
                       </td>
-                      <td onClick={() => this.handleClick(data.id)}>
+                      <td onClick={() => this.handleClick(data.academic_register)}>
                         {data.year_conclusion}
                       </td>
                     </tr>

@@ -13,7 +13,6 @@ class Audit extends Component {
   };
 
   handlePageChange = pageNumber => {
-    console.log(`active page is ${pageNumber}`);
     this.setState({ activePage: pageNumber });
   };
 
@@ -24,11 +23,10 @@ class Audit extends Component {
 
   handleSearch = ({ target }) => {
     this.setState({ search: target.value });
-    //console.log(this.state.search)
   };
 
-  handleClick = id => {
-    this.props.history.push(`/students/${id}`);
+  handleClick = academic_register => {
+    this.props.history.push(`/students/${academic_register}`);
   };
 
   render() {
