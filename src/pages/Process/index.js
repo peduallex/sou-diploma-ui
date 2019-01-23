@@ -16,7 +16,6 @@ class Process extends Component {
   };
 
   handlePageChange = pageNumber => {
-    console.log(`active page is ${pageNumber}`);
     this.setState({ activePage: pageNumber });
   };
 
@@ -27,7 +26,6 @@ class Process extends Component {
 
   handleSearch = ({ target }) => {
     this.setState({ search: target.value });
-    //console.log(this.state.search)
   };
 
   handleClick = id => {
@@ -80,7 +78,7 @@ class Process extends Component {
                       index < this.state.countPerPage * this.state.activePage
                   )
                   .map(data => (
-                    <tr onClick={() => this.handleClick(data.id)}>
+                    <tr onClick={() => this.handleClick(data.academic_register)}>
                       <td>{data.name}</td>
                       <td>{data.academic_register}</td>
                       <td>{data.polo}</td>
