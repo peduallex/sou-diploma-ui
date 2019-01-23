@@ -97,13 +97,15 @@ class RegistrationData extends Component {
 
     const resStates = await PersonalData.get(`/states?_sort=uf&_size=27`);
 
-    const resCityName = await PersonalData.get(`/cities?_where=(id,eq,1)`);
+    const resCities = await PersonalData.get(
+      `/cities?_fields=academic_register,name,?_where=(states_id,eq,${
+        resPersonal.data[0]
+      })`
+    );
 
     const resNacionalidade = await PersonalData.get(
       `/v_nacionalidade?_where=(id,eq,1)`
     );
-
-    //console.log(cityName.data[0].name);
 
     this.setState({
       courses: resCourse.data,
