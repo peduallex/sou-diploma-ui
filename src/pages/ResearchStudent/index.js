@@ -31,12 +31,12 @@ class Audit extends Component {
     //console.log(this.state.search)
   };
 
-  /*handleClick = id => {
-    this.props.history.push(`/students/${id}`);
-  };*/
+  handleClick = ra => {
+    this.props.history.push(`/students/${ra}`);
+  };
 
-  handleClick = id => {
-    this.props.history.push(`/approvallaws/${id}`);
+  handleClick = ra => {
+    this.props.history.push(`/approvallaws/${ra}`);
   };
 
   render() {

@@ -26,7 +26,7 @@ class Menu extends Component {
         <Nav>
           <Actions>
             <Action active={tab === 0} onClick={() => handleClick(0)}>
-              Em abertos
+              Em aberto
             </Action>
             <Action active={tab === 1} onClick={() => handleClick(1)}>
               Auditados

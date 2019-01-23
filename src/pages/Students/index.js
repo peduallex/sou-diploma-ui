@@ -31,8 +31,8 @@ class Students extends Component {
     //console.log(this.state.search)
   };
 
-  handleClick = id => {
-    this.props.history.push(`/process/${id}`);
+  handleClick = academic_register => {
+    this.props.history.push(`/process/${academic_register}`);
   };
 
   render() {
@@ -93,19 +93,19 @@ class Students extends Component {
                   )
                   .map(data => (
                     <tr>
-                      <td onClick={() => this.handleClick(data.id)}>
+                      <td onClick={() => this.handleClick(data.academic_register)}>
                         {data.name}
                       </td>
-                      <td onClick={() => this.handleClick(data.id)}>
+                      <td onClick={() => this.handleClick(data.academic_register)}>
                         {data.academic_register}
                       </td>
-                      <td onClick={() => this.handleClick(data.id)}>
+                      <td onClick={() => this.handleClick(data.academic_register)}>
                         {data.polo}
                       </td>
-                      <td onClick={() => this.handleClick(data.id)}>
+                      <td onClick={() => this.handleClick(data.academic_register)}>
                         {data.year_entry}
                       </td>
-                      <td onClick={() => this.handleClick(data.id)}>
+                      <td onClick={() => this.handleClick(data.academic_register)}>
                         {data.year_conclusion}
                       </td>
                       <td>&nbsp;</td>

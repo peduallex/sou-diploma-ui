@@ -30,8 +30,8 @@ class Process extends Component {
     //console.log(this.state.search)
   };
 
-  handleClick = id => {
-    this.props.history.push(`/registration/${id}`);
+  handleClick = academic_register => {
+    this.props.history.push(`/registration/${academic_register}`);
   };
 
   render() {
@@ -95,7 +95,9 @@ class Process extends Component {
                       index < this.state.countPerPage * this.state.activePage
                   )
                   .map(data => (
-                    <tr onClick={() => this.handleClick(data.id)}>
+                    <tr
+                      onClick={() => this.handleClick(data.academic_register)}
+                    >
                       <td>{data.name}</td>
                       <td>{data.academic_register}</td>
                       <td>{data.polo}</td>

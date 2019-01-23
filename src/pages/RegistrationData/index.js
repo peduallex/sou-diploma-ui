@@ -66,12 +66,12 @@ class RegistrationData extends Component {
     });
   };
 
-  handleClick = id => {
-    this.props.history.push(`/enabled/${id}`);
+  handleClick = academic_register => {
+    this.props.history.push(`/enabled/${academic_register}`);
   };
 
-  handleBack = id => {
-    this.props.history.push(`/process/${id}`);
+  handleBack = academic_register => {
+    this.props.history.push(`/process/${academic_register}`);
   };
 
   async componentDidMount() {

@@ -10,6 +10,10 @@ class ApprovalLaws extends Component {
     audited.post('responsible-process', { id, name });
   };
 
+  handleClickLink = id => {
+    this.props.history.push(`/students/${id}`);
+  };
+
   render() {
     return (
       <div>
@@ -88,11 +92,10 @@ class ApprovalLaws extends Component {
           <div className="row">
             <div className="col-md-12">
               <div className="float-right">
-                <Link to="/students/:id" id="btnProximo">
+                <Link to="/students/:ra" id="btnProximo">
                   <a className="selecionar">PRÓXIMO</a>
                 </Link>
               </div>
-
               <input type="checkbox" id="aceitar" onClick={this.showButton} />
               <span className="opcoes">ACEITAR</span>
             </div>
