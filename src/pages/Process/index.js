@@ -28,8 +28,8 @@ class Process extends Component {
     this.setState({ search: target.value });
   };
 
-  handleClick = id => {
-    this.props.history.push(`/registration/${id}`);
+  handleClick = academic_register => {
+    this.props.history.push(`/registration/${academic_register}`);
   };
 
   render() {
@@ -41,7 +41,19 @@ class Process extends Component {
           <br />
 
           <fieldset>
-            <Menu />
+            <nav id="menu">
+              <ul>
+                <li>
+                  {/*<a className="link1 active" href="#">
+                    Processos em aberto
+    </a>*/}
+                  <Menu />
+                </li>
+                {/*<li>
+                <a>Alunos habilitados</a>
+              </li>*/}
+              </ul>
+            </nav>
           </fieldset>
           <fieldset>
             <div class="row top">
@@ -65,7 +77,10 @@ class Process extends Component {
                     Semestre / <br /> de Conclusão
                   </th>
                   <th scope="col">Atribuido em</th>
-                  <th scope="col" />
+                  <th scope="col">
+                    Numero do <br />
+                    Processo
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -78,13 +93,16 @@ class Process extends Component {
                       index < this.state.countPerPage * this.state.activePage
                   )
                   .map(data => (
-                    <tr onClick={() => this.handleClick(data.academic_register)}>
+                    <tr
+                      onClick={() => this.handleClick(data.academic_register)}
+                    >
                       <td>{data.name}</td>
                       <td>{data.academic_register}</td>
                       <td>{data.polo}</td>
                       <td>{data.year_entry}</td>
                       <td>{data.year_conclusion}</td>
                       <td>xxxxxxx</td>
+                      <td />
                     </tr>
                   ))}
               </tbody>
