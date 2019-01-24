@@ -32,7 +32,7 @@ class RegistrationData extends Component {
     personal: [],
     nationality: [],
     emitter: [],
-    naturalness: [],
+    naturalidade: [],
     city: [],
     states: [],
     modalValue: '',
@@ -97,14 +97,20 @@ class RegistrationData extends Component {
 
     const resStates = await PersonalData.get(`/states?_sort=uf&_size=27`);
 
-    const resCities = await PersonalData.get(
+    const cityName = await PersonalData.get(
       `/cities?_fields=academic_register,name,?_where=(states_id,eq,${
         resPersonal.data[0]
       })`
     );
 
+    const resCityName = await PersonalData.get(`/cities?_where=(id,eq,1)`);
+
     const resNacionalidade = await PersonalData.get(
       `/v_nacionalidade?_where=(id,eq,1)`
+    );
+
+    const resNaturalness = await PersonalData.get(
+      `/v_dados_pessoais?_where=(naturalidade,eq,${id})`
     );
 
     this.setState({
@@ -113,7 +119,7 @@ class RegistrationData extends Component {
       city: resCity.data,
       nationality: resNationality.data,
       emitter: resEmitter.data,
-      //naturalness: resNaturalness.data,
+      naturalidade: resNaturalness.data,
       states: resStates.data,
       cityName: resCityName.data,
       nacionalidadeName: resNacionalidade.data
@@ -310,11 +316,22 @@ class RegistrationData extends Component {
                 <div className="col-md-4">
                   <fieldset className="border">
                     <span className="title-box">Naturalidade</span>
-                    <select className="form-control">
-                      {this.state.naturalness.map(data => (
-                        <option>{data.name2}</option>
-                      ))}
-                    </select>
+                    {this.state.personal.map(data => (
+                      <p>
+                        <img
+                          data-toggle="modal"
+                          data-target="#myModal4"
+                          onClick={() => {
+                            this.setState({
+                              modalValue: data.naturalidade,
+                              modalName: 'naturalidade'
+                            });
+                          }}
+                          src={editar}
+                        />
+                        {data.naturalidade}
+                      </p>
+                    ))}
                   </fieldset>
                 </div>
               </div>
@@ -815,7 +832,7 @@ class RegistrationData extends Component {
                   <div className="modal-content">
                     <div className="modal-header">
                       <h4 className="modal-title" id="myModalLabel">
-                        Alterando a Nacionalidade
+                        Alterando a Naturalidade
                       </h4>
                       <button
                         type="button"

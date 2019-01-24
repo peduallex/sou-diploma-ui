@@ -33,6 +33,10 @@ class Students extends Component {
     this.props.history.push(`/process/${academic_register}`);
   };
 
+  handleClick = academic_register => {
+    this.props.history.push(`/approvallaws/${academic_register}`);
+  };
+
   render() {
     const { tab } = this.state;
     return (
@@ -91,19 +95,29 @@ class Students extends Component {
                   )
                   .map(data => (
                     <tr>
-                      <td onClick={() => this.handleClick(data.academic_register)}>
+                      <td
+                        onClick={() => this.handleClick(data.academic_register)}
+                      >
                         {data.name}
                       </td>
-                      <td onClick={() => this.handleClick(data.academic_register)}>
+                      <td
+                        onClick={() => this.handleClick(data.academic_register)}
+                      >
                         {data.academic_register}
                       </td>
-                      <td onClick={() => this.handleClick(data.academic_register)}>
+                      <td
+                        onClick={() => this.handleClick(data.academic_register)}
+                      >
                         {data.polo}
                       </td>
-                      <td onClick={() => this.handleClick(data.academic_register)}>
+                      <td
+                        onClick={() => this.handleClick(data.academic_register)}
+                      >
                         {data.year_entry}
                       </td>
-                      <td onClick={() => this.handleClick(data.academic_register)}>
+                      <td
+                        onClick={() => this.handleClick(data.academic_register)}
+                      >
                         {data.year_conclusion}
                       </td>
                       <td>&nbsp;</td>
