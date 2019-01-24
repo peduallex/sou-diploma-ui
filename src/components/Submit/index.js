@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import Popup from 'reactjs-popup';
 import './style.scss';
-
 import audited from '../../services/AuditedApi';
+import user from '../../assets/imgs/user.jpg';
 
 class Submit extends Component {
   handleClick = (id, name) => {
     const { student_id } = this.props;
     audited.post('responsible-process', { id, student_id, name });
   };
+
+  //handleClickImg = () => {};
+
   render() {
     return (
       <div>
@@ -56,7 +59,10 @@ class Submit extends Component {
                 </a>
               </li>
               <li className="li">
-                <a className="a" onClick={() => this.handleClick(6, 'MARCIO ROCHA')}>
+                <a
+                  className="a"
+                  onClick={() => this.handleClick(6, 'MARCIO ROCHA')}
+                >
                   MARCIO ROCHA DE PINHO (2 processos)
                 </a>
               </li>
