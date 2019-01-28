@@ -82,7 +82,7 @@ const Content = () => (
                 <Route path="/process/:academic_register" component={Process} />
 
                 <Route path="/enabled/:id" component={Enabled} />
-                <Route path="/registration/:id" component={RegistrationData} />
+                <Route path="/registration/:academic_register" component={RegistrationData} />
                 <Route path="/diploma/:id" component={Diploma} />
                 <Route path="/print/:id" component={Print} />
                 <Route path="/secondway" component={SecondWay} />
