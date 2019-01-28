@@ -6,8 +6,8 @@ import user from '../../assets/imgs/user.jpg';
 
 class Submit extends Component {
   handleClick = (id, name) => {
-    const { student_id } = this.props;
-    audited.post('responsible-process', { id, student_id, name });
+    const { student_id, academic_register } = this.props;
+    audited.post('responsible-process', { id, student_id, name, academic_register });
   };
 
   //handleClickImg = () => {};
