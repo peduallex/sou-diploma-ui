@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './style.scss';
 import Pagination from 'react-js-pagination';
-import user from '../../assets/imgs/user.jpg';
-import Submit from '../../components/Submit';
-import Dowloand from '../../components/Dowloand';
-import Menu from '../../components/Menu';
-import Open from '../../../src/services/OpenProcessApi';
+import user from '../../../assets/imgs/user.jpg';
+import Submit from '../../../components/Submit';
+import Dowloand from '../../../components/Dowloand';
+import Menu from '../../../components/Menu';
+import Open from '../../../../src/services/OpenProcessApi';
 
 class Students extends Component {
   state = {
