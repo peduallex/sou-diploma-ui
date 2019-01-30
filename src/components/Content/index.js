@@ -3,8 +3,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Jumbotron from '../Jumbotron';
 
-// import Audit from '../../pages/Audit';
 import Students from '../../pages/Students';
+import Moderator from '../../pages/Moderator/Students';
 import Process from '../../pages/Process';
 import Enabled from '../../pages/Enabled';
 import Print from '../../pages/Print';
@@ -71,9 +71,10 @@ const Content = () => (
             render={({ match: { url } }) => (
               <Fragment>
                 <Route exact path={`${url}`} component={ResearchStudent} />
+
                 <Route
                   path="/Moderator/students/:academic_register"
-                  component={Students}
+                  component={Moderator}
                 />
                 <Route
                   path="/students/:academic_register"
@@ -82,7 +83,10 @@ const Content = () => (
                 <Route path="/process/:academic_register" component={Process} />
 
                 <Route path="/enabled/:id" component={Enabled} />
-                <Route path="/registration/:academic_register" component={RegistrationData} />
+                <Route
+                  path="/registration/:academic_register"
+                  component={RegistrationData}
+                />
                 <Route path="/diploma/:id" component={Diploma} />
                 <Route path="/print/:id" component={Print} />
                 <Route path="/secondway" component={SecondWay} />
