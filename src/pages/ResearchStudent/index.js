@@ -21,8 +21,8 @@ class Audit extends Component {
     const res = await api.get('v_geral');
     this.setState({ courses: res.data });
 
-    const resAcademicRegister = await api.get('v_diploma');
-    this.setState({ academicRegister: resAcademicRegister.data });
+    // const resAcademicRegister = await api.get('v_diploma');
+    // this.setState({ academicRegister: resAcademicRegister.data });
   }
 
   handleSearch = ({ target }) => {
