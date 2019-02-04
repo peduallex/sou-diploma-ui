@@ -47,7 +47,7 @@ class Process extends Component {
                   {/*<a className="link1 active" href="#">
                     Processos em aberto
     </a>*/}
-                  <Menu />
+                  {/* <Menu /> */}
                 </li>
                 {/*<li>
                 <a>Alunos habilitados</a>
