@@ -76,40 +76,49 @@ class RegistrationData extends Component {
   };
 
   async componentDidMount() {
-
     // Pega os parâmetros vindo da URL
     const { academic_register } = this.props.match.params;
 
     // const resPersonal = await PersonalData.get(
     //   `/v_dados_pessoais?_where=(id,eq,${academic_register})`
     // );
-   
-    const resPersonal = await PersonalData2.get(`/v_dados_pessoais/${academic_register}`);
 
-   /*  const resCourse = await PersonalData.get(
+    const resPersonal = await PersonalData2.get(
+      `/v_dados_pessoais/${academic_register}`
+    );
+
+    /*  const resCourse = await PersonalData.get(
       `/v_dados_ingresso?_where=(id,eq,${academic_register})`
     ); */
 
-    const resCourse = await PersonalData2.get(`/v_dados_ingressos/${academic_register}`);
+    const resCourse = await PersonalData2.get(
+      `/v_dados_ingressos/${academic_register}`
+    );
 
     // const resCity = await PersonalData.get(`/cities?_where=(id,name,eq,${academic_register})`);
-    
-    const resCity = await PersonalData2.get(`/v_cidade/${resPersonal.data[0].city_id}`);
+
+    const resCity = await PersonalData2.get(
+      `/v_cidade/${resPersonal.data[0].city_id}`
+    );
 
     // const resNationality = await PersonalData.get(
     //   `/v_nacionalidade?_where=(id,name,eq,${academic_register})`
     // );
-    
-    const resNationality = await PersonalData2.get(`/v_nacionalidade/${resPersonal.data[0].city_id}`);
+
+    const resNationality = await PersonalData2.get(
+      `/v_nacionalidade/${resPersonal.data[0].city_id}`
+    );
 
     // const resEmitter = await PersonalData.get(
     //   `/v_orgao_emissor?_where=(id,eq,${resPersonal.data[0].city_id})`
     // );
-   
-    const resEmitter = await PersonalData2.get(`/v_orgao_emissor/${resPersonal.data[0].rg_orgao_id}`);
+
+    const resEmitter = await PersonalData2.get(
+      `/v_orgao_emissor/${resPersonal.data[0].rg_orgao_id}`
+    );
 
     // const resStates = await PersonalData.get(`/states?_sort=uf&_size=27`);
-   
+
     const resStates = await PersonalData2.get(`/v_estados`);
 
     // const cityName = await PersonalData.get(
@@ -120,19 +129,25 @@ class RegistrationData extends Component {
 
     //const resCityName = await PersonalData.get(`/cities?_where=(id,eq,1)`);
 
-    const resCityName = await PersonalData2.get(`/v_cidade/${resPersonal.data[0].city_id}`);
+    const resCityName = await PersonalData2.get(
+      `/v_cidade/${resPersonal.data[0].city_id}`
+    );
 
     // const resNacionalidade = await PersonalData.get(
     //   `/v_nacionalidade?_where=(id,eq,1)`
     // );
-   
-    const resNacionalidade = await PersonalData2.get(`/v_nacionalidade/${resPersonal.data[0].city_id}`);
+
+    const resNacionalidade = await PersonalData2.get(
+      `/v_nacionalidade/${resPersonal.data[0].city_id}`
+    );
 
     // const resNaturalness = await PersonalData.get(
     //   `/v_dados_pessoais?_where=(naturalidade,eq,${academic_register})`
     // );
-    
-    const resNaturalness = await PersonalData2.get(`/v_dados_pessoais/${resPersonal.data[0].city_id}`);
+
+    const resNaturalness = await PersonalData2.get(
+      `/v_dados_pessoais/${resPersonal.data[0].city_id}`
+    );
 
     this.setState({
       courses: resCourse.data,
