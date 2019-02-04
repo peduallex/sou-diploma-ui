@@ -74,7 +74,6 @@ class Retained extends Component {
               </thead>
               <tbody>
                 {this.state.courses
-                  .filter(item => item.proc_status == tab)
                   // .filter(item => RegExp(search, 'i').test(item.student_name))
                   .filter(
                     (data, index) =>

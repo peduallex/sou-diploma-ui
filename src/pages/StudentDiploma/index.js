@@ -27,7 +27,7 @@ class StudentDiploma extends Component {
   render() {
     return (
       <div>
-        {/*<div className="container">
+        <div className="container">
           <fieldset className="fieldset">
             <h5>
               Você esta imprimindo a 1º Via do Diploma para Augusto Cavalcante
@@ -58,7 +58,7 @@ class StudentDiploma extends Component {
                     id="numberPrint"
                     aria-describedby="emailHelp"
                     name="numberPrint"
-                    placeholder=""
+                    d
                   />
                 </div>
               </div>
@@ -136,7 +136,7 @@ class StudentDiploma extends Component {
             </div>
           </div>
           <br />
-    </div>*/}
+    </div>
       </div>
     );
   }
