@@ -4,7 +4,7 @@ import './style.scss';
 const SecondWay = () => {
   return (
     <div>
-      {/*<div className="container">
+      <div className="container">
         <fieldset className="fieldset">
           <h5>
             Você esta imprimindo a 2º Via do Diploma para Augusto Cavalcante
@@ -21,7 +21,7 @@ const SecondWay = () => {
                   class="form-control"
                   id="exampleInput1"
                   aria-describedby="emailHelp"
-                  placeholder=""
+
                 />
               </div>
             </div>
@@ -33,7 +33,8 @@ const SecondWay = () => {
                   class="form-control"
                   id="exampleInput2"
                   aria-describedby="emailHelp"
-                  placeholder=""
+                  value="1"
+                  disabled
                 />
               </div>
             </div>
@@ -60,7 +61,6 @@ const SecondWay = () => {
                   class="form-control"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
-                  placeholder="Enter email"
                 />
               </div>
             </div>
@@ -87,7 +87,6 @@ const SecondWay = () => {
                   class="form-control"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
-                  placeholder="Enter email"
                 />
               </div>
             </div>
@@ -114,7 +113,6 @@ const SecondWay = () => {
                   class="form-control"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
-                  placeholder="Enter email"
                 />
               </div>
             </div>
@@ -146,7 +144,7 @@ const SecondWay = () => {
           </div>
         </div>
         <br />
-  </div>*/}
+  </div>
     </div>
   );
 };

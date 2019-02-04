@@ -4,10 +4,9 @@ import Pagination from 'react-js-pagination';
 import user from '../../assets/imgs/user.jpg';
 import Submit from '../../components/Submit';
 import Dowloand from '../../components/Dowloand';
+import ButtonSearch from '../../components/BtnSearch';
 import Menu from '../../components/Menu';
 import Open from '../../../src/services/OpenProcessApi';
-
-//chamadas da biblioteca
 import { Tabs, Tab, TabPanel, TabList } from 'react-web-tabs';
 
 class Students extends Component {
@@ -17,7 +16,9 @@ class Students extends Component {
     activePage: 1,
     countPerPage: 5,
     tab: 0,
-    coursesAuditados: []
+    coursesAuditados: [] ,
+    // coursesRetidos : [],
+    coursesDiplomado : []
   };
 
   //chamadas students
@@ -28,10 +29,14 @@ class Students extends Component {
   async componentDidMount() {
     const res = await Open.get('v_em_aberto');
     const resAuditados = await Open.get('v_auditados');
+    // const resRetidos = await Open.get('v_retidos');
+     const resDiplomado = await Open.get('v_diplomado');
 
     this.setState({
       courses: res.data,
-      coursesAuditados: resAuditados.data
+      coursesAuditados: resAuditados.data,
+      // coursesRetidos :resRetidos.data,
+      coursesDiplomado : resDiplomado.data
     });
   }
 
@@ -43,8 +48,16 @@ class Students extends Component {
     this.props.history.push(`/registration/${academic_register}`);
   };
 
-  handleClick = academic_register => {
-    this.props.history.push(`/approvallaws/${academic_register}`);
+  handleClickPrint = ra_student => {
+    this.props.history.push(`/print/${ra_student}`);
+  };
+
+  handleClickDiploma = academic_register => {
+    this.props.history.push(`/studentdiploma/${academic_register}`);
+  };
+
+  handleClickSeconday = academic_register => {
+    this.props.history.push(`/secondway/${academic_register}`);
   };
 
   render() {
@@ -59,8 +72,7 @@ class Students extends Component {
           <div className="container">
             <h2 className="title">Nome do Curso - 1º VIA</h2>
             <fieldset>
-              {' '}
-              <Menu />{' '}
+              <Menu />
             </fieldset>
             <fieldset>
               <table className="table table-hover borda-tabela-titulos table2">
@@ -76,7 +88,10 @@ class Students extends Component {
                       Semestre / <br /> de Conclusão
                     </th>
                     <th scope="col">
-                      Numero do <br />
+                      Atribuido em
+                    </th>
+                    <th scope="col">
+                      Numero do
                       Processo
                     </th>
                     <th scope="col" />
@@ -122,6 +137,7 @@ class Students extends Component {
                         >
                           {data.year_entry}
                         </td>
+
                         <td
                           onClick={() =>
                             this.handleClickData(data.academic_register)
@@ -129,7 +145,14 @@ class Students extends Component {
                         >
                           {data.year_conclusion}
                         </td>
-                        <td>&nbsp;</td>
+                        <td
+                          onClick={() =>
+                            this.handleClickData(data.academic_register)
+                          }
+                        >
+                          xxxxxxxxxxx
+                        </td>
+                        <td/>
                       </tr>
                     ))}
                 </tbody>
@@ -171,11 +194,22 @@ class Students extends Component {
               <Menu />
             </fieldset>
             <fieldset>
-              <div class="row top">
-                <div className="col-md-4">{/* <Search /> */}</div>
-                {/*<div className="col-md-7">
-                    <div className="right" /> <Dowloand />
-                </div>*/}
+              <div class="row">
+                <div className="col-md-6">
+                  <div class="custom-control custom-checkbox">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="defaultChecked2"
+                    />
+                    <label class="custom-control-label" for="defaultChecked2">
+                  Selecionar Todos
+  </label>
+                  </div>
+                </div>
+                {/*<div className="col-md-6">
+              <div className="right" /> <Dowloand />
+</div>*/}
               </div>
               <table className="table table-hover borda-tabela-titulos table2">
                 <thead>
@@ -189,35 +223,34 @@ class Students extends Component {
                     <th scope="col">
                       Semestre / <br /> de Conclusão
                     </th>
-                    <th scope="col">Atribuido em</th>
-                    <th scope="col">
-                      Numero do <br />
-                      Processo
-                    </th>
+                    <th scope="col" />
+                    <th scope="col" />
                   </tr>
                 </thead>
                 <tbody>
-                  {this.state.courses
-                    .filter(
-                      (data, index) =>
-                        index >=
-                          this.state.countPerPage *
-                            (this.state.activePage - 1) &&
-                        index < this.state.countPerPage * this.state.activePage
-                    )
-                    .map(data => (
-                      <tr
-                        onClick={() => this.handleClick(data.academic_register)}
-                      >
-                        <td>{data.name}</td>
-                        <td>{data.academic_register}</td>
-                        <td>{data.polo}</td>
-                        <td>{data.year_entry}</td>
-                        <td>{data.year_conclusion}</td>
-                        <td>xxxxxxx</td>
-                        <td />
-                      </tr>
-                    ))}
+                  {
+                    this.state.coursesAuditados
+
+                     .filter(data => RegExp(this.state.search).test(data.name))
+                     .filter(
+                       (data, index) =>
+                         index >=
+                           this.state.countPerPage * (this.state.activePage - 1) &&
+                         index < this.state.countPerPage * this.state.activePage
+                     )
+                     .map(data => (
+                       <tr>
+                         <td>{data.student_name}</td>
+                         <td>{data.ra_student}</td>
+                         <td>{data.course_name}</td>
+                         <td>{data.year_entry}</td>
+                         <td>{data.year_conclusion}</td>
+                     <td>
+                       <ButtonSearch id={data.ra_student} />
+                    </td>
+                     </tr>
+
+                  ))}
                 </tbody>
               </table>
               <div className="float-right">
@@ -236,15 +269,13 @@ class Students extends Component {
               </div>
             </fieldset>
             <br />
-            {/* <div className="row">
-            <div className="col-md-12">
-              <div className="float-right">
-                <a className="selecionar" href="tg">
-                  VISUALIZAR
-                </a>
+            <div className="row">
+              <div className="col-md-12">
+                <div className="float-right">
+                  <a className="selecionar" onClick={() => this.handleClickDiploma(this.props.match.params.academic_register)}>IMPRIMIR</a>
+                </div>
               </div>
             </div>
-          </div> */}
           </div>
         </TabPanel>
 
@@ -282,25 +313,24 @@ class Students extends Component {
                   </tr>
                 </thead>
                 <tbody>
-                  {console.log(this.state.coursesAuditados)}
-                  {
+                {this.state.coursesRetidos
                     // .filter(item => RegExp(search, 'i').test(item.student_name))
-                    //.filter(
+                    // .filter(
                     //  (data, index) =>
-                    //    index >=
-                    //      this.state.countPerPage * (this.state.activePage - 1) &&
-                    //    index < this.state.countPerPage * this.state.activePage
-                    //)
-                    //.map(data => (
-                    //  <tr onClick={() => this.handleClick(data.ra_student)}>
-                    //    <td>{data.student_name}</td>
-                    //    <td>{data.ra_student}</td>
-                    //    <td>{data.course_name}</td>
-                    //    <td>{data.year_entry}</td>
-                    //    <td>{data.year_conclusion}</td>
-                    //    <td>{data.reason_retention}</td>
-                    //  </tr>
-                    //))}
+                    //     index >=
+                    //       this.state.countPerPage * (this.state.activePage - 1) &&
+                    //     index < this.state.countPerPage * this.state.activePage
+                    // )
+                    // .map(data => (
+                    //   <tr onClick={() => this.handleClick(data.ra_student)}>
+                    //   <td>{data.student_name}</td>
+                    //     <td>{data.ra_student}</td>
+                    //     <td>{data.course_name}</td>
+                    //     <td>{data.year_entry}</td>
+                    //     <td>{data.year_conclusion}</td>
+                    //     <td>{data.reason_retention}</td>
+                    //   </tr>
+                    // ))}
                   }
                 </tbody>
               </table>
@@ -341,63 +371,48 @@ class Students extends Component {
               <Menu />
             </fieldset>
             <fieldset>
-              <div class="row">
-                <div className="col-md-6">
-                  <div class="custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="defaultChecked2"
-                    />
-                    {/*<label class="custom-control-label" for="defaultChecked2">
-                  Selecionar Todos
-  </label>*/}
-                  </div>
-                </div>
-                {/*<div className="col-md-6">
-              <div className="right" /> <Dowloand />
-</div>*/}
+              <div className="row top">
+                <div className="col-md-4">{/* <Search /> */}</div>
+                {/*<div className="col-md-7">
+                    <div className="right" /> <Dowloand />
+                </div>*/}
               </div>
               <table className="table table-hover borda-tabela-titulos table2">
-                <thead>
-                  <tr>
-                    <th scope="col">Nome</th>
-                    <th scope="col">RA</th>
-                    <th scope="col">Curso</th>
-                    <th scope="col">
-                      Semestre / <br /> Ano de Ingresso
-                    </th>
-                    <th scope="col">
-                      Semestre / <br /> de Conclusão
-                    </th>
-                    <th scope="col" />
-                    <th scope="col" />
-                  </tr>
-                </thead>
+              <thead>
+                <tr>
+                  <th scope="col">Nome</th>
+                  <th scope="col">RA</th>
+                  <th scope="col">
+                    Semestre / <br /> Ano de Ingresso
+                  </th>
+                  <th scope="col">
+                    Semestre / <br /> de Conclusão
+                  </th>
+                  <th>Status</th>
+                  <th />
+                  <th scope="col" />
+                </tr>
+              </thead>
                 <tbody>
-                  {
-                    this.state.coursesAuditados
-
-                    // .filter(data => RegExp(this.state.search).test(data.name))
-                    // .filter(
-                    //   (data, index) =>
-                    //     index >=
-                    //       this.state.countPerPage * (this.state.activePage - 1) &&
-                    //     index < this.state.countPerPage * this.state.activePage
-                    // )
-                    // .map(data => (
-                    //   <tr>
-                    //     <td>{data.student_name}</td>
-                    //     <td>{data.ra_student}</td>
-                    //     <td>{data.course_name}</td>
-                    //     <td>{data.year_entry}</td>
-                    //     <td>{data.year_conclusion}</td>
-                    // <td>
-                    //  <ButtonSearch id={data.ra_student} />
-                    //</td>
-                    // </tr>
-                  }
-                  ))}
+                  {this.state.coursesDiplomado
+                    .filter(
+                      (data, index) =>
+                        index >=
+                          this.state.countPerPage *
+                            (this.state.activePage - 1) &&
+                        index < this.state.countPerPage * this.state.activePage
+                    )
+                    .map(data => (
+                      <tr
+                        onClick={() => this. handleClickSeconday(data.academic_register)}
+                      >
+                      <td>{data.student_name}</td>
+                      <td>{data.academic_register}</td>
+                      <td>{data.year_entry}</td>
+                      <td>{data.year_conclusion}</td>
+                      <td>{data.status}</td>
+                      </tr>
+                    ))}
                 </tbody>
               </table>
               <div className="float-right">
@@ -416,15 +431,18 @@ class Students extends Component {
               </div>
             </fieldset>
             <br />
-            <div className="row">
-              <div className="col-md-12">
-                <div className="float-right">
-                  <a className="selecionar">IMPRIMIR</a>
-                </div>
+            {/* <div className="row">
+            <div className="col-md-12">
+              <div className="float-right">
+                <a className="selecionar" href="tg">
+                  VISUALIZAR
+                </a>
               </div>
             </div>
+          </div> */}
           </div>
         </TabPanel>
+
       </Tabs>
     );
   }

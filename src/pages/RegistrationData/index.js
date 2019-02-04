@@ -922,8 +922,8 @@ class RegistrationData extends Component {
     e.preventDefault();
     e.currentTarget
       .getElementsByClassName('border')[0]
-      //.classList.toggle('reprovado');
-      .classList.add('reprovado');
+      .classList.toggle('reprovado');
+      // .classList.add('reprovado');
   };
 }
 
