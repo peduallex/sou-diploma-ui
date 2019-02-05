@@ -146,7 +146,7 @@ class RegistrationData extends Component {
     // );
 
     const resNaturalness = await PersonalData2.get(
-      `/v_dados_pessoais/${resPersonal.data[0].city_id}`
+      `/v_cidade/${resPersonal.data[0].city_id}`
     );
 
     this.setState({
