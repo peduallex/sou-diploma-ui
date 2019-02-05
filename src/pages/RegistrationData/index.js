@@ -39,6 +39,7 @@ class RegistrationData extends Component {
     modalValue: '',
     estado: [],
     cityName: [],
+    cityAll: [],
     nacionalidadeName: []
   };
 
@@ -97,9 +98,8 @@ class RegistrationData extends Component {
 
     // const resCity = await PersonalData.get(`/cities?_where=(id,name,eq,${academic_register})`);
 
-    const resCity = await PersonalData2.get(
-      `/v_cidade/${resPersonal.data[0].city_id}`
-    );
+    const resCity = await PersonalData2.get(`/v_cidade/${resPersonal.data[0].city_id}`);
+    const resCityAll = await PersonalData2.get(`/v_cidade/`);
 
     // const resNationality = await PersonalData.get(
     //   `/v_nacionalidade?_where=(id,name,eq,${academic_register})`
@@ -146,7 +146,7 @@ class RegistrationData extends Component {
     // );
 
     const resNaturalness = await PersonalData2.get(
-      `/v_dados_pessoais/${resPersonal.data[0].city_id}`
+      `/v_cidade/${resPersonal.data[0].city_id}`
     );
 
     this.setState({
@@ -158,6 +158,7 @@ class RegistrationData extends Component {
       naturalidade: resNaturalness.data,
       states: resStates.data,
       cityName: resCityName.data,
+      cityAll: resCityAll.data,
       nacionalidadeName: resNacionalidade.data
     });
   }
@@ -840,7 +841,7 @@ class RegistrationData extends Component {
                               })
                             }
                           >
-                            {this.state.city.map(data => (
+                            {this.state.cityAll.map(data => (
                               <option value={data.id}>{data.name}</option>
                             ))}
                           </select>
