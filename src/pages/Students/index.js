@@ -16,8 +16,8 @@ class Students extends Component {
     activePage: 1,
     countPerPage: 5,
     tab: 0,
-    coursesAuditados: [] ,
-    // coursesRetidos : [],
+    coursesAuditados: [],
+    coursesRetidos : [],
     coursesDiplomado : []
   };
 
@@ -27,17 +27,58 @@ class Students extends Component {
   };
 
   async componentDidMount() {
-    const res = await Open.get('v_em_aberto');
-    const resAuditados = await Open.get('v_auditados');
-    // const resRetidos = await Open.get('v_retidos');
-     const resDiplomado = await Open.get('v_diplomado');
 
-    this.setState({
-      courses: res.data,
-      coursesAuditados: resAuditados.data,
-      // coursesRetidos :resRetidos.data,
-      coursesDiplomado : resDiplomado.data
-    });
+    try {
+      const res = await Open.get('v_em_aberto');
+      this.setState({
+        courses: res.data
+      });
+    } catch (e) {
+      if (/404/.test(e)) {
+        alert('Error 404');
+      }
+    }
+
+    try {
+
+       const resAuditados = await Open.get('v_auditados')
+
+      this.setState({
+         coursesAuditados: resAuditados.data
+      });
+    } catch (e) {
+      if (/404/.test(e)) {
+        alert('Error 404');
+      }
+    }
+
+    try {
+
+       const resDiplomado = await Open.get('v_diplomado');
+
+      this.setState({
+        coursesDiplomado : resDiplomado.data
+      });
+    } catch (e) {
+      if (/404/.test(e)) {
+        alert('Error 404');
+      }
+    }
+
+    try {
+
+      const resRetidos = await Open.get('v_retidos');
+
+      this.setState({
+         coursesRetidos :resRetidos.data
+      });
+    } catch (e) {
+      if (/404/.test(e)) {
+        alert('Error 404');
+      } else {
+        alert('Error 500')
+      }
+    }
   }
 
   handleSearch = ({ target }) => {
@@ -97,7 +138,7 @@ class Students extends Component {
                     <th scope="col" />
                   </tr>
                 </thead>
-                <tbody>
+                 <tbody>
                   {this.state.courses
                     .filter(data => RegExp(this.state.search).test(data.name))
                     .filter(
@@ -108,49 +149,28 @@ class Students extends Component {
                         index < this.state.countPerPage * this.state.activePage
                     )
                     .map(data => (
-                      <tr>
-                        <td
-                          onClick={() =>
-                            this.handleClickData(data.academic_register)
-                          }
-                        >
+                      <tr onClick={() =>this.handleClickData(data.academic_register)}>
+                      <td>
                           {data.name}
-                        </td>
-                        <td
-                          onClick={() =>
-                            this.handleClickData(data.academic_register)
-                          }
-                        >
+                      </td>
+                        <td>
                           {data.academic_register}
                         </td>
-                        <td
-                          onClick={() =>
-                            this.handleClickData(data.academic_register)
-                          }
-                        >
+
+                        <td>
                           {data.polo}
                         </td>
-                        <td
-                          onClick={() =>
-                            this.handleClickData(data.academic_register)
-                          }
-                        >
+
+                        <td>
                           {data.year_entry}
                         </td>
 
-                        <td
-                          onClick={() =>
-                            this.handleClickData(data.academic_register)
-                          }
-                        >
+                        <td>
                           {data.year_conclusion}
                         </td>
-                        <td
-                          onClick={() =>
-                            this.handleClickData(data.academic_register)
-                          }
-                        >
-                          xxxxxxxxxxx
+
+                        <td>
+                          {data.data_atribuicao}
                         </td>
                         <td/>
                       </tr>
@@ -194,12 +214,12 @@ class Students extends Component {
               <Menu />
             </fieldset>
             <fieldset>
-              <div class="row">
+              <div className="row">
                 <div className="col-md-6">
-                  <div class="custom-control custom-checkbox">
+                  <div className="custom-control custom-checkbox">
                     <input
                       type="checkbox"
-                      class="custom-control-input"
+                      className="custom-control-input"
                       id="defaultChecked2"
                     />
                     <label class="custom-control-label" for="defaultChecked2">
@@ -308,30 +328,33 @@ class Students extends Component {
                     <th scope="col">
                       Semestre / <br /> de Conclusão
                     </th>
+                    <th scope="col">
+                      Status
+                    </th>
                     <th scope="col">Motivo da Retenção</th>
                     <th scope="col" />
                   </tr>
                 </thead>
                 <tbody>
                 {this.state.coursesRetidos
-                    // .filter(item => RegExp(search, 'i').test(item.student_name))
-                    // .filter(
-                    //  (data, index) =>
-                    //     index >=
-                    //       this.state.countPerPage * (this.state.activePage - 1) &&
-                    //     index < this.state.countPerPage * this.state.activePage
-                    // )
-                    // .map(data => (
-                    //   <tr onClick={() => this.handleClick(data.ra_student)}>
-                    //   <td>{data.student_name}</td>
-                    //     <td>{data.ra_student}</td>
-                    //     <td>{data.course_name}</td>
-                    //     <td>{data.year_entry}</td>
-                    //     <td>{data.year_conclusion}</td>
-                    //     <td>{data.reason_retention}</td>
-                    //   </tr>
-                    // ))}
-                  }
+                    //  .filter(item => RegExp(search, 'i').test(item.student_name))
+                     .filter(
+                      (data, index) =>
+                         index >=
+                           this.state.countPerPage * (this.state.activePage - 1) &&
+                         index < this.state.countPerPage * this.state.activePage
+                     )
+                     .map(data => (
+                       <tr onClick={() => this.handleClick(data.ra_student)}>
+                       <td>{data.student_name}</td>
+                         <td>{data.ra_student}</td>
+                         <td>{data.course_name}</td>
+                         <td>{data.year_entry}</td>
+                         <td>{data.year_conclusion}</td>
+                         <td>{data.status}</td>
+                         <td>{data.reason_retention}</td>
+                       </tr>
+                     ))}
                 </tbody>
               </table>
               <div className="float-right">
@@ -355,7 +378,7 @@ class Students extends Component {
                 <div className="float-right">
                   {/*<a className="selecionar" href="tg">
                 ENVIAR E-MAIL
-</a>*/}
+                  </a>*/}
                 </div>
               </div>
             </div>
