@@ -4,7 +4,7 @@ import Pagination from 'react-js-pagination';
 import user from '../../../assets/imgs/user.jpg';
 import Submit from '../../../components/Submit';
 import Dowloand from '../../../components/Dowloand';
-import Menu from '../../../components/Menu';
+// import Menu from '../../../components/Menu';
 import Open from '../../../../src/services/OpenProcessApi';
 
 class Students extends Component {
@@ -40,7 +40,7 @@ class Students extends Component {
         <div className="container">
           <h2 className="title">Nome do Curso - 1º VIA</h2>
           <fieldset>
-            <Menu />
+            {/* <Menu /> */}
           </fieldset>
           <fieldset>
             <div className="row">

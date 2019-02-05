@@ -80,9 +80,9 @@ const Content = () => (
                   path="/students/:academic_register"
                   component={Students}
                 />
-                <Route path="/process/:academic_register" component={Process} />
+                {/* <Route path="/process/" component={Process} /> */}
 
-                <Route path="/enabled/:id" component={Enabled} />
+                {/* <Route path="/enabled/:id" component={Enabled} /> */}
                 <Route
                   path="/registration/:academic_register"
                   component={RegistrationData}
@@ -90,10 +90,10 @@ const Content = () => (
                 <Route path="/diploma/:id" component={Diploma} />
                 <Route path="/print/:id" component={Print} />
                 <Route path="/secondway" component={SecondWay} />
-                {/*<Route path="/studentdiploma/:id" component={StudentDiploma} />*/}
+                <Route path="/studentdiploma/" component={StudentDiploma} />
                 <Route path="/retained/:id" component={Retained} />
-                <Route path="/generateticket/:id" component={GenerateTicket} />
-                <Route path="/protocol" component={Protocol} />
+                {/* <Route path="/generateticket/:id" component={GenerateTicket} /> */}
+                {/* <Route path="/protocol" component={Protocol} /> */}
                 <Route path="/alert" component={Alert} />
                 <Route path="/approvallaws/:id" component={ApprovalLaws} />
                 {/* <Route path="/alert/:id" component={Alert} /> */}

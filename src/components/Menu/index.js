@@ -1,47 +1,25 @@
-import React, { Component } from 'react';
-import {
-  Container,
-  Avatar,
-  Icon,
-  Table,
-  Head,
-  Row,
-  Th,
-  Body,
-  Td,
-  Section,
-  Title,
-  SearchInput,
-  Search,
-  Nav,
-  Actions,
-  Action
-} from './style';
+import React from 'react';
+import { Tabs, Tab, TabPanel, TabList } from 'react-web-tabs';
+import 'react-web-tabs/dist/react-web-tabs.css';
 
-class Menu extends Component {
-  render() {
-    const { handleClick, tab } = this.props;
-    return (
-      <div>
-        <Nav>
-          <Actions>
-            <Action active={tab === 0} onClick={() => handleClick(0)}>
-              Em aberto
-            </Action>
-            <Action active={tab === 1} onClick={() => handleClick(1)}>
-              Auditados
-            </Action>
-            <Action active={tab === 2} onClick={() => handleClick(2)}>
-              Retidos
-            </Action>
-            <Action active={tab === 3} onClick={() => handleClick(3)}>
-              Diplomados
-            </Action>
-          </Actions>
-        </Nav>
-      </div>
-    );
-  }
-}
+import './style.scss';
+const Menu = () => (
+  <div>
+    <TabList>
+      <Tab focusable tabFor="one">
+        Processos em aberto
+      </Tab>
+      <Tab focusable tabFor="two">
+        Alunos habilitados
+      </Tab>
+      <Tab focusable tabFor="three">
+        Retidos
+      </Tab>
+      <Tab focusable tabFor="for">
+        Diplomados
+      </Tab>
+    </TabList>
+  </div>
+);
 
 export default Menu;
