@@ -3,8 +3,30 @@ import Popup from 'reactjs-popup';
 import './style.scss';
 import audited from '../../services/AuditedApi';
 import user from '../../assets/imgs/user.jpg';
+import Open from '../../services/OpenProcessApi';
 
 class Submit extends Component {
+  constructor() {
+    super();
+    this.state = {
+      processes: []
+    }
+  }
+
+  async componentDidMount() {
+    try {
+      const res = await Open.get('v_atribuidos');
+      this.setState({
+        processes: res.data
+      });
+      console.log(res)
+    } catch (e) {
+      if (/404/.test(e)) {
+        alert('Error 404');
+      }
+    }
+  }
+
   handleClick = (id, name) => {
     const { academic_register } = this.props;
     const { student_id } = this.props;
@@ -14,59 +36,22 @@ class Submit extends Component {
   //handleClickImg = () => {};
 
   render() {
+    const { processes } = this.state;
     return (
       <div>
         <Popup trigger={<button> Atribuir</button>} position="left center">
           <div>
             <ul className="ul">
-              <li className="li">
-                <a
-                  className="a"
-                  onClick={() => this.handleClick(1, 'ANDREA GONÇALVES')}
-                >
-                  ANDREA GONÇALVES MARIANO SOUZA (2 processos)
-                </a>
-              </li>
-              <li className="li">
-                <a
-                  className="a"
-                  onClick={() => this.handleClick(2, 'CAIO GUILHERME')}
-                >
-                  CAIO GUILHERME SOARES FERNANDES (1 processos)
-                </a>
-              </li>
-              <li className="li">
-                <a
-                  className="a"
-                  onClick={() => this.handleClick(3, 'GENIVALDO LINHARES')}
-                >
-                  GENIVALDO LINHARES BRANDÃO (4 processos)
-                </a>
-              </li>
-              <li className="li">
-                <a
-                  className="a"
-                  onClick={() => this.handleClick(4, 'HAROLDO FELIPE')}
-                >
-                  HAROLDO FELIPPE AVELLAR (2 processos)
-                </a>
-              </li>
-              <li className="li">
-                <a
-                  className="a"
-                  onClick={() => this.handleClick(5, 'LEILA MIGUELINA')}
-                >
-                  LEILA MIGUELINA APARECIDA COSTA SOMENK (2 processos)
-                </a>
-              </li>
-              <li className="li">
-                <a
-                  className="a"
-                  onClick={() => this.handleClick(6, 'MARCIO ROCHA')}
-                >
-                  MARCIO ROCHA DE PINHO (2 processos)
-                </a>
-              </li>
+              {processes.map(process => (
+                <li className="li">
+                  <a
+                    className="a"
+                    onClick={() => this.handleClick(process.id, process.name)}
+                  >
+                    {process.name} ({process.processes} processo(s))
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </Popup>
